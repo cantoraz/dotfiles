@@ -1,0 +1,61 @@
+#export LANG="en_US.UTF-8"
+
+# Customized prompt
+#PS1='\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
+PS1='`a=$?; [[ $a -ne 0 ]] && echo -n "\[\033[07;31;47m\][$a]";`\[\033[00m\]\
+\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\w\
+`b=$(detect_vcs); [[ x"$b" != "x" ]] && echo -n "\[\033[33;40m\]($b)";`\
+\[\033[01;34m\]\n\$ \[\033[00m\]'
+
+# Alias
+alias ls='ls -G'
+alias la='ls -A'
+alias ll='ls -l'
+alias lh='ls -lh'
+alias vi='vim'
+
+M2_HOME=$HOME/Applications/apache-maven
+
+# exclude ._ (dot underscore) files while coping or taring under Mac OS X
+export COPYFILE_DISABLE=true
+
+# Specify MySQL (Official Installation) library path for some compiling
+DYLD_LIBRARY_PATH=/usr/local/mysql/lib
+export DYLD_LIBRARY_PATH
+
+##
+# Your previous /Users/caz/.bash_profile file was backed up as /Users/caz/.bash_profile.macports-saved_2009-11-13_at_23:57:25
+##
+
+# MacPorts Installer addition on 2009-11-13_at_23:57:25: adding an appropriate PATH variable for use with MacPorts.
+PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+PATH=/usr/local/mysql/bin:$PATH
+PATH=$HOME/Applications/mongodb/bin:$PATH
+PATH=$HOME/Applications/glassfish3_1/bin:$PATH
+PATH=/usr/local/git/libexec/git-core:$PATH
+PATH=$M2_HOME/bin:$PATH
+PATH=$HOME/Applications/android-sdk/tools:$PATH
+
+PATH=$HOME/bin:$PATH
+export PATH
+
+# detect version control system and its branch
+function detect_vcs {
+    b=$(git branch 2>/dev/null | sed -e "/^ /d" -e "s/* \(.*\)/\1/")
+
+    if [ x"$b" != "x" ]; then s="git"
+    elif [ -e .svn ]; then s="svn"
+    elif [ -e .bzr ]; then s="bzr"
+    elif [ -e .hg ]; then s="hg"
+    fi
+
+    case $s in
+        git) sb=$s:$b;;
+        *) sb=$s;;
+    esac
+
+    echo $sb
+}
+
