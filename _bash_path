@@ -1,0 +1,16 @@
+PATH=/usr/local/mysql/bin:$PATH
+PATH=$HOME/Applications/mongodb/bin:$PATH
+PATH=$HOME/Applications/glassfish3_1/bin:$PATH
+
+# Git official installation
+if [ -d "/usr/local/git/libexec/git-core" ]; then
+    PATH=/usr/local/git/libexec/git-core:$PATH
+fi
+
+# Maven
+if [ -d "$HOME/Applications/apache-maven" ]; then
+    export M2_HOME=$HOME/Applications/apache-maven
+    PATH=$M2_HOME/bin:$PATH
+fi
+
+#PATH=$HOME/Applications/android-sdk-mac_x86/tools:$PATH
