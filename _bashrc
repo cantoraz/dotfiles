@@ -38,4 +38,4 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-
+. "/usr/local/bin/virtualenvwrapper.sh"
