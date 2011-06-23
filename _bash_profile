@@ -16,13 +16,14 @@ alias vi='vim'
 
 M2_HOME=$HOME/Applications/apache-maven
 
-# exclude ._ (dot underscore) files while coping or taring under Mac OS X
+# Exclude ._ (dot underscore) files while coping or taring under Mac OS X
 export COPYFILE_DISABLE=true
 
 # Specify MySQL (Official Installation) library path for some compiling
 DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 export DYLD_LIBRARY_PATH
 
+# PATH
 ##
 # Your previous /Users/caz/.bash_profile file was backed up as /Users/caz/.bash_profile.macports-saved_2009-11-13_at_23:57:25
 ##
