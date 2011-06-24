@@ -214,7 +214,7 @@ else
         set columns=9999 " old 84
     elseif has("gui_gtk2") " Font for GTK+2
         set guifont=DejaVu\ Sans\ Mono\ 12
-        set lines=38
+        set lines=50
         set columns=84
     elseif has("gui_win32") " Font for WIN32
         set guifont=DejaVu\ Sans\ Mono:h13
