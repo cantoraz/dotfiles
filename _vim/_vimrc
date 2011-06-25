@@ -8,51 +8,6 @@
 " nose, django-nose
 
 " ======================================================================
-" Plugins included
-" ======================================================================
-" Vundle
-"     Manage our vim plugins 
-"
-" Pathogen
-"     Better Management of VIM plugins 
-"
-" GunDo
-"     Visual Undo in vim with diff's to check the differences
-"
-" Pytest
-"     Runs your Python tests in Vim.
-"
-" Commant-T
-"     Allows easy search and opening of files within a given path 
-"
-" Snipmate
-"     Configurable snippets to avoid re-typing common comands
-"
-" PyFlakes
-"     Underlines and displays errors with Python on-the-fly
-"
-" Fugitive
-"    Interface with git from vim
-"
-" Git
-"    Syntax highlighting for git config files
-"
-" Minibufexpl
-"    Visually display what buffers are currently opened
-"
-" Pydoc
-"    Opens up pydoc within vim
-"
-" Surround
-"    Allows you to surround text with open/close tags
-"
-" Py.test
-"    Run py.test test's from within vim 
-"
-" MakeGreen
-"    Generic test runner that works with nose
-
-" ======================================================================
 " Vundle - Manage our vim plugins
 " ======================================================================
 " Load all plugins
@@ -63,6 +18,7 @@ call vundle#rc()
 
 " let Vundle manage Vundel
 Bundle 'gmarik/vundle'
+                            " Manage our vim plugins 
 "
 " My Bundles here:
 "
@@ -71,30 +27,45 @@ Bundle 'gmarik/vundle'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'mileszs/ack.vim'
 Bundle 'wincent/Command-T'
+                            " Allows easy search and opening of files within a given path 
 Bundle 'sjl/gundo.vim'
+                            " Visual Undo in vim with diff's to check the differences
 Bundle 'vim-scripts/indentpython.vim'
 Bundle 'sontek/minibufexpl.vim'
+                            " Visually display what buffers are currently opened
 Bundle 'vim-scripts/pep8'
 Bundle 'fs111/pydoc.vim'
+                            " Opens up pydoc within vim
 Bundle 'mitechie/pyflakes-pathogen'
+                            " Underlines and displays errors with Python on-the-fly
 Bundle 'alfredodeza/pytest.vim'
+                            " Run py.test test's from within vim 
 Bundle 'vim-scripts/python.vim'
-"Bundle 'vim-scripts/python.vim--Vasiliev'
+                            "Bundle 'vim-scripts/python.vim--Vasiliev'
 Bundle 'sontek/rope-vim'
 Bundle 'msanders/snipmate.vim'
+                            " Configurable snippets to avoid re-typing common comands
 Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'tpope/vim-fugitive'
+                            " Interface with git from vim
 Bundle 'tpope/vim-git'
+                            " Syntax highlighting for git config files
 Bundle 'reinh/vim-makegreen'
+                            " Generic test runner that works with nose
 Bundle 'tpope/vim-pathogen'
+                            " Better Management of VIM plugins 
 Bundle 'tpope/vim-surround'
+                            " Allows you to surround text with open/close tags
 "
 " vim-scripts repos
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
 "Bundle 'rails.vim'
+Bundle 'Zenburn'
+                            " A low-contrast color scheme for Vim. 
 "
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
@@ -146,13 +117,15 @@ set linebreak               " don't wrap textin the middle of a world
 
 if has('gui_running')
     set guicursor+=a:blinkon0
-    colorscheme desert      " fit GUI
+    set t_Co=256
+    colorscheme zenburn
 else
-    colorscheme darkblue    " fit console
+    colorscheme darkblue
 endif
 
 if exists("&colorcolumn")
     set colorcolumn=80      " show a line at column 80
+    hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
 endif
 
 """ Platform dependent setting, eg GUI and ColorScheme
@@ -320,27 +293,29 @@ function! PressedEnter()
     end
 endfunction
 
-""" Pep8
+""" Plugin: Pep8
 """ ====================================================================
 let g:pep8_map='<leader>8'  " Run pep8
 
-""" Py.test
+""" Plugin: Py.test
 """ ====================================================================
+" Execute the tests
 "nmap <silent><leader>tf <Esc>:Pytest file<CR>
 "nmap <silent><leader>tc <Esc>:Pytest class<CR>
 "nmap <silent><leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
 "nmap <silent><leader>tn <Esc>:Pytest next<CR>
 "nmap <silent><leader>tp <Esc>:Pytest previous<CR>
 "nmap <silent><leader>te <Esc>:Pytest error<CR>
 
-" Rope
+""" Plugin: Rope
 """ ====================================================================
 " Jump to the definition of whatever the cursor is on 
 map <leader>j :RopeGotoDefinition<CR>
 " Rename whatever the cursor is on (including references to it)
 map <leader>r :RopeRename<CR>
 
-""" Nose, Django-Nose, MakeGreen
+""" Plugin: Nose, Django-Nose, MakeGreen
 """ ====================================================================
 " Run django tests
 "map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
@@ -349,43 +324,48 @@ map <leader>r :RopeRename<CR>
 " Plugins
 " ======================================================================
 
-""" Ack searching
+""" Plugin: Ack searching
 """ ====================================================================
 "nmap <leader>a <Esc>:Ack!
 
-""" Command-T
+""" Plugin: Command-T
 """ ==================================================================== 
 " Run command-t file search
 map <leader>f :CommandT<CR>
 
-""" Gundo
+""" Plugin: Gundo
 """===================================================================== 
 " load the Gundo window
 map <leader>g :GundoToggle<CR>
 
-""" MiniBufExpl
+""" Plugin: MiniBufExpl
 """ ====================================================================
-let g:miniBufExplMapWindowNavVim=1
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
+let g:miniBufExplSplitToEdge = 1
+let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplForceSyntaxEnable = 1
 
-" Open NerdTree
+""" Plugin: Open NerdTree
 """ ====================================================================
+"au VimEnter * NERDTree|wincmd p
+"au TabEnter * NERDTreeMirror|wincmd p
 map <leader>n :NERDTreeToggle<CR>
 
-""" SuperTab - Allows us to get code completion with tab
+""" Plugin: SuperTab - Allows us to get code completion with tab
 """ ====================================================================
 let g:SuperTabDefaultCompletiontype = "context"
 
-""" TagList
+""" Plugin: TagList
 """ ====================================================================
-"let Tlist_Show_One_File=1
-"let Tlist_Exit_OnlyWindow=1
-"map P :TlistToggle<CR>
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+map <leader>tg :TlistToggle<CR>
 
-""" TaskList
+""" Plugin: TaskList
 """ ====================================================================
-map <leader>td <Plug>TaskList
-"map T :TaskList<CR>
+map <leader>ta <Plug>TaskList
 
