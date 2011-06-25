@@ -264,7 +264,7 @@ nnoremap <CR> :nohlsearch<CR>
 command! W :w
 
 " <leader>v brings up my .vimrc
-map <leader>v :sp ~/.vimrc<CR><C-W>
+map <leader>v :sp ~/.vimrc<CR>:resize<CR>
 " <leader>V reloads it -- making all changes active (have to save first)
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
