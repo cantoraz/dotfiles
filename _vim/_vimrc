@@ -1,8 +1,7 @@
 " ======================================================================
 " Dependencies - Libraries/Applications outside of vim
 " ======================================================================
-" Pep8 - http://pypi.python.org/pypi/pep8
-" Pyflakes
+" Pep8
 " Ack
 " Rake & Ruby for command-t
 " nose, django-nose
@@ -23,52 +22,71 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-"Bundle 'lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Eg, Bundle 'lokaltog/vim-easymotion'
+"Eg, Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'vim-scripts/ack.vim'
 Bundle 'mileszs/ack.vim'
+                            " Plugin for the Perl module / CLI script 'ack'
 Bundle 'wincent/Command-T'
                             " Allows easy search and opening of files within a given path 
-Bundle 'sjl/gundo.vim'
-                            " Visual Undo in vim with diff's to check the differences
-Bundle 'vim-scripts/indentpython.vim'
-Bundle 'sontek/minibufexpl.vim'
-                            " Visually display what buffers are currently opened
-Bundle 'vim-scripts/pep8'
-Bundle 'fs111/pydoc.vim'
-                            " Opens up pydoc within vim
-Bundle 'mitechie/pyflakes-pathogen'
-                            " Underlines and displays errors with Python on-the-fly
-Bundle 'alfredodeza/pytest.vim'
-                            " Run py.test test's from within vim 
-Bundle 'vim-scripts/python.vim'
-                            "Bundle 'vim-scripts/python.vim--Vasiliev'
-Bundle 'sontek/rope-vim'
-Bundle 'msanders/snipmate.vim'
-                            " Configurable snippets to avoid re-typing common comands
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'vim-scripts/TaskList.vim'
-Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'tpope/vim-fugitive'
                             " Interface with git from vim
 Bundle 'tpope/vim-git'
                             " Syntax highlighting for git config files
+Bundle 'sjl/gundo.vim'
+                            " Visual Undo in vim with diff's to check the differences
+Bundle 'vim-scripts/indentpython.vim'
+                            " An alternative indentation script for python
+Bundle 'vim-scripts/matchit.zip'
+                            " Extended % matching for HTML, LaTeX, and many other languages
 Bundle 'reinh/vim-makegreen'
                             " Generic test runner that works with nose
+"Bundle 'vim-scripts/minibufexpl.vim'
+Bundle 'sontek/minibufexpl.vim'
+                            " Visually display what buffers are currently opened
 Bundle 'tpope/vim-pathogen'
                             " Better Management of VIM plugins 
+Bundle 'vim-scripts/pep8'
+                            " Check your python source files with PEP8
+Bundle 'vim-scripts/Pydiction'
+                            " Tab-complete your Python code
+Bundle 'fs111/pydoc.vim'
+                            " Opens up pydoc within vim
+Bundle 'mitechie/pyflakes-pathogen'
+                            " Underlines and displays errors with Python on-the-fly
+                            " Include an improved pyflakes module is INCLUDED with this plugin, so you don't need to install it separately
+Bundle 'alfredodeza/pytest.vim'
+                            " Run py.test test's from within vim 
+Bundle 'vim-scripts/python.vim'
+                            " Bundle 'vim-scripts/python.vim--Vasiliev'
+Bundle 'klen/rope-vim'
+"Bundle 'sontek/rope-vim'
+                            " Pathogen compatable ropevim plugin.
+                            " Dont need install rope libs in system.
+Bundle 'msanders/snipmate.vim'
+                            " Configurable snippets to avoid re-typing common comands
+Bundle 'ervandew/supertab'
+                            " Perform all your vim insert mode completions with Tab
 Bundle 'tpope/vim-surround'
                             " Allows you to surround text with open/close tags
+Bundle 'vim-scripts/taglist.vim'
+                            " Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+Bundle 'vim-scripts/TaskList.vim'
+                            " Eclipse like task list 
+Bundle 'vim-scripts/The-NERD-tree'
+                            " A tree explorer plugin for navigating the filesystem
+Bundle 'mattn/zencoding-vim'
+                            " vim plugins for HTML and CSS hi-speed coding.
 "
 " vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'rails.vim'
+"Eg, Bundle 'L9'
+"Eg, Bundle 'FuzzyFinder'
+"Eg, Bundle 'rails.vim'
 Bundle 'Zenburn'
                             " A low-contrast color scheme for Vim. 
 "
 " non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+"Eg, Bundle 'git://git.wincent.com/command-t.git'
 
 " ======================================================================
 " Pathogen - organize our vim plugins out of Vundle
@@ -83,8 +101,7 @@ call pathogen#helptags()
 filetype plugin indent on   " required!
                             " trye to detect filetypes
                             " enable loading indent file for filetype
-set helplang=cn             " Enable help in Chinese language                                               
-"au BufEnter * lcd %:p:h     " Auto change the directory to the current file I'm working on
+set helplang=cn             " Enable help in Chinese language
 
 " ======================================================================
 " Reading/Writing
@@ -111,9 +128,9 @@ set numberwidth=1           " using only 1 column (and 1 space) while possible
 set cursorline              " have a line indicate the cursor location
 "set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a world
-"set list                    " displays tabs with :set list & displays when a line runs off-screen
+set list                    " displays tabs with :set list & displays when a line runs off-screen
 "set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:↵
 
 if has('gui_running')
     set guicursor+=a:blinkon0
@@ -123,10 +140,9 @@ else
     colorscheme darkblue
 endif
 
-if exists("&colorcolumn")
-    set colorcolumn=80      " show a line at column 80
-    hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
-endif
+" Disable the colorcolumn when switching modes.
+" Make sure this is the first autocmd for the filetype here
+"au FileType * setlocal colorcolumn=0
 
 """ Platform dependent setting, eg GUI and ColorScheme
 """ ====================================================================
@@ -144,6 +160,12 @@ if has('gui_running')
         set lines=38
         set columns=84
     endif
+endif
+
+if exists("&colorcolumn")
+    set colorcolumn=80      " show a line at column 80
+    " Incompatible with MiniBufExpl, hack this color in used ColorScheme
+    "hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
 endif
 
 """ Messages/Info/Status
@@ -177,6 +199,9 @@ set matchpairs+=<:>         " show matching <> (xml/html mainly> as well
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 
+map <C-c> "+y
+map <C-v> "+p
+
 " Ctrl-jklm changes to that split
 "map <c-j> <c-w>j
 "map <c-k> <c-w>k
@@ -186,6 +211,7 @@ set foldlevel=99            " don't fold by default
 "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
                             " close preview window automatically when we move around
+"au BufEnter * lcd %:p:h     " Auto change the directory to the current file I'm working on
 
 " ======================================================================
 " Indentation
@@ -202,9 +228,11 @@ set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 
 """ FileType dependent
 """ ====================================================================
-au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
+
+au FileType c setlocal ts=4 sts=4 sw=4 sta et ai
 au FileType html,xhtml,css setlocal ts=2 sts=2 sw=2 noet ai
 au FileType javascript setlocal ts=4 sts=4 sw=4 noet ai
+au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
 
 " ======================================================================
 " Completion
@@ -227,6 +255,9 @@ set incsearch               " Incrementally search while typing a /regex
 " ======================================================================
 "let mapleader=","           " change the leader to be a comma vs splash
 
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
 " Toggle line numbers and fold column for easy copying
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
@@ -237,7 +268,7 @@ nnoremap <CR> :nohlsearch<CR>
 command! W :w
 
 " <leader>v brings up my .vimrc
-map <leader>v :sp ~/.vimrc<CR>:resize<CR>
+map <leader>v :e ~/.vimrc<CR>
 " <leader>V reloads it -- making all changes active (have to save first)
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
@@ -255,6 +286,10 @@ nmap <leader>cc :cclose<CR>
 " ======================================================================
 " FileType
 " ======================================================================
+" ======================================================================
+" C
+" ======================================================================
+au FileType c set omnifunc=ccomplete#Complete
 
 " ======================================================================
 " Javscript
@@ -276,6 +311,8 @@ au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,
 " Ability to run script beging edited.
 " Execute file being edited with <Shift> + e
 au FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+" Debug file begin edited with <F12>
+au FileType python map <F12> :!python -m pdb % <CR>
 
 " Trim trailing whitespace
 "au BufWritePre *.py normal m`:%s/\s\+$//e``
@@ -307,6 +344,10 @@ let g:pep8_map='<leader>8'  " Run pep8
 "nmap <silent><leader>tn <Esc>:Pytest next<CR>
 "nmap <silent><leader>tp <Esc>:Pytest previous<CR>
 "nmap <silent><leader>te <Esc>:Pytest error<CR>
+
+""" Plugin: Pydiction
+""" ====================================================================
+let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
 
 """ Plugin: Rope
 """ ====================================================================
