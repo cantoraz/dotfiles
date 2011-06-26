@@ -48,8 +48,6 @@ Bundle 'tpope/vim-pathogen'
                             " Better Management of VIM plugins 
 Bundle 'vim-scripts/pep8'
                             " Check your python source files with PEP8
-Bundle 'vim-scripts/Pydiction'
-                            " Tab-complete your Python code
 Bundle 'fs111/pydoc.vim'
                             " Opens up pydoc within vim
 Bundle 'mitechie/pyflakes-pathogen'
@@ -65,7 +63,7 @@ Bundle 'klen/rope-vim'
                             " Dont need install rope libs in system.
 Bundle 'msanders/snipmate.vim'
                             " Configurable snippets to avoid re-typing common comands
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
                             " Perform all your vim insert mode completions with Tab
 Bundle 'tpope/vim-surround'
                             " Allows you to surround text with open/close tags
@@ -140,10 +138,6 @@ else
     colorscheme darkblue
 endif
 
-" Disable the colorcolumn when switching modes.
-" Make sure this is the first autocmd for the filetype here
-"au FileType * setlocal colorcolumn=0
-
 """ Platform dependent setting, eg GUI and ColorScheme
 """ ====================================================================
 if has('gui_running')
@@ -163,7 +157,7 @@ if has('gui_running')
 endif
 
 if exists("&colorcolumn")
-    set colorcolumn=80      " show a line at column 80
+    setlocal colorcolumn=80
     " Incompatible with MiniBufExpl, hack this color in used ColorScheme
     "hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
 endif
@@ -239,7 +233,7 @@ au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
 " ======================================================================
 set completeopt=menuone,longest,preview
                             " don't select first item, follow typeing in autocomplete
-set pumheight=9             " Keep a small completion window
+set pumheight=15            " Keep a small completion window
 
 " ======================================================================
 " Searching/Patterns
@@ -347,7 +341,9 @@ let g:pep8_map='<leader>8'  " Run pep8
 
 """ Plugin: Pydiction
 """ ====================================================================
-let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
+let g:pydiction_location = '$HOME/.vim/nobundle/Pydiction/complete-dict'
+let g:pydiction_menu_height = 15
+                            " The default menu height is 15.
 
 """ Plugin: Rope
 """ ====================================================================
@@ -398,7 +394,7 @@ map <leader>n :NERDTreeToggle<CR>
 
 """ Plugin: SuperTab - Allows us to get code completion with tab
 """ ====================================================================
-let g:SuperTabDefaultCompletiontype = "context"
+"let g:SuperTabDefaultCompletiontype = "context"
 
 """ Plugin: TagList
 """ ====================================================================
