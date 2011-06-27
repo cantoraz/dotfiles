@@ -36,6 +36,8 @@ export COPYFILE_DISABLE=true
 # MySQL (Official Installation) library path for some compiling
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 
+export EDITOR=vim
+
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 . "/usr/local/bin/virtualenvwrapper.sh"

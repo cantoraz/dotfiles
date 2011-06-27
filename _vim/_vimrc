@@ -1,53 +1,10 @@
 " ======================================================================
 " Dependencies - Libraries/Applications outside of vim
 " ======================================================================
-" Pep8 - http://pypi.python.org/pypi/pep8
-" Pyflakes
+" Pep8
 " Ack
 " Rake & Ruby for command-t
 " nose, django-nose
-
-" ======================================================================
-" Plugins included
-" ======================================================================
-" Pathogen
-"     Better Management of VIM plugins 
-"
-" GunDo
-"     Visual Undo in vim with diff's to check the differences
-"
-" Pytest
-"     Runs your Python tests in Vim.
-"
-" Commant-T
-"     Allows easy search and opening of files within a given path 
-"
-" Snipmate
-"     Configurable snippets to avoid re-typing common comands
-"
-" PyFlakes
-"     Underlines and displays errors with Python on-the-fly
-"
-" Fugitive
-"    Interface with git from vim
-"
-" Git
-"    Syntax highlighting for git config files
-"
-" Minibufexpl
-"    Visually display what buffers are currently opened
-"
-" Pydoc
-"    Opens up pydoc within vim
-"
-" Surround
-"    Allows you to surround text with open/close tags
-"
-" Py.test
-"    Run py.test test's from within vim 
-"
-" MakeGreen
-"    Generic test runner that works with nose
 
 " ======================================================================
 " Vundle - Manage our vim plugins
@@ -60,41 +17,74 @@ call vundle#rc()
 
 " let Vundle manage Vundel
 Bundle 'gmarik/vundle'
+                            " Manage our vim plugins 
 "
 " My Bundles here:
 "
 " original repos on github
-"Bundle 'lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Eg, Bundle 'lokaltog/vim-easymotion'
+"Eg, Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'vim-scripts/ack.vim'
 Bundle 'mileszs/ack.vim'
+                            " Plugin for the Perl module / CLI script 'ack'
 Bundle 'wincent/Command-T'
-Bundle 'sjl/gundo.vim'
-Bundle 'vim-scripts/indentpython.vim'
-Bundle 'sontek/minibufexpl.vim'
-Bundle 'vim-scripts/pep8'
-Bundle 'fs111/pydoc.vim'
-Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'vim-scripts/python.vim'
-"Bundle 'vim-scripts/python.vim--Vasiliev'
-Bundle 'sontek/rope-vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/TaskList.vim'
-Bundle 'vim-scripts/The-NERD-tree'
+                            " Allows easy search and opening of files within a given path 
 Bundle 'tpope/vim-fugitive'
+                            " Interface with git from vim
 Bundle 'tpope/vim-git'
+                            " Syntax highlighting for git config files
+Bundle 'sjl/gundo.vim'
+                            " Visual Undo in vim with diff's to check the differences
+Bundle 'vim-scripts/indentpython.vim'
+                            " An alternative indentation script for python
+Bundle 'vim-scripts/matchit.zip'
+                            " Extended % matching for HTML, LaTeX, and many other languages
 Bundle 'reinh/vim-makegreen'
+                            " Generic test runner that works with nose
+"Bundle 'vim-scripts/minibufexpl.vim'
+Bundle 'sontek/minibufexpl.vim'
+                            " Visually display what buffers are currently opened
 Bundle 'tpope/vim-pathogen'
+                            " Better Management of VIM plugins 
+Bundle 'vim-scripts/pep8'
+                            " Check your python source files with PEP8
+Bundle 'fs111/pydoc.vim'
+                            " Opens up pydoc within vim
+Bundle 'mitechie/pyflakes-pathogen'
+                            " Underlines and displays errors with Python on-the-fly
+                            " Include an improved pyflakes module is INCLUDED with this plugin, so you don't need to install it separately
+Bundle 'alfredodeza/pytest.vim'
+                            " Run py.test test's from within vim 
+Bundle 'vim-scripts/python.vim'
+                            " Bundle 'vim-scripts/python.vim--Vasiliev'
+Bundle 'klen/rope-vim'
+"Bundle 'sontek/rope-vim'
+                            " Pathogen compatable ropevim plugin.
+                            " Dont need install rope libs in system.
+Bundle 'msanders/snipmate.vim'
+                            " Configurable snippets to avoid re-typing common comands
+"Bundle 'ervandew/supertab'
+                            " Perform all your vim insert mode completions with Tab
 Bundle 'tpope/vim-surround'
+                            " Allows you to surround text with open/close tags
+Bundle 'vim-scripts/taglist.vim'
+                            " Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+Bundle 'vim-scripts/TaskList.vim'
+                            " Eclipse like task list 
+Bundle 'vim-scripts/The-NERD-tree'
+                            " A tree explorer plugin for navigating the filesystem
+Bundle 'mattn/zencoding-vim'
+                            " vim plugins for HTML and CSS hi-speed coding.
 "
 " vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'rails.vim'
+"Eg, Bundle 'L9'
+"Eg, Bundle 'FuzzyFinder'
+"Eg, Bundle 'rails.vim'
+Bundle 'Zenburn'
+                            " A low-contrast color scheme for Vim. 
 "
 " non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+"Eg, Bundle 'git://git.wincent.com/command-t.git'
 
 " ======================================================================
 " Pathogen - organize our vim plugins out of Vundle
@@ -109,124 +99,158 @@ call pathogen#helptags()
 filetype plugin indent on   " required!
                             " trye to detect filetypes
                             " enable loading indent file for filetype
-syntax enable               " syntax highlighting
-set number                  " Display line numbers
-set numberwidth=1           " using only 1 column (and 1 space) while possible
-"set background=dark        " We are using dark background in vim
-set title                   " show title in console title bar
-set wildmenu                " Menu completion in commond mode on <Tab>
-set wildmode=full           " <Tab> cycles between all matching choices.
+set helplang=cn             " Enable help in Chinese language
 
-" Enable help in Chinese language                                               
-set helplang=cn
-
-" Ignore these files when completing
-set wildignore+=*.o,*.obj,*.git,*.pyc
-"set grepprg=ack-prep        " replace the default grep program with ack
-
-" Auto change the directory to the current file I'm working on
-"au BufEnter * lcd %:p:h
-
-""" Insert completion
 " ======================================================================
-" don't select first item, follow typeing in autocomplete
-set completeopt=menuone,longest,preview
-set pumheight=6              " Keep a small completion window
-
-" show a line at column 73
-if exists("&colorcolumn")
-    set colorcolumn=73
-endif
-
-""" Moving Around/Editing
+" Reading/Writing
 " ======================================================================
-set cursorline              " have a line indicate the cursor location
-set ruler                   " show the cursor position all the time
-set nostartofline           " Avoid moving cursor to BOL when jumping around
-set virtualedit=block       " Let cursor move past the last char in <C-v> mode
-set scrolloff=3             " Keep 3 context lines above and below the cursor
-set backspace=2             " Allow backspacing over autoindext, EOL and BOL
-set showmatch               " Briefly jump to a paren once it's balanced
-set matchtime=2             " (for only .2 seconds)
-set nowrap                  " don't wrap text
-set linebreak               " don't wrap textin the middle of a world
-set autoindent              " always set autoindenting on
-set tabstop=4               " <tab> inserts 4 spaces
-set shiftwidth=4            " and an indent level is 4 spaces wide
-set softtabstop=4           " <BS> over an autoindent deletes both spaces.
-set expandtab               " Use spaces, not tabs, for autoindent/tab key.
-set shiftround              " rounds indent to a multiple of shiftwidth
-set matchpairs+=<:>         " show matching <> (xml/html mainly> as well
-set foldmethod=indent       " allow us to fold on indents
-set foldlevel=99            " don't fold by default
-
-au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
-au FileType html,xhtml setlocal ts=2 sts=2 sw=2 noet ai
-
-" close preview window automatically when we move around
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-""" Reading/Writing
-" ======================================================================
+"set modeline                " Allow vim options to be embedded in files;
+"set modellines=5            " they must be within the first or last 5 lines.
 set noautowrite             " Never write a file unless I request it.
 set noautowriteall          " NEVER.
 set noautoread              " Don't automatically re-read changed files.
-"set modeline                " Allow vim options to be embedded in files;
-"set modellines=5            " they must be within the first or last 5 lines.
 set ffs=unix,mac,dos        " Try recognizing dos, unix and mac line endings.
 let &termencoding=&encoding " Encoding detection
 set fileencodings=ucs-bom,utf-8,cp936,euc-cn,cp950,big5,euc-tw,default,latin1
 
-""" Messages, Info, Status
 " ======================================================================
-"set vb t_vb=                " Disable all bells. I hate ringing/flashing.
-set confirm                 " Y-N-C prompt if closing with unsaved changes.
-set showcmd                 " Show incomplete normal mode commands as I type.
-set report=0                " : commands always print changed line count.
-set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
-set laststatus=2            " Always show status line, even if only 1 window.
-"set statusline=%<%f\ (%{&ft})%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
+" Display
+" ======================================================================
 
-" displays tabs with :set list & displays when a line runs off-screen
-"set list
+""" Platform independent setting
+""" ====================================================================
+syntax enable               " syntax highlighting
+set number                  " Display line numbers
+set numberwidth=1           " using only 1 column (and 1 space) while possible
+"set background=dark        " We are using dark background in vim
+set cursorline              " have a line indicate the cursor location
+"set nowrap                  " don't wrap text
+set linebreak               " don't wrap textin the middle of a world
+set list                    " displays tabs with :set list & displays when a line runs off-screen
 "set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:↵
 
-""" Searching and Patterns
-" ======================================================================
-set ignorecase              " Default to using case insensitive searches,
-set smartcase               " unless uppercase letters are used in the regex.
-set hlsearch                " Highlight searches by default.
-set incsearch               " Incrementally search while typing a /regex
-
-""" Display
-" ======================================================================
-if !has('gui_running')
-    colorscheme darkblue
-else
-    colorscheme desert
+if has('gui_running')
     set guicursor+=a:blinkon0
+    set t_Co=256
+    colorscheme zenburn
+else
+    colorscheme darkblue
+endif
 
-    if has("gui_macvim") " Font for MacVim
+""" Platform dependent setting, eg GUI and ColorScheme
+""" ====================================================================
+if has('gui_running')
+    if has("gui_macvim")    " MacVim
         set guifont=Menlo:h14
-        set lines=999 " old 48
-        set columns=9999 " old 84
-    elseif has("gui_gtk2") " Font for GTK+2
+        set lines=999       " old 48
+        set columns=9999    " old 84
+    elseif has("gui_gtk2")  " GTK+2
         set guifont=DejaVu\ Sans\ Mono\ 12
-        set lines=38
+        set lines=50
         set columns=84
-    elseif has("gui_win32") " Font for WIN32
+    elseif has("gui_win32") " WIN32
         set guifont=DejaVu\ Sans\ Mono:h13
         set lines=38
         set columns=84
     endif
 endif
 
+if exists("&colorcolumn")
+    setlocal colorcolumn=80
+    " Incompatible with MiniBufExpl, hack this color in used ColorScheme
+    "hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
+endif
+
+""" Messages/Info/Status
+""" ====================================================================
+"set vb t_vb=                " Disable all bells. I hate ringing/flashing.
+set title                   " show title in console title bar
+set ruler                   " show the cursor position all the time
+set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
+set laststatus=2            " Always show status line, even if only 1 window.
+"set statusline=%<%f\ (%{&ft})%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
+set wildmenu                " Menu completion in commond mode on <Tab>
+set wildmode=full           " <Tab> cycles between all matching choices.
+set wildignore+=*.o,*.obj,*.git,*.pyc
+                            " Ignore these files when completing
+set showcmd                 " Show incomplete normal mode commands as I type.
+set confirm                 " Y-N-C prompt if closing with unsaved changes.
+set report=0                " : commands always print changed line count.
+
 " ======================================================================
-" Shortcuts
+" Moving/Editing
+" ====================================================================
+set backspace=2             " Allow backspacing over autoindext, EOL and BOL
+set nostartofline           " Avoid moving cursor to BOL when jumping around
+set scrolloff=3             " Keep 3 context lines above and below the cursor
+set virtualedit=block       " Let cursor move past the last char in <C-v> mode
+
+set showmatch               " Briefly jump to a paren once it's balanced
+set matchtime=2             " (for only .2 seconds)
+set matchpairs+=<:>         " show matching <> (xml/html mainly> as well
+
+set foldmethod=indent       " allow us to fold on indents
+set foldlevel=99            " don't fold by default
+
+map <C-c> "+y
+map <C-v> "+p
+
+" Ctrl-jklm changes to that split
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+"map <c-h> <c-w>h
+
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+                            " close preview window automatically when we move around
+"au BufEnter * lcd %:p:h     " Auto change the directory to the current file I'm working on
+
+" ======================================================================
+" Indentation
+" ======================================================================
+
+""" FileType Independent
+""" ====================================================================
+set autoindent              " always set autoindenting on
+set tabstop=4               " <tab> inserts 4 spaces
+set shiftwidth=4            " and an indent level is 4 spaces wide
+set softtabstop=4           " <BS> over an autoindent deletes both spaces.
+set expandtab               " Use spaces, not tabs, for autoindent/tab key.
+"set shiftround              " rounds indent to a multiple of shiftwidth
+
+""" FileType dependent
+""" ====================================================================
+
+au FileType c setlocal ts=4 sts=4 sw=4 sta et ai
+au FileType html,xhtml,css setlocal ts=2 sts=2 sw=2 noet ai
+au FileType javascript setlocal ts=4 sts=4 sw=4 noet ai
+au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
+
+" ======================================================================
+" Completion
+" ======================================================================
+set completeopt=menuone,longest,preview
+                            " don't select first item, follow typeing in autocomplete
+set pumheight=15            " Keep a small completion window
+
+" ======================================================================
+" Searching/Patterns
+" ======================================================================
+set ignorecase              " Default to using case insensitive searches,
+set smartcase               " unless uppercase letters are used in the regex.
+set hlsearch                " Highlight searches by default.
+set incsearch               " Incrementally search while typing a /regex
+"set grepprg=ack-prep        " replace the default grep program with ack
+
+" ======================================================================
+" Key mapping
 " ======================================================================
 "let mapleader=","           " change the leader to be a comma vs splash
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
 
 " Toggle line numbers and fold column for easy copying
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -237,27 +261,9 @@ nnoremap <CR> :nohlsearch<CR>
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
 
-" Toggle the tasklist
-map <leader>td <Plug>TaskList
-"map T :TaskList<CR>
-
-" Run pep8
-let g:pep8_map='<leader>8'
-
-" run py.test's
-nmap <silent><leader>tf <Esc>:Pytest file<CR>
-nmap <silent><leader>tc <Esc>:Pytest class<CR>
-nmap <silent><leader>tm <Esc>:Pytest method<CR>
-nmap <silent><leader>tn <Esc>:Pytest next<CR>
-nmap <silent><leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><leader>te <Esc>:Pytest error<CR>
-
-" Run django tests
-map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
-
-" ,v brings up my .vimrc
-" ,V reloads it -- making all changes active (have to save first)
-map <leader>v :sp ~/.vimrc<CR><C-W>
+" <leader>v brings up my .vimrc
+map <leader>v :e ~/.vimrc<CR>
+" <leader>V reloads it -- making all changes active (have to save first)
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " open/close the quickfix window
@@ -267,49 +273,40 @@ nmap <leader>cc :cclose<CR>
 " for when we forget to use sudo to open/edit a file
 "cmap w!! w !sudo tee % >/dev/null
 
-" ctrl-jklm changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 " happend as if in command mode )
-imap <C-W> <C-O><C-W>
+"imap <C-W> <C-O><C-W>
 
-" Open NerdTree
-map <leader>n :NERDTreeToggle<CR>
+" ======================================================================
+" FileType
+" ======================================================================
+" ======================================================================
+" C
+" ======================================================================
+au FileType c set omnifunc=ccomplete#Complete
 
-" Run command-t file search
-map <leader>f :CommandT<CR>
-
-" Ack searching
-nmap <leader>a <Esc>:Ack!
-
-" load the Gundo window
-map <leader>g :GundoToggle<CR>
-
-" Jump to the definition of whatever the cursor is on 
-map <leader>j :RopeGotoDefinition<CR>
-
-" Rename whatever the cursor is on (including references to it)
-map <leader>r :RopeRename<CR>
+" ======================================================================
+" Javscript
+" ======================================================================
+au FileType javascript set makeprg=jslint\ %
 
 " ======================================================================
 " Python
 " ======================================================================
-"au BufRead *.py compiler nose
 " Enable code(omni) completion
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+"au FileType python compiler nose
 
-" Improve formatting and display of improper indentation
-" Use http://www.vim.org/scripts/script.php?script_id=790
+" Improve formatting and display of improper indentation.
+" See http://www.vim.org/scripts/script.php?script_id=790
 "au FileType python set complete+=k~/.vim/bundle/python.vim--Vasiliev/syntax/python3.0.vim isk+=.,(
 
-" Ability to run script beging edited
+" Ability to run script beging edited.
 " Execute file being edited with <Shift> + e
 au FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+" Debug file begin edited with <F12>
+au FileType python map <F12> :!python -m pdb % <CR>
 
 " Trim trailing whitespace
 "au BufWritePre *.py normal m`:%s/\s\+$//e``
@@ -319,7 +316,6 @@ let g:pyflakes_use_quickfix=0
 
 " turn off hlsearch and update pyflakes on enter
 au FileType python nnoremap <CR> :nohlsearch\|:call PressedEnter()<CR>
-
 " clear the search bufrer when hitting return and update pyflakes checks
 function! PressedEnter()
     :nohlsearch
@@ -328,33 +324,85 @@ function! PressedEnter()
     end
 endfunction
 
-" ======================================================================
-" HTML
-" ======================================================================
+""" Plugin: Pep8
+""" ====================================================================
+let g:pep8_map='<leader>8'  " Run pep8
+
+""" Plugin: Py.test
+""" ====================================================================
+" Execute the tests
+"nmap <silent><leader>tf <Esc>:Pytest file<CR>
+"nmap <silent><leader>tc <Esc>:Pytest class<CR>
+"nmap <silent><leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
+"nmap <silent><leader>tn <Esc>:Pytest next<CR>
+"nmap <silent><leader>tp <Esc>:Pytest previous<CR>
+"nmap <silent><leader>te <Esc>:Pytest error<CR>
+
+""" Plugin: Pydiction
+""" ====================================================================
+let g:pydiction_location = '$HOME/.vim/nobundle/Pydiction/complete-dict'
+let g:pydiction_menu_height = 15
+                            " The default menu height is 15.
+
+""" Plugin: Rope
+""" ====================================================================
+" Jump to the definition of whatever the cursor is on 
+map <leader>j :RopeGotoDefinition<CR>
+" Rename whatever the cursor is on (including references to it)
+map <leader>r :RopeRename<CR>
+
+""" Plugin: Nose, Django-Nose, MakeGreen
+""" ====================================================================
+" Run django tests
+"map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
 
 " ======================================================================
-" Javscript
+" Plugins
 " ======================================================================
-au FileType javascript set makeprg=jslint\ %
 
-" ======================================================================
-" MiniBufExpl
-" ======================================================================
-let g:miniBufExplMapWindowNavVim=1
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
+""" Plugin: Ack searching
+""" ====================================================================
+"nmap <leader>a <Esc>:Ack!
 
-" ======================================================================
-" SuperTab - Allows us to get code completion with tab
-" ======================================================================
-let g:SuperTabDefaultCompletiontype = "context"
+""" Plugin: Command-T
+""" ==================================================================== 
+" Run command-t file search
+map <leader>f :CommandT<CR>
 
-" ======================================================================
-" TagList
-" ======================================================================
-" Enable TagList
-"let Tlist_Show_One_File=1
-"let Tlist_Exit_OnlyWindow=1
-"map P :TlistToggle<CR>
+""" Plugin: Gundo
+"""===================================================================== 
+" load the Gundo window
+map <leader>g :GundoToggle<CR>
+
+""" Plugin: MiniBufExpl
+""" ====================================================================
+let g:miniBufExplSplitToEdge = 1
+let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplForceSyntaxEnable = 1
+
+""" Plugin: Open NerdTree
+""" ====================================================================
+"au VimEnter * NERDTree|wincmd p
+"au TabEnter * NERDTreeMirror|wincmd p
+map <leader>n :NERDTreeToggle<CR>
+
+""" Plugin: SuperTab - Allows us to get code completion with tab
+""" ====================================================================
+"let g:SuperTabDefaultCompletiontype = "context"
+
+""" Plugin: TagList
+""" ====================================================================
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+map <leader>tg :TlistToggle<CR>
+
+""" Plugin: TaskList
+""" ====================================================================
+map <leader>ta <Plug>TaskList
 
