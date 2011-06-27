@@ -48,6 +48,8 @@ Bundle 'tpope/vim-pathogen'
                             " Better Management of VIM plugins 
 Bundle 'vim-scripts/pep8'
                             " Check your python source files with PEP8
+Bundle 'vim-scripts/Pydiction'
+                            " Tab-complete your Python code
 Bundle 'fs111/pydoc.vim'
                             " Opens up pydoc within vim
 Bundle 'mitechie/pyflakes-pathogen'
@@ -341,7 +343,7 @@ let g:pep8_map='<leader>8'  " Run pep8
 
 """ Plugin: Pydiction
 """ ====================================================================
-let g:pydiction_location = '$HOME/.vim/nobundle/Pydiction/complete-dict'
+let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
 let g:pydiction_menu_height = 15
                             " The default menu height is 15.
 
