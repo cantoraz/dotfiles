@@ -42,6 +42,7 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'reinh/vim-makegreen'
                             " Generic test runner that works with nose
 "Bundle 'vim-scripts/minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
 Bundle 'sontek/minibufexpl.vim'
                             " Visually display what buffers are currently opened
 Bundle 'tpope/vim-pathogen'
