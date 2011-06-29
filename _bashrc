@@ -35,7 +35,7 @@ export COPYFILE_DISABLE=true
 
 # Xcode 4 has removed support for -arch ppc, but Python2.6 on Mac OS X 10.6
 # expects to build with all three architectures.
-export ARCHFLAGS='-arch i386 -arch x86_64'
+#export ARCHFLAGS='-arch i386 -arch x86_64'
 
 # MySQL (Official Installation) library path for some compiling
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
@@ -44,4 +44,4 @@ export EDITOR=vim
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-. "/usr/local/bin/virtualenvwrapper.sh"
+#. "/usr/local/bin/virtualenvwrapper.sh"
