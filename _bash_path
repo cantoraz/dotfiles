@@ -1,5 +1,5 @@
 # Python installed by Homebrew takes it as its install-scripts folder
-if [ -d "/usr/local/share/python" ]; then
+if [[ -d "/usr/local/share/python" ]]; then
     PATH="/usr/local/share/python":$PATH
 fi
 
@@ -7,7 +7,7 @@ PATH=/usr/local/mysql/bin:$PATH
 PATH=$HOME/Applications/glassfish3_1/bin:$PATH
 
 # Git official installation
-if [ -d "/usr/local/git/libexec/git-core" ]; then
+if [[ -d "/usr/local/git/libexec/git-core" ]]; then
     PATH=/usr/local/git/libexec/git-core:$PATH
 fi
 
