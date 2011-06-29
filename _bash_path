@@ -1,22 +1,14 @@
-PATH=/usr/local/mysql/bin:$PATH
-#PATH=$HOME/Applications/mongodb/bin:$PATH
-PATH=$HOME/Applications/glassfish3_1/bin:$PATH
+# Python installed by Homebrew takes it as its install-scripts folder
+if [ -d "/usr/local/share/python" ]; then
+    PATH="/usr/local/share/python":$PATH
+fi
 
-# MacPorts appropriate PATH variable for use with MacPorts.
-# on 2009-11-13_at_23:57:25: adding an 
-#if [ -d "/opt/local" ]; then
-#    PATH=/opt/local/bin:/opt/local/sbin:$PATH
-#fi
+PATH=/usr/local/mysql/bin:$PATH
+PATH=$HOME/Applications/glassfish3_1/bin:$PATH
 
 # Git official installation
 if [ -d "/usr/local/git/libexec/git-core" ]; then
     PATH=/usr/local/git/libexec/git-core:$PATH
 fi
-
-# Maven
-#if [ -d "$HOME/Applications/apache-maven" ]; then
-#    export M2_HOME=$HOME/Applications/apache-maven
-#    PATH=$M2_HOME/bin:$PATH
-#fi
 
 #PATH=$HOME/Applications/android-sdk-mac_x86/tools:$PATH
