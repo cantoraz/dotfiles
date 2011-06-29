@@ -44,4 +44,4 @@ export EDITOR=vim
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-#. "/usr/local/bin/virtualenvwrapper.sh"
+. "/usr/local/share/python/virtualenvwrapper.sh"
