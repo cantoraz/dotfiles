@@ -11,7 +11,7 @@
 " ======================================================================
 " Load all plugins
 set nocompatible			" be iMproved
-filetype off                    	" required!
+filetype off                " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -129,40 +129,41 @@ set numberwidth=1           " using only 1 column (and 1 space) while possible
 set cursorline              " have a line indicate the cursor location
 "set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a world
-set list                    " displays tabs with :set list & displays when a line runs off-screen
 "set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set listchars=tab:▸\ ,eol:↵
 
 if has('gui_running')
-    set guicursor+=a:blinkon0
-    set t_Co=256
-    colorscheme zenburn
+	set guicursor+=a:blinkon0
+	set t_Co=256
+	colorscheme zenburn
 else
-    colorscheme darkblue
+	colorscheme darkblue
 endif
 
 """ Platform dependent setting, eg GUI and ColorScheme
 """ ====================================================================
 if has('gui_running')
-    if has("gui_macvim")    " MacVim
-        set guifont=Menlo:h14
-        set lines=999       " old 48
-        set columns=9999    " old 84
-    elseif has("gui_gtk2")  " GTK+2
-        set guifont=DejaVu\ Sans\ Mono\ 12
-        set lines=50
-        set columns=84
-    elseif has("gui_win32") " WIN32
-        set guifont=DejaVu\ Sans\ Mono:h13
-        set lines=38
-        set columns=84
-    endif
+	set list                " displays tabs with :set list 
+							" displays when a line runs off-screen
+	if has("gui_macvim")    " MacVim
+		set guifont=Menlo:h14
+		set lines=999       " old 48
+		set columns=9999    " old 84
+	elseif has("gui_gtk2")  " GTK+2
+		set guifont=DejaVu\ Sans\ Mono\ 12
+		set lines=50
+		set columns=84
+	elseif has("gui_win32") " WIN32
+		set guifont=DejaVu\ Sans\ Mono:h13
+		set lines=38
+		set columns=84
+	endif
 endif
 
 if exists("&colorcolumn")
-    setlocal colorcolumn=80
-    " Incompatible with MiniBufExpl, hack this color in used ColorScheme
-    "hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
+	setlocal colorcolumn=80
+	" Incompatible with MiniBufExpl, hack this color in used ColorScheme
+	"hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
 endif
 
 """ Messages/Info/Status
@@ -220,7 +221,7 @@ set autoindent              " always set autoindenting on
 set tabstop=4               " <tab> inserts 4 spaces
 set shiftwidth=4            " and an indent level is 4 spaces wide
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
-set expandtab               " Use spaces, not tabs, for autoindent/tab key.
+"set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 "set shiftround              " rounds indent to a multiple of shiftwidth
 
 """ FileType dependent
@@ -321,10 +322,10 @@ let g:pyflakes_use_quickfix=0
 au FileType python nnoremap <CR> :nohlsearch\|:call PressedEnter()<CR>
 " clear the search bufrer when hitting return and update pyflakes checks
 function! PressedEnter()
-    :nohlsearch
-    if &filetype == 'python'
-        :PyflakesUpdate
-    end
+	:nohlsearch
+	if &filetype == 'python'
+		:PyflakesUpdate
+	end
 endfunction
 
 """ Plugin: Pep8
