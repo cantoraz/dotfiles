@@ -290,9 +290,20 @@ nmap <leader>cc :cclose<CR>
 au FileType c set omnifunc=ccomplete#Complete
 
 " ======================================================================
+" CSS
+" ======================================================================
+au FileType css set omnifunc=csscomplete#CompleteCSS
+
+" ======================================================================
+" HTML
+" ======================================================================
+au FileType html set omnifunc=htmlcomplete#CompleteTags
+
+" ======================================================================
 " Javscript
 " ======================================================================
 au FileType javascript set makeprg=jslint\ %
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " ======================================================================
 " Python
