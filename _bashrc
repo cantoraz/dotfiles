@@ -38,7 +38,7 @@ export COPYFILE_DISABLE=true
 #export ARCHFLAGS='-arch i386 -arch x86_64'
 
 # MySQL (Official Installation) library path for some compiling
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 export EDITOR=vim
 
