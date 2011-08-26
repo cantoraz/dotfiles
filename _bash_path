@@ -1,7 +1,7 @@
 # Python installed by Homebrew takes it as its install-scripts folder
-if [[ -d "/usr/local/share/python" ]]; then
-    PATH="/usr/local/share/python":$PATH
-fi
+#if [[ -d "/usr/local/share/python" ]]; then
+#    PATH="/usr/local/share/python":$PATH
+#fi
 
 PATH=/usr/local/mysql/bin:$PATH
 PATH=$HOME/Applications/glassfish3_1/bin:$PATH
