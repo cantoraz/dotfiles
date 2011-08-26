@@ -1,5 +1,13 @@
-alias ls='ls -G'
+case "$SHELL" in
+	'/bin/bash')
+		alias ls='ls -G'
+		;;
+	"$HOME/Gentoo/bin/bash")
+		alias ls='ls --color=auto'
+		;;
+esac
 alias la='ls -A'
 alias ll='ls -l'
 alias lh='ls -lh'
 alias vi='vim'
+
