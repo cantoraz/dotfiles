@@ -10,4 +10,4 @@ alias la='ls -A'
 alias ll='ls -l'
 alias lh='ls -lh'
 alias vi='vim'
-
+alias crontab='EDITOR=/usr/bin/vim crontab'
