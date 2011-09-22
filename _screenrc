@@ -1,0 +1,4 @@
+defflow off
+escape ^Ss
+startup_message off
+defscrollback 1024
