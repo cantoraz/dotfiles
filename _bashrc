@@ -41,6 +41,11 @@ export COPYFILE_DISABLE=true
 # MySQL (Official Installation) library path for some compiling
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
+# Node.js installed by HomeBrew suggest
+if [ -d "/usr/local/lib/node_modules" ]; then
+	export NODE_PATH="/usr/local/lib/node_modules"
+fi
+
 export EDITOR=vim
 
 # Virtualenvwrapper
