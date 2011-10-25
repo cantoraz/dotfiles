@@ -76,6 +76,8 @@ Bundle 'vim-scripts/TaskList.vim'
                             " Eclipse like task list 
 Bundle 'vim-scripts/The-NERD-tree'
                             " A tree explorer plugin for navigating the filesystem
+Bundle 'altercation/vim-colors-solarized'
+							" Precision colors for machines and people
 Bundle 'mattn/zencoding-vim'
                             " vim plugins for HTML and CSS hi-speed coding.
 "
@@ -132,17 +134,13 @@ set linebreak               " don't wrap textin the middle of a world
 "set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set listchars=tab:▸\ ,eol:↵
 
-if has('gui_running')
-	set guicursor+=a:blinkon0
-	set t_Co=256
-	colorscheme zenburn
-else
-	colorscheme darkblue
-endif
+set t_Co=256
+colorscheme zenburn
 
 """ Platform dependent setting, eg GUI and ColorScheme
 """ ====================================================================
 if has('gui_running')
+	set guicursor+=a:blinkon0
 	set list                " displays tabs with :set list 
 							" displays when a line runs off-screen
 	if has("gui_macvim")    " MacVim
