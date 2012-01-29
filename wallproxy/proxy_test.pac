@@ -8,6 +8,7 @@ function FindProxyForURL(url, host) {
   var DEFAULT = "DIRECT";
 
   //Cantoraz Modify Part Start
+  if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?artima\.com/i.test(url)) return PROXY;
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?codehaus\.org/i.test(url)) return PROXY;
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?facebook\.net/i.test(url)) return PROXY;
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?git\-scm\.com/i.test(url)) return PROXY;
