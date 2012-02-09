@@ -67,3 +67,7 @@ esac
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
+	export RSENSE_HOME=$HOME/Applications/rsense-0.3
+fi
