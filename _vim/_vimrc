@@ -2,7 +2,7 @@
 " Title: Cantoraz's vimrc
 " Author: Cantoraz
 " License: GPLv3
-" Date: Fri, 2012-02-10 16:30:06 CST
+" Date: Fri, 2012-02-10 19:30:16 CST
 
 " ======================================================================
 " # Dependencies - Libraries/Applications outside of vim
@@ -268,10 +268,6 @@ set helplang=cn             " Enable help in Chinese language
 	map <C-N> :bnext<CR>
 	map <C-P> :bprevious<CR>
 
-	" Split window
-	map <C-S><C-S> :sp<CR>
-	map <C-S><C-V> :vs<CR>
-
 	" Cycle windows
 	map <C-J> <C-W>j
 	map <C-K> <C-W>k
@@ -290,9 +286,9 @@ set helplang=cn             " Enable help in Chinese language
 
 	" Insert current timestamp/date/time
 	if exists('*strftime')
-		imap <silent> <C-X><C-D><C-S> <C-R>=strftime('%a, %F %T %Z')<CR>
-		imap <silent> <C-X><C-D><C-D> <C-R>=strftime('%T %Z')<CR>
-		imap <silent> <C-X><C-D><C-T> <C-R>=strftime('%F')<CR>
+		imap <silent> <C-X><C-D><C-F> <C-R>=strftime('%a, %F %T %Z')<CR>
+		imap <silent> <C-X><C-D><C-T> <C-R>=strftime('%T %Z')<CR>
+		imap <silent> <C-X><C-D><C-D> <C-R>=strftime('%F')<CR>
 	endif
 
 	" Folding
