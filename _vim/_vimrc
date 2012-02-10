@@ -2,7 +2,7 @@
 " Title: Cantoraz's vimrc
 " Author: Cantoraz
 " License: GPLv3
-" ======================================================================
+" Date: Fri, 2012-02-10 16:30:06 CST
 
 " ======================================================================
 " # Dependencies - Libraries/Applications outside of vim
@@ -33,11 +33,23 @@
 	" original repos on github
 	" Eg, Bundle 'lokaltog/vim-easymotion'
 	" Eg, Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+	"
+	" vim-scripts repos
+	" Eg, Bundle 'L9'
+	" Eg, Bundle 'FuzzyFinder'
+	" Eg, Bundle 'rails.vim'
+	"
+	" non github repos
+	" Eg, Bundle 'git://git.wincent.com/command-t.git'
+
 	"Bundle 'vim-scripts/ack.vim'
 	Bundle 'mileszs/ack.vim'
 								" Plugin for the Perl module / CLI script 'ack'
 	Bundle 'wincent/Command-T'
 								" Allows easy search and opening of files within a given path 
+	"Bundle 'Raimondi/delimitMate'
+    Bundle 'delimitMate.vim'
+								" Provides insert mode auto-completion for quotes, parens, brackets, etc.
 	Bundle 'tpope/vim-fugitive'
 								" Interface with git from vim
 	Bundle 'tpope/vim-git'
@@ -48,33 +60,33 @@
 								" An alternative indentation script for python
 	Bundle 'vim-scripts/matchit.zip'
 								" Extended % matching for HTML, LaTeX, and many other languages
-	Bundle 'reinh/vim-makegreen'
+	"Bundle 'reinh/vim-makegreen'
 								" Generic test runner that works with nose
 	"Bundle 'vim-scripts/minibufexpl.vim'
 	"Bundle 'fholgado/minibufexpl.vim'
-	Bundle 'sontek/minibufexpl.vim'
+	"Bundle 'sontek/minibufexpl.vim'
 								" Visually display what buffers are currently opened
 	Bundle 'vim-scripts/The-NERD-tree'
 								" A tree explorer plugin for navigating the filesystem
 	Bundle 'tpope/vim-pathogen'
 								" Better Management of VIM plugins 
-	Bundle 'vim-scripts/pep8'
+	"Bundle 'vim-scripts/pep8'
 								" Check your python source files with PEP8
-	Bundle 'vim-scripts/Pydiction'
+	"Bundle 'vim-scripts/Pydiction'
 								" Tab-complete your Python code
-	Bundle 'fs111/pydoc.vim'
-								" Opens up pydoc within vim
+	"Bundle 'fs111/pydoc.vim'
+								" pydoc integration for the best text editor on earth
 	Bundle 'mitechie/pyflakes-pathogen'
 								" Underlines and displays errors with Python on-the-fly
 								" an improved pyflakes module is INCLUDED with this plugin,
 								" so you don't need to install it separately
-	Bundle 'alfredodeza/pytest.vim'
+	"Bundle 'alfredodeza/pytest.vim'
 								" Run py.test test's from within vim 
 	Bundle 'vim-scripts/python.vim'
 								" Bundle 'vim-scripts/python.vim--Vasiliev'
 	Bundle 'tpope/vim-rails'
 								" Ruby on Rails power tools
-	Bundle 'klen/rope-vim'
+	"Bundle 'klen/rope-vim'
 	"Bundle 'sontek/rope-vim'
 								" Pathogen compatable ropevim plugin.
 								" Dont need install rope libs in system.
@@ -94,18 +106,10 @@
 								" Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
 	Bundle 'vim-scripts/TaskList.vim'
 								" Eclipse like task list 
-	Bundle 'mattn/zencoding-vim'
-								" Vim plugins for HTML and CSS hi-speed coding.
-	"
-	" vim-scripts repos
-	" Eg, Bundle 'L9'
-	" Eg, Bundle 'FuzzyFinder'
-	" Eg, Bundle 'rails.vim'
 	Bundle 'Zenburn'
 								" A low-contrast color scheme for Vim. 
-	"
-	" non github repos
-	" Eg, Bundle 'git://git.wincent.com/command-t.git'
+	Bundle 'mattn/zencoding-vim'
+								" Vim plugins for HTML and CSS hi-speed coding.
 
 	" ======================================================================
 	" ## Pathogen - organize our vim plugins out of Vundle
@@ -211,24 +215,16 @@ set helplang=cn             " Enable help in Chinese language
 
 	set showmatch               " Briefly jump to a paren once it's balanced
 	set matchtime=2             " (for only .2 seconds)
-	set matchpairs+=<:>         " show matching <> (xml/html mainly> as well
+	set matchpairs+=<:>         " show matching <> (xml/html mainly) as well
 
 	set foldmethod=indent       " allow us to fold on indents
 	set foldlevel=99            " don't fold by default
 
-	map <C-c> "+y
-	map <C-v> "+p
-
-	" Ctrl-jklm changes to that split
-	"map <c-j> <c-w>j
-	"map <c-k> <c-w>k
-	"map <c-l> <c-w>l
-	"map <c-h> <c-w>h
+	"au BufEnter * lcd %:p:h	" Auto change the directory to the current file I'm working on
 
 	"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 	"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 								" close preview window automatically when we move around
-	"au BufEnter * lcd %:p:h     " Auto change the directory to the current file I'm working on
 
 	" ======================================================================
 	" ## Indentation
@@ -245,7 +241,7 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	set completeopt=menuone,longest,preview
 								" don't select first item, follow typeing in autocomplete
-	set pumheight=15            " Keep a small completion window
+	set pumheight=20            " Keep a small completion window
 
 	" ======================================================================
 	" ## Searching/Patterns
@@ -259,28 +255,64 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## Key Mapping
 	" ======================================================================
-	"let mapleader=","           " change the leader to be a comma vs splash
+	set macmeta					" Enable option key as meta key under Mac
+	"let mapleader=","			" Change the leader to be a comma vs splash
 
-	" Set working directory
-	nnoremap <leader>. :lcd %:p:h<CR>
+	" brings up my .vimrc
+	map <silent> <leader>v :e ~/.vimrc<CR>
+	" reloads .vimrc -- making all changes active (have to save first)
+	map <silent> <leader>V :source ~/.vimrc<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+	" List/Cycle buffers
+	map <C-X><C-B> :ls<CR>
+	map <C-N> :bnext<CR>
+	map <C-P> :bprevious<CR>
+
+	" Split window
+	map <C-S><C-S> :sp<CR>
+	map <C-S><C-V> :vs<CR>
+
+	" Cycle windows
+	map <C-J> <C-W>j
+	map <C-K> <C-W>k
+	map <C-L> <C-W>l
+	map <C-H> <C-W>h
+
+	" Ctrl-c to jank/copy, Ctrl-v to paste
+	map <C-C> "+y
+	map <C-V> "+p
+
+	" Autocomplete
+	imap <F2> <C-X><C-O>
+
+	" New line above
+	imap <S-CR> <Esc>O
+
+	" Insert current timestamp/date/time
+	if exists('*strftime')
+		imap <silent> <C-X><C-D><C-S> <C-R>=strftime('%a, %F %T %Z')<CR>
+		imap <silent> <C-X><C-D><C-D> <C-R>=strftime('%T %Z')<CR>
+		imap <silent> <C-X><C-D><C-T> <C-R>=strftime('%F')<CR>
+	endif
+
+	" Folding
+	nnoremap <Space> za
+
+	" Change working directory
+	nnoremap <leader>. :silent lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 
 	" Toggle line numbers and fold column for easy copying
-	nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+	nnoremap <leader>tn :set nonumber!<CR>:set foldcolumn=0<CR>
 
 	" Turn off hlsearch on enter
 	nnoremap <CR> :nohlsearch<CR>
 
 	" Seriously, guys. It's not like :W is bound to anything anyway.
-	command! W :w
-
-	" <leader>v brings up my .vimrc
-	map <leader>v :e ~/.vimrc<CR>
-	" <leader>V reloads it -- making all changes active (have to save first)
-	map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+	"command! W :w
 
 	" open/close the quickfix window
 	nmap <leader>c :copen<CR>
-	nmap <leader>cc :cclose<CR>
+	nmap <leader>C :cclose<CR>
 
 	" for when we forget to use sudo to open/edit a file
 	"cmap w!! w !sudo tee % >/dev/null
@@ -315,7 +347,7 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	au FileType javascript setlocal ts=4 sts=4 sw=4 et ai
 	au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-	au FileType javascript set makeprg=jslint\ %
+	au FileType javascript set makeprg=jsl\ %
 
 	" ======================================================================
 	" ## Python
@@ -330,16 +362,16 @@ set helplang=cn             " Enable help in Chinese language
 	"au FileType python set complete+=k~/.vim/bundle/python.vim--Vasiliev/syntax/python3.0.vim isk+=.,(
 
 	" Ability to run script beging edited.
-	" Execute file being edited with <Shift> + e
-	au FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
-	" Debug file begin edited with <F12>
-	au FileType python map <F12> :!python -m pdb % <CR>
+	" Execute file being edited with <F11>
+	au FileType python map <buffer> <F11> :w<CR>:!/usr/bin/env python %<CR>
+	" Debug file begin edited with <Shift> + <F11>
+	au FileType python map <buffer> <S-F11> :w<CR>:!/usr/bin/env python -m pdb %<CR>
 
 	" Trim trailing whitespace
 	"au BufWritePre *.py normal m`:%s/\s\+$//e``
 
 	" turn off hlsearch and update pyflakes on enter
-	au FileType python nnoremap <CR> :nohlsearch\|:call PressedEnter()<CR>
+	"au FileType python nnoremap <CR> :nohlsearch\|:call PressedEnter()<CR>
 
 		" ====================================================================
 		" ### Plugins for Python
@@ -347,7 +379,7 @@ set helplang=cn             " Enable help in Chinese language
 			" ====================================================================
 			" #### Pep8
 			" ====================================================================
-			let g:pep8_map='<leader>8'  " Run pep8
+			"let g:pep8_map='<leader>8'  " Run pep8
 
 			" ====================================================================
 			" #### Py.test
@@ -357,7 +389,7 @@ set helplang=cn             " Enable help in Chinese language
 			"nmap <silent><leader>tc <Esc>:Pytest class<CR>
 			"nmap <silent><leader>tm <Esc>:Pytest method<CR>
 
-			" cycle through test errors
+			" Cycle through test errors
 			"nmap <silent><leader>tn <Esc>:Pytest next<CR>
 			"nmap <silent><leader>tp <Esc>:Pytest previous<CR>
 			"nmap <silent><leader>te <Esc>:Pytest error<CR>
@@ -365,9 +397,9 @@ set helplang=cn             " Enable help in Chinese language
 			" ====================================================================
 			" #### Pydiction
 			" ====================================================================
-			let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
+			"let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
 			" The default menu height is 15.
-			let g:pydiction_menu_height = 15
+			"let g:pydiction_menu_height = 20
 
 			" ====================================================================
 			" #### Pyflakes
@@ -387,9 +419,9 @@ set helplang=cn             " Enable help in Chinese language
 			" #### Rope
 			" ====================================================================
 			" Jump to the definition of whatever the cursor is on 
-			map <leader>j :RopeGotoDefinition<CR>
+			"map <leader>j :RopeGotoDefinition<CR>
 			" Rename whatever the cursor is on (including references to it)
-			map <leader>r :RopeRename<CR>
+			"map <leader>r :RopeRename<CR>
 
 			" ====================================================================
 			" #### Nose, Django-Nose, MakeGreen
@@ -424,31 +456,38 @@ set helplang=cn             " Enable help in Chinese language
 	" ## Command-T
 	" ======================================================================
 	" Run command-t file search
-	map <leader>f :CommandT<CR>
+	map <C-T><C-T> :CommandT<CR>
+	map <C-T><C-B> :CommandTBuffer<CR>
+
+	" ======================================================================
+	" delimitMate"
+	" ======================================================================
+	let delimitMate_expand_cr = 1
+	let delimitMate_expand_space = 1
 
 	" ======================================================================
 	" ## Gundo
 	" ======================================================================
 	" load the Gundo window
-	map <leader>g :GundoToggle<CR>
+	map <leader>tu :GundoToggle<CR>
 
 	" ======================================================================
 	" ## MiniBufExpl
 	" ======================================================================
-	let g:miniBufExplSplitToEdge = 1
-	let g:miniBufExplorerMoreThanOne = 1
-	let g:miniBufExplMapWindowNavVim = 1
-	let g:miniBufExplMapWindowNavArrows = 1
-	let g:miniBufExplMapCTabSwitchBufs = 1
-	let g:miniBufExplUseSingleClick = 1
-	let g:miniBufExplModSelTarget = 1
-	let g:miniBufExplForceSyntaxEnable = 1
+	"let g:miniBufExplSplitToEdge = 1
+	"let g:miniBufExplorerMoreThanOne = 1
+	"let g:miniBufExplMapWindowNavVim = 1
+	"let g:miniBufExplMapWindowNavArrows = 1
+	"let g:miniBufExplMapCTabSwitchBufs = 1
+	"let g:miniBufExplUseSingleClick = 1
+	"let g:miniBufExplModSelTarget = 1
+	"let g:miniBufExplForceSyntaxEnable = 1
 
 	" ======================================================================
 	" ## Open NerdTree
 	" ====================================================================== "au VimEnter * NERDTree|wincmd p
 	"au TabEnter * NERDTreeMirror|wincmd p
-	map <leader>n :NERDTreeToggle<CR>
+	map <leader>tf :NERDTreeToggle<CR>
 
 	" ======================================================================
 	" ## SuperTab - Allows us to get code completion with tab
@@ -460,7 +499,7 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	let Tlist_Show_One_File=1
 	let Tlist_Exit_OnlyWindow=1
-	map <leader>tg :TlistToggle<CR>
+	map <leader>tl :TlistToggle<CR>
 
 	" ======================================================================
 	" ## TaskList
