@@ -18,18 +18,6 @@
 	" ======================================================================
 	" ## Vundle - Manage our vim plugins
 	" ======================================================================
-	" Load all plugins
-	set nocompatible			" be iMproved
-	filetype off				" required!
-	set rtp+=~/.vim/bundle/vundle/
-	call vundle#rc()
-
-	" let Vundle manage Vundel
-	Bundle 'gmarik/vundle'
-								" Manage our vim plugins 
-	"
-	" My Bundles here:
-	"
 	" original repos on github
 	" Eg, Bundle 'lokaltog/vim-easymotion'
 	" Eg, Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -42,74 +30,114 @@
 	" non github repos
 	" Eg, Bundle 'git://git.wincent.com/command-t.git'
 
+	" Load all plugins
+	set nocompatible			" be iMproved
+	filetype off				" required!
+	set rtp+=~/.vim/bundle/vundle/
+	call vundle#rc()
+
+	" the plug-in manager for Vim
+	" let Vundle manage Vundel
+	Bundle 'gmarik/vundle'
+
+	" My Bundles here:
+
+	" Plugin for the Perl module / CLI script 'ack'
 	"Bundle 'vim-scripts/ack.vim'
 	Bundle 'mileszs/ack.vim'
-								" Plugin for the Perl module / CLI script 'ack'
+
+	" Allows easy search and opening of files within a given path 
 	Bundle 'wincent/Command-T'
-								" Allows easy search and opening of files within a given path 
-	"Bundle 'Raimondi/delimitMate'
+
+	" Provides insert mode auto-completion for quotes, parens, brackets, etc.
     Bundle 'delimitMate.vim'
-								" Provides insert mode auto-completion for quotes, parens, brackets, etc.
+
+	" Interface with git from vim
 	Bundle 'tpope/vim-fugitive'
-								" Interface with git from vim
+
+	" Syntax highlighting for git config files
 	Bundle 'tpope/vim-git'
-								" Syntax highlighting for git config files
+
+	" Visual Undo in vim with diff's to check the differences
 	Bundle 'sjl/gundo.vim'
-								" Visual Undo in vim with diff's to check the differences
+
+	" An alternative indentation script for python
 	Bundle 'vim-scripts/indentpython.vim'
-								" An alternative indentation script for python
+
+	" Extended % matching for HTML, LaTeX, and many other languages
 	Bundle 'vim-scripts/matchit.zip'
-								" Extended % matching for HTML, LaTeX, and many other languages
+	
+	" Generic test runner that works with nose
 	"Bundle 'reinh/vim-makegreen'
-								" Generic test runner that works with nose
+
+	" Visually display what buffers are currently opened
 	"Bundle 'vim-scripts/minibufexpl.vim'
 	"Bundle 'fholgado/minibufexpl.vim'
 	"Bundle 'sontek/minibufexpl.vim'
-								" Visually display what buffers are currently opened
+
+	" A tree explorer plugin for navigating the filesystem
 	Bundle 'vim-scripts/The-NERD-tree'
-								" A tree explorer plugin for navigating the filesystem
+
+	" Better Management of VIM plugins 
 	Bundle 'tpope/vim-pathogen'
-								" Better Management of VIM plugins 
+
+	" Check your python source files with PEP8
 	"Bundle 'vim-scripts/pep8'
-								" Check your python source files with PEP8
+
+	" Tab-complete your Python code
 	"Bundle 'vim-scripts/Pydiction'
-								" Tab-complete your Python code
+
+	" pydoc integration for the best text editor on earth
 	"Bundle 'fs111/pydoc.vim'
-								" pydoc integration for the best text editor on earth
+
+	" Underlines and displays errors with Python on-the-fly
+	" an improved pyflakes module is INCLUDED with this plugin,
+	" so you don't need to install it separately
 	Bundle 'mitechie/pyflakes-pathogen'
-								" Underlines and displays errors with Python on-the-fly
-								" an improved pyflakes module is INCLUDED with this plugin,
-								" so you don't need to install it separately
+
+	" Run py.test test's from within vim 
 	"Bundle 'alfredodeza/pytest.vim'
-								" Run py.test test's from within vim 
+
+	" Bundle 'vim-scripts/python.vim--Vasiliev'
 	Bundle 'vim-scripts/python.vim'
-								" Bundle 'vim-scripts/python.vim--Vasiliev'
+
+	" Ruby on Rails power tools
 	Bundle 'tpope/vim-rails'
-								" Ruby on Rails power tools
+
+	" Pathogen compatable ropevim plugin.
+	" Dont need install rope libs in system.
 	"Bundle 'klen/rope-vim'
 	"Bundle 'sontek/rope-vim'
-								" Pathogen compatable ropevim plugin.
-								" Dont need install rope libs in system.
+
+	" Vim/Ruby Configuration Files
 	Bundle 'vim-ruby/vim-ruby'
-								" Vim/Ruby Configuration Files
+
+	" switch Ruby versions from inside Vim
 	Bundle 'tpope/vim-rvm'
-								" switch Ruby versions from inside Vim
+
+	" Configurable snippets to avoid re-typing common comands
 	Bundle 'msanders/snipmate.vim'
-								" Configurable snippets to avoid re-typing common comands
+
+	" Precision colors for machines and people
 	Bundle 'altercation/vim-colors-solarized'
-								" Precision colors for machines and people
+
+	" Perform all your vim insert mode completions with Tab
 	"Bundle 'ervandew/supertab'
-								" Perform all your vim insert mode completions with Tab
+
+	" Allows you to surround text with open/close tags
 	Bundle 'tpope/vim-surround'
-								" Allows you to surround text with open/close tags
+
+	" Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
 	Bundle 'vim-scripts/taglist.vim'
-								" Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+
+	" Eclipse like task list 
 	Bundle 'vim-scripts/TaskList.vim'
-								" Eclipse like task list 
+
+	" A low-contrast color scheme for Vim. 
 	Bundle 'Zenburn'
-								" A low-contrast color scheme for Vim. 
+
+	" Vim plugins for HTML and CSS hi-speed coding.
 	Bundle 'mattn/zencoding-vim'
-								" Vim plugins for HTML and CSS hi-speed coding.
 
 	" ======================================================================
 	" ## Pathogen - organize our vim plugins out of Vundle
@@ -243,6 +271,14 @@ set helplang=cn             " Enable help in Chinese language
 								" don't select first item, follow typeing in autocomplete
 	set pumheight=20            " Keep a small completion window
 
+	" Refer: ft-syntax-omni
+	if has("autocmd") && exists("+omnifunc")
+		autocmd Filetype *
+				\	if &omnifunc == "" |
+				\		setlocal omnifunc=syntaxcomplete#Complete |
+				\	endif
+	endif
+
 	" ======================================================================
 	" ## Searching/Patterns
 	" ======================================================================
@@ -255,15 +291,31 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## Key Mapping
 	" ======================================================================
+	" Note: Do not map <C-S>, <C-Q> or <C-unprintable>
+
 	set macmeta					" Enable option key as meta key under Mac
 	"let mapleader=","			" Change the leader to be a comma vs splash
 
-	" brings up my .vimrc
-	map <silent> <leader>v :e ~/.vimrc<CR>
-	" reloads .vimrc -- making all changes active (have to save first)
-	map <silent> <leader>V :source ~/.vimrc<CR>:exe ":echo 'vimrc reloaded'"<CR>
+	" Autocomplete
+	imap <F2> <C-X><C-O>
 
-	" List/Cycle buffers
+	" Quick to <C-W>
+	nmap ' <C-W>
+
+	" Quick to shell command
+	nmap :: :!
+
+	" Quick to comman
+	nnoremap ;; :
+
+	" Copy all characters after current position
+	nmap Y y$
+
+	" Save
+	nmap <C-X><C-W> <Esc>:update<CR>
+	map! <C-X><C-W> <Esc>:update<CR>a
+
+	" Cycle buffers
 	map <C-X><C-B> :ls<CR>
 	map <C-N> :bnext<CR>
 	map <C-P> :bprevious<CR>
@@ -278,44 +330,53 @@ set helplang=cn             " Enable help in Chinese language
 	map <C-C> "+y
 	map <C-V> "+p
 
-	" Autocomplete
-	imap <F2> <C-X><C-O>
-
-	" New line above
-	imap <S-CR> <Esc>O
-
 	" Insert current timestamp/date/time
 	if exists('*strftime')
-		imap <silent> <C-X><C-D><C-F> <C-R>=strftime('%a, %F %T %Z')<CR>
-		imap <silent> <C-X><C-D><C-T> <C-R>=strftime('%T %Z')<CR>
-		imap <silent> <C-X><C-D><C-D> <C-R>=strftime('%F')<CR>
+		imap <silent> <C-I><C-F> <C-R>=strftime('%a, %F %T %Z')<CR>
+		imap <silent> <C-I><C-T> <C-R>=strftime('%T %Z')<CR>
+		imap <silent> <C-I><C-D> <C-R>=strftime('%F')<CR>
 	endif
-
-	" Folding
-	nnoremap <Space> za
-
-	" Change working directory
-	nnoremap <leader>. :silent lcd %:p:h<CR>:echo expand('%:p:h')<CR>
-
-	" Toggle line numbers and fold column for easy copying
-	nnoremap <leader>tn :set nonumber!<CR>:set foldcolumn=0<CR>
-
-	" Turn off hlsearch on enter
-	nnoremap <CR> :nohlsearch<CR>
-
-	" Seriously, guys. It's not like :W is bound to anything anyway.
-	"command! W :w
-
-	" open/close the quickfix window
-	nmap <leader>c :copen<CR>
-	nmap <leader>C :cclose<CR>
-
-	" for when we forget to use sudo to open/edit a file
-	"cmap w!! w !sudo tee % >/dev/null
 
 	" and lets make these all work in insert mode too ( <C-O> makes next cmd
 	" happend as if in command mode )
 	"imap <C-W> <C-O><C-W>
+
+	" Move line
+	nmap <S-Up> mz:m-2<cr>`z
+	nmap <S-Down> mz:m+<cr>`z
+	vmap <S-Up> :m'<-2<cr>`>my`<mzgv`yo`z
+	vmap <S-Down> :m'>+<cr>`<my`>mzgv`yo`z
+
+	" New line above
+	imap <S-CR> <Esc>O
+
+	" Turn off hlsearch on enter
+	nnoremap <CR> :nohlsearch<CR>
+
+	" Folding
+	nnoremap <Space> za
+
+	" Seriously, guys. It's not like :W is bound to anything anyway.
+	"command! W :w
+
+	" for when we forget to use sudo to open/edit a file
+	"cmap w!! w !sudo tee % >/dev/null
+
+	" brings up my .vimrc
+	map <silent> <leader>v :e ~/.vimrc<CR>
+	" reloads .vimrc -- making all changes active (have to save first)
+	map <silent> <leader>V :source ~/.vimrc<CR>:echo 'vimrc reloaded.'<CR>
+
+	" List/Cycle buffers
+	" Change working directory
+	nnoremap <silent> <leader>. :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
+
+	" Toggle line numbers and fold column for easy copying
+	nnoremap <leader>tn :set nonumber!<CR>:set foldcolumn=0<CR>
+
+	" open/close the quickfix window
+	nmap <leader>c :copen<CR>
+	nmap <leader>C :cclose<CR>
 
 " ======================================================================
 " # FileType Setting
@@ -481,7 +542,8 @@ set helplang=cn             " Enable help in Chinese language
 
 	" ======================================================================
 	" ## Open NerdTree
-	" ====================================================================== "au VimEnter * NERDTree|wincmd p
+	" ======================================================================
+	"au VimEnter * NERDTree|wincmd p
 	"au TabEnter * NERDTreeMirror|wincmd p
 	map <leader>tf :NERDTreeToggle<CR>
 
@@ -501,6 +563,10 @@ set helplang=cn             " Enable help in Chinese language
 	" ## TaskList
 	" ======================================================================
 	map <leader>ta <Plug>TaskList
+
+" ======================================================================
+" # Functions
+" ======================================================================
 
 " ======================================================================
 " # EOF
