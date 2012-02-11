@@ -308,6 +308,12 @@ set helplang=cn             " Enable help in Chinese language
 	" Quick to comman
 	nnoremap ;; :
 
+	" Disable Ex mode key mappings
+	nmap Q <Nop>
+	omap Q <Nop>
+	nmap gQ <Nop>
+	omap gQ <Nop>
+
 	" Copy all characters after current position
 	nmap Y y$
 
