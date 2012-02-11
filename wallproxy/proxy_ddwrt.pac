@@ -4,7 +4,7 @@
  *  Last update: Fri, 30 Sep 2011 08:34:52 GMT
  */
 function FindProxyForURL(url, host) {
-  var PROXY = "PROXY 192.168.11.2:8086";
+  var PROXY = "PROXY 192.168.11.1:8086";
   var DEFAULT = "DIRECT";
 
   //Cantoraz Modify Part Start
