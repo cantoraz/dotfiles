@@ -36,8 +36,7 @@
 	set rtp+=~/.vim/bundle/vundle/
 	call vundle#rc()
 
-	" the plug-in manager for Vim
-	" let Vundle manage Vundel
+	" The plug-in manager for Vim. Here let Vundle manage Vundel
 	Bundle 'gmarik/vundle'
 
 	" My Bundles here:
@@ -133,11 +132,22 @@
 	" Eclipse like task list 
 	Bundle 'vim-scripts/TaskList.vim'
 
-	" A low-contrast color scheme for Vim. 
-	Bundle 'Zenburn'
-
 	" Vim plugins for HTML and CSS hi-speed coding.
 	Bundle 'mattn/zencoding-vim'
+
+	" Color schemes here:
+	
+	" A slightly-modified desert theme, for 88- and 256-color xterms.
+	Bundle 'desert256.vim'
+
+	" A port of the Railscasts Textmate theme to Vim (GUI Only)
+	Bundle 'jpo/vim-railscasts-theme'
+
+	" A color scheme that imitates the Twilight theme for TextMate
+	Bundle 'twilight256.vim'
+
+	" A low-contrast color scheme for Vim. 
+	Bundle 'Zenburn'
 
 	" ======================================================================
 	" ## Pathogen - organize our vim plugins out of Vundle
@@ -183,6 +193,7 @@ set helplang=cn             " Enable help in Chinese language
 	colorscheme zenburn
 
 	if has('gui_running')
+		colorscheme railscasts
 		set guicursor+=a:blinkon0
 		set list                " displays tabs with :set list 
 								" displays when a line runs off-screen
