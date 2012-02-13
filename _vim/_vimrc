@@ -187,7 +187,8 @@ set helplang=cn             " Enable help in Chinese language
 	"set nowrap                  " don't wrap text
 	set linebreak               " don't wrap textin the middle of a world
 	"set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-	set listchars=tab:▸\ ,eol:↵
+	"set listchars=tab:▸\ ,eol:↵
+	set listchars=tab:│┈,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
 
 	set t_Co=256
 	colorscheme twilight256
@@ -504,7 +505,8 @@ set helplang=cn             " Enable help in Chinese language
 			"map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
 
 	" ======================================================================
-	" ## Ruby " ======================================================================
+	" ## Ruby
+	" ======================================================================
 	au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 sta et ai
 	au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
@@ -517,6 +519,11 @@ set helplang=cn             " Enable help in Chinese language
 		autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 		autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 		autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+	" ======================================================================
+	" ## Vim
+	" ======================================================================
+	set listchars=tab:▸\ ,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
 
 " ======================================================================
 " # General Plugins
