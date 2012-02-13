@@ -117,9 +117,6 @@
 	" Configurable snippets to avoid re-typing common comands
 	Bundle 'msanders/snipmate.vim'
 
-	" Precision colors for machines and people
-	Bundle 'altercation/vim-colors-solarized'
-
 	" Perform all your vim insert mode completions with Tab
 	"Bundle 'ervandew/supertab'
 
@@ -142,6 +139,9 @@
 
 	" A port of the Railscasts Textmate theme to Vim (GUI Only)
 	Bundle 'jpo/vim-railscasts-theme'
+
+	" Precision colors for machines and people
+	Bundle 'altercation/vim-colors-solarized'
 
 	" A color scheme that imitates the Twilight theme for TextMate
 	Bundle 'twilight256.vim'
@@ -190,7 +190,7 @@ set helplang=cn             " Enable help in Chinese language
 	set listchars=tab:▸\ ,eol:↵
 
 	set t_Co=256
-	colorscheme zenburn
+	colorscheme twilight256
 
 	if has('gui_running')
 		colorscheme railscasts
@@ -329,8 +329,8 @@ set helplang=cn             " Enable help in Chinese language
 	nmap Y y$
 
 	" Save
-	nmap <C-X><C-W> <Esc>:update<CR>
-	map! <C-X><C-W> <Esc>:update<CR>a
+	nmap <C-X><C-X> <Esc>:update<CR>
+	map! <C-X><C-X> <Esc>:update<CR>a
 
 	" Cycle buffers
 	map <C-X><C-B> :ls<CR>
