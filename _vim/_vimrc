@@ -2,7 +2,7 @@
 " Title: Cantoraz's vimrc
 " Author: Cantoraz
 " License: GPLv3
-" Date: Fri, 2012-02-10 19:30:16 CST
+" Date: Mon, 2012-02-13 22:43:50 CST
 
 " ======================================================================
 " # Dependencies - Libraries/Applications outside of vim
@@ -59,6 +59,9 @@
 
 	" Visual Undo in vim with diff's to check the differences
 	Bundle 'sjl/gundo.vim'
+
+	" A Vim plugin for visually displaying indent levels in code
+	Bundle 'nathanaelkane/vim-indent-guides'
 
 	" An alternative indentation script for python
 	Bundle 'vim-scripts/indentpython.vim'
@@ -123,11 +126,16 @@
 	" Allows you to surround text with open/close tags
 	Bundle 'tpope/vim-surround'
 
-	" Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+	" Source code browser
+	" (supports C/C++, java, perl, python, tcl, sql, php, etc)
 	Bundle 'vim-scripts/taglist.vim'
 
 	" Eclipse like task list 
 	Bundle 'vim-scripts/TaskList.vim'
+
+	" An extensible & universal comment vim-plugin
+	" that also handles embedded filetypes
+	Bundle 'tomtom/tcomment_vim'
 
 	" Vim plugins for HTML and CSS hi-speed coding.
 	Bundle 'mattn/zencoding-vim'
@@ -167,25 +175,30 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## File Reading/Writing
 	" ======================================================================
-	"set modeline                " Allow vim options to be embedded in files;
-	"set modellines=5            " they must be within the first or last 5 lines.
+	"set modeline				" Allow vim options to be embedded in files;
+	"set modellines=5			" they must be within the first
+								" or last 5 lines.
+
 	set noautowrite             " Never write a file unless I request it.
 	set noautowriteall          " NEVER.
 	set noautoread              " Don't automatically re-read changed files.
-	set ffs=unix,mac,dos        " Try recognizing dos, unix and mac line endings.
+	set ffs=unix,mac,dos        " Try recognizing dos, unix
+								" and mac line endings.
 	let &termencoding=&encoding " Encoding detection
-	set fileencodings=ucs-bom,utf-8,cp936,euc-cn,cp950,big5,euc-tw,default,latin1
+	set fileencodings=ucs-bom,utf-8,cp936,euc-cn,cp950,big5,euc-tw,default
+				\,latin0
 
 	" ======================================================================
 	" ## Display
 	" ======================================================================
 	syntax enable               " syntax highlighting
 	set number                  " Display line numbers
-	set numberwidth=1           " using only 1 column (and 1 space) while possible
+	set numberwidth=1           " using only 1 column (and 1 space)
+								" while possible
 	"set background=dark        " We are using dark background in vim
 	set cursorline              " have a line indicate the cursor location
-	"set nowrap                  " don't wrap text
-	set linebreak               " don't wrap textin the middle of a world
+	"set nowrap					" don't wrap text
+	set linebreak               " don't wrap text in the middle of a world
 	"set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 	"set listchars=tab:▸\ ,eol:↵
 	set listchars=tab:│┈,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
@@ -229,29 +242,45 @@ set helplang=cn             " Enable help in Chinese language
 	" ====================================================================
 	" ## Messages/Info/Status
 	" ====================================================================
-	"set vb t_vb=                " Disable all bells. I hate ringing/flashing.
+	"set vb t_vb=				" Disable all bells. I hate ringing/flashing.
 	set title                   " show title in console title bar
 	set ruler                   " show the cursor position all the time
-	set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
-	set laststatus=2            " Always show status line, even if only 1 window.
-	" 缓冲区号 文件名 行数 修改 帮助 只读 编码 换行符 BOM ======== 字符编码 位置 百分比位置
-	set statusline=%n\ %<%f\ %LL\ %{&modified?'[+]':&modifiable\|\|&ft=~'^\\vhelp\|qf$'?'':'[-]'}%h%r%{&fenc=='utf-8'\|\|&fenc==''?'':'['.&fenc.']'}%{&ff=='unix'?'':'['.&ff.']'}%{&bomb?'[BOM]':''}%{&eol?'':'[noeol]'}%=%{rvm#statusline()}%{fugitive#statusline()}\ 0x%-4.4B\ \ \ \ %-14.(%l,%c%V%)\ %P
-	"set statusline=%<%f\ (%{&ft})%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
+	set shortmess+=a            " Use [+]/[RO]/[w] for
+								" modified/readonly/written.
+	set laststatus=2            " Always show status line,
+								" even if only 1 window.
+	" 缓冲区号 文件名 行数 修改 帮助 只读 编码 换行符 BOM
+	" ======== 字符编码 位置 百分比位置
+	set statusline=%n\ %<%f\ %LL\ 
+				\%{&modified?'[+]':&modifiable\|\|
+				\&ft=~'^\\vhelp\|qf$'?'':'[-]'}%h%r
+				\%{&fenc=='utf-8'\|\|&fenc==''?'':'['.&fenc.']'}
+				\%{&ff=='unix'?'':'['.&ff.']'}
+				\%{&bomb?'[BOM]':''}%{&eol?'':'[noeol]'}
+				\%=%{rvm#statusline()}%{fugitive#statusline()}
+				\\ 0x%-4.4B\ \ \ \ %-14.(%l,%c%V%)\ %P
+	"set statusline=%<%f\ (%{&ft})
+				\%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
 	set wildmenu                " Menu completion in commond mode on <Tab>
 	set wildmode=full           " <Tab> cycles between all matching choices.
 	set wildignore+=*.o,*.obj,*.git,*.pyc
 								" Ignore these files when completing
-	set showcmd                 " Show incomplete normal mode commands as I type.
+	set showcmd                 " Show incomplete normal mode commands
+								" as I type.
 	set confirm                 " Y-N-C prompt if closing with unsaved changes.
 	set report=0                " : commands always print changed line count.
 
 	" ======================================================================
 	" ## Moving/Editing
 	" ====================================================================
-	set backspace=2             " Allow backspacing over autoindext, EOL and BOL
-	set nostartofline           " Avoid moving cursor to BOL when jumping around
-	set scrolloff=3             " Keep 3 context lines above and below the cursor
-	set virtualedit=block       " Let cursor move past the last char in <C-v> mode
+	set backspace=2             " Allow backspacing over autoindext,
+								" EOL and BOL
+	set nostartofline           " Avoid moving cursor to BOL
+								" when jumping around
+	set scrolloff=3             " Keep 3 context lines above
+								" and below the cursor
+	set virtualedit=block       " Let cursor move past the last char
+								" in <C-v> mode
 
 	set showmatch               " Briefly jump to a paren once it's balanced
 	set matchtime=2             " (for only .2 seconds)
@@ -260,11 +289,12 @@ set helplang=cn             " Enable help in Chinese language
 	set foldmethod=indent       " allow us to fold on indents
 	set foldlevel=99            " don't fold by default
 
-	"au BufEnter * lcd %:p:h	" Auto change the directory to the current file I'm working on
+	"au BufEnter * lcd %:p:h	" Auto change the directory
+								" to the current file I'm working on
 
+	" close preview window automatically when we move around
 	"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 	"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-								" close preview window automatically when we move around
 
 	" ======================================================================
 	" ## Indentation
@@ -273,14 +303,14 @@ set helplang=cn             " Enable help in Chinese language
 	set tabstop=4               " <tab> inserts 4 spaces
 	set shiftwidth=4            " and an indent level is 4 spaces wide
 	set softtabstop=4           " <BS> over an autoindent deletes both spaces.
-	"set expandtab               " Use spaces, not tabs, for autoindent/tab key.
-	"set shiftround              " rounds indent to a multiple of shiftwidth
+	"set expandtab				" Use spaces, not tabs, for autoindent/tab key.
+	"set shiftround				" rounds indent to a multiple of shiftwidth
 
 	" ======================================================================
 	" ## Completion
 	" ======================================================================
+	" don't select first item, follow typeing in autocomplete
 	set completeopt=menuone,longest,preview
-								" don't select first item, follow typeing in autocomplete
 	set pumheight=20            " Keep a small completion window
 
 	" Refer: ft-syntax-omni
@@ -295,10 +325,11 @@ set helplang=cn             " Enable help in Chinese language
 	" ## Searching/Patterns
 	" ======================================================================
 	set ignorecase              " Default to using case insensitive searches,
-	set smartcase               " unless uppercase letters are used in the regex.
+	set smartcase               " unless uppercase letters are used
+								" in the regex.
 	set hlsearch                " Highlight searches by default.
 	set incsearch               " Incrementally search while typing a /regex
-	"set grepprg=ack-prep        " replace the default grep program with ack
+	"set grepprg=ack-prep		" replace the default grep program with ack
 
 	" ======================================================================
 	" ## Key Mapping
@@ -355,8 +386,8 @@ set helplang=cn             " Enable help in Chinese language
 		imap <silent> <C-I><C-D> <C-R>=strftime('%F')<CR>
 	endif
 
-	" and lets make these all work in insert mode too ( <C-O> makes next cmd
-	" happend as if in command mode )
+	" and lets make these all work in insert mode too
+	" ( <C-O> makes next cmd happend as if in command mode )
 	"imap <C-W> <C-O><C-W>
 
 	" Move line
@@ -429,7 +460,8 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
 	au FileType python set omnifunc=pythoncomplete#Complete
-	au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+	au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\
+				\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 	"au FileType python compiler nose
 
 	" Improve formatting and display of improper indentation.
@@ -451,14 +483,14 @@ set helplang=cn             " Enable help in Chinese language
 		" ====================================================================
 		" ### Plugins for Python
 		" ====================================================================
-			" ====================================================================
+			" ================================================================
 			" #### Pep8
-			" ====================================================================
+			" ================================================================
 			"let g:pep8_map='<leader>8'  " Run pep8
 
-			" ====================================================================
+			" ================================================================
 			" #### Py.test
-			" ====================================================================
+			" ================================================================
 			" Execute the tests
 			"nmap <silent><leader>tf <Esc>:Pytest file<CR>
 			"nmap <silent><leader>tc <Esc>:Pytest class<CR>
@@ -469,20 +501,21 @@ set helplang=cn             " Enable help in Chinese language
 			"nmap <silent><leader>tp <Esc>:Pytest previous<CR>
 			"nmap <silent><leader>te <Esc>:Pytest error<CR>
 
-			" ====================================================================
+			" ================================================================
 			" #### Pydiction
-			" ====================================================================
+			" ================================================================
 			"let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
 			" The default menu height is 15.
 			"let g:pydiction_menu_height = 20
 
-			" ====================================================================
+			" ================================================================
 			" #### Pyflakes
-			" ====================================================================
+			" ================================================================
 			" Don't let pyflakes use the quickfix window
 			let g:pyflakes_use_quickfix=0
 
-			" clear the search bufrer when hitting return and update pyflakes checks
+			" clear the search bufrer when hitting return
+			" and update pyflakes checks
 			function! PressedEnter()
 				:nohlsearch
 				if &filetype == 'python'
@@ -490,17 +523,17 @@ set helplang=cn             " Enable help in Chinese language
 				end
 			endfunction
 
-			" ====================================================================
+			" ================================================================
 			" #### Rope
-			" ====================================================================
+			" ================================================================
 			" Jump to the definition of whatever the cursor is on 
 			"map <leader>j :RopeGotoDefinition<CR>
 			" Rename whatever the cursor is on (including references to it)
 			"map <leader>r :RopeRename<CR>
 
-			" ====================================================================
+			" ================================================================
 			" #### Nose, Django-Nose, MakeGreen
-			" ====================================================================
+			" ================================================================
 			" Run django tests
 			"map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
 
@@ -508,14 +541,15 @@ set helplang=cn             " Enable help in Chinese language
 	" ## Ruby
 	" ======================================================================
 	au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 sta et ai
-	au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
+	au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile
+				\,Guardfile,Capfile set ft=ruby
 
 	" ======================================================================
 	" ## Plugins for Ruby
 	" ======================================================================
-		" ======================================================================
+		" =================================================================
 		" ### Vim-Ruby
-		" ======================================================================
+		" =================================================================
 		autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 		autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 		autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
