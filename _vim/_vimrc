@@ -257,7 +257,9 @@ set helplang=cn             " Enable help in Chinese language
 				\%{&fenc=='utf-8'\|\|&fenc==''?'':'['.&fenc.']'}
 				\%{&ff=='unix'?'':'['.&ff.']'}
 				\%{&bomb?'[BOM]':''}%{&eol?'':'[noeol]'}
-				\%=%{rvm#statusline()}%{fugitive#statusline()}
+				\%=
+				\%{exists('$rvm_path')?rvm#statusline():''}
+				\%{fugitive#statusline()}
 				\\ 0x%-4.4B\ \ \ \ %-14.(%l,%c%V%)\ %P
 	"set statusline=%<%f\ (%{&ft})
 				\%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
@@ -336,7 +338,9 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" Note: Do not map <C-S>, <C-Q> or <C-unprintable>
 
-	set macmeta					" Enable option key as meta key under Mac
+	if exists('&macmeta')
+		set macmeta				" Enable option key as meta key under Mac
+	endif
 	"let mapleader=","			" Change the leader to be a comma vs splash
 
 	" Autocomplete
