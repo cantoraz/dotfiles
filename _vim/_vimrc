@@ -46,7 +46,10 @@
 	Bundle 'mileszs/ack.vim'
 
 	" Allows easy search and opening of files within a given path 
-	Bundle 'wincent/Command-T'
+	" Bundle 'wincent/Command-T'
+
+	" Fuzzy file, buffer, mru and tag finder
+	Bundle 'kien/ctrlp.vim'
 
 	" Provides insert mode auto-completion for quotes, parens, brackets, etc.
     Bundle 'delimitMate.vim'
@@ -265,7 +268,8 @@ set helplang=cn             " Enable help in Chinese language
 				\%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
 	set wildmenu                " Menu completion in commond mode on <Tab>
 	set wildmode=full           " <Tab> cycles between all matching choices.
-	set wildignore+=*.o,*.obj,*.git,*.pyc
+	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+				\,*.so,*/.o,*/.obj,*/.pyc
 								" Ignore these files when completing
 	set showcmd                 " Show incomplete normal mode commands
 								" as I type.
@@ -339,7 +343,7 @@ set helplang=cn             " Enable help in Chinese language
 	" Note: Do not map <C-S>, <C-Q> or <C-unprintable>
 
 	if exists('&macmeta')
-		set macmeta				" Enable option key as meta key under Mac
+		" set macmeta				" Enable option key as meta key under Mac
 	endif
 	"let mapleader=","			" Change the leader to be a comma vs splash
 
@@ -367,11 +371,6 @@ set helplang=cn             " Enable help in Chinese language
 	" Save
 	nmap <C-X><C-X> <Esc>:update<CR>
 	map! <C-X><C-X> <Esc>:update<CR>a
-
-	" Cycle buffers
-	map <C-X><C-B> :ls<CR>
-	map <C-N> :bnext<CR>
-	map <C-P> :bprevious<CR>
 
 	" Cycle windows
 	map <C-J> <C-W>j
@@ -420,12 +419,19 @@ set helplang=cn             " Enable help in Chinese language
 	" reloads .vimrc -- making all changes active (have to save first)
 	map <silent> <leader>V :source ~/.vimrc<CR>:echo 'vimrc reloaded.'<CR>
 
-	" List/Cycle buffers
+	" List buffers
+	map <leader>bb :ls<CR>
+	" Delete current buffer
+	map <leader>bd :bd<CR>
+	" Cycle buffers
+	map <leader>bn :bnext<CR>
+	map <leader>bp :bprevious<CR>
+
 	" Change working directory
 	nnoremap <silent> <leader>. :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 
 	" Toggle line numbers and fold column for easy copying
-	nnoremap <leader>tn :set nonumber!<CR>:set foldcolumn=0<CR>
+	nnoremap <leader>nu :set nonumber!<CR>:set foldcolumn=0<CR>
 
 	" open/close the quickfix window
 	nmap <leader>c :copen<CR>
@@ -571,15 +577,19 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## Ack searching
 	" ======================================================================
-	"nmap <leader>a <Esc>:Ack!
+	nmap <leader>a <Esc>:Ack 
 
 	" ======================================================================
 	" ## Command-T
 	" ======================================================================
 	" Run command-t file search
-	map <C-T><C-T> :CommandT<CR>
-	map <C-T><C-B> :CommandTBuffer<CR>
-	map <C-T><C-F> :CommandTFlush<CR>
+	" map <leader>tt :CommandT<CR>
+	" map <leader>tb :CommandTBuffer<CR>
+	" map <leader>tf :CommandTFlush<CR>
+
+	" ======================================================================
+	" ## ctrlp.vim
+	" ======================================================================
 
 	" ======================================================================
 	" delimitMate"
@@ -591,26 +601,26 @@ set helplang=cn             " Enable help in Chinese language
 	" ## Gundo
 	" ======================================================================
 	" load the Gundo window
-	map <leader>tu :GundoToggle<CR>
+	map <leader>gu :GundoToggle<CR>
 
 	" ======================================================================
 	" ## MiniBufExpl
 	" ======================================================================
-	"let g:miniBufExplSplitToEdge = 1
-	"let g:miniBufExplorerMoreThanOne = 1
-	"let g:miniBufExplMapWindowNavVim = 1
-	"let g:miniBufExplMapWindowNavArrows = 1
-	"let g:miniBufExplMapCTabSwitchBufs = 1
-	"let g:miniBufExplUseSingleClick = 1
-	"let g:miniBufExplModSelTarget = 1
-	"let g:miniBufExplForceSyntaxEnable = 1
+	" let g:miniBufExplSplitToEdge = 1
+	" let g:miniBufExplorerMoreThanOne = 1
+	" let g:miniBufExplMapWindowNavVim = 1
+	" let g:miniBufExplMapWindowNavArrows = 1
+	" let g:miniBufExplMapCTabSwitchBufs = 1
+	" let g:miniBufExplUseSingleClick = 1
+	" let g:miniBufExplModSelTarget = 1
+	" let g:miniBufExplForceSyntaxEnable = 1
 
 	" ======================================================================
 	" ## Open NerdTree
 	" ======================================================================
 	"au VimEnter * NERDTree|wincmd p
 	"au TabEnter * NERDTreeMirror|wincmd p
-	map <leader>tf :NERDTreeToggle<CR>
+	map <leader>nt :NERDTreeToggle<CR>
 
 	" ======================================================================
 	" ## SuperTab - Allows us to get code completion with tab
@@ -622,12 +632,12 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	let Tlist_Show_One_File=1
 	let Tlist_Exit_OnlyWindow=1
-	map <leader>tl :TlistToggle<CR>
+	map <leader>tg :TlistToggle<CR>
 
 	" ======================================================================
 	" ## TaskList
 	" ======================================================================
-	map <leader>ta <Plug>TaskList
+	map <leader>ts <Plug>TaskList
 
 " ======================================================================
 " # Functions
