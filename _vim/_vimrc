@@ -140,6 +140,10 @@
 	" that also handles embedded filetypes
 	Bundle 'tomtom/tcomment_vim'
 
+	" tmux syntax
+	" Bundle 'tsaleh/vim-tmux'
+	Bundle 'acustodioo/vim-tmux'
+
 	" Vim plugins for HTML and CSS hi-speed coding.
 	Bundle 'mattn/zencoding-vim'
 
