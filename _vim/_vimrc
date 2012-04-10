@@ -470,6 +470,12 @@ set helplang=cn             " Enable help in Chinese language
 	au FileType javascript set makeprg=jsl\ %
 
 	" ======================================================================
+	" ## PHP
+	" ======================================================================
+	au FileType php setlocal ts=4 sts=4 sw=4 et ai
+	au FileType php map <buffer> <F11> :w<CR>:!/usr/bin/env php %<CR>
+
+	" ======================================================================
 	" ## Python
 	" ======================================================================
 	au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
@@ -624,6 +630,7 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	"au VimEnter * NERDTree|wincmd p
 	"au TabEnter * NERDTreeMirror|wincmd p
+	let NERDTreeWinPos = 'right'
 	map <leader>nt :NERDTreeToggle<CR>
 
 	" ======================================================================
