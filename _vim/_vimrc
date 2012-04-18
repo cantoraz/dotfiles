@@ -48,6 +48,9 @@
 	" Allows easy search and opening of files within a given path 
 	" Bundle 'wincent/Command-T'
 
+	" Auto-mirror of the official svn repo (syncs once per day)
+	Bundle 'rson/vim-conque'
+
 	" Fuzzy file, buffer, mru and tag finder
 	Bundle 'kien/ctrlp.vim'
 
@@ -114,14 +117,26 @@
 	"Bundle 'klen/rope-vim'
 	"Bundle 'sontek/rope-vim'
 
+	" Beautiful rspec output in vim.
+	" See also: https://github.com/skwp/vim-ruby-conque
+	" for non-blocking rspec through ConqueTerm
+	" Bundle 'skwp/vim-rspec'
+
 	" Vim/Ruby Configuration Files
 	Bundle 'vim-ruby/vim-ruby'
+
+	" Vim plugin to display ruby, rake, and rspec
+	" output colorized in ConqueTerm
+	Bundle 'skwp/vim-ruby-conque'
 
 	" switch Ruby versions from inside Vim
 	Bundle 'tpope/vim-rvm'
 
 	" Configurable snippets to avoid re-typing common comands
 	Bundle 'msanders/snipmate.vim'
+
+	" Functions to help make behavioral testing easy with ruby and rspec.
+	" Bundle 'vim-scripts/Specky'
 
 	" Perform all your vim insert mode completions with Tab
 	"Bundle 'ervandew/supertab'
@@ -557,6 +572,11 @@ set helplang=cn             " Enable help in Chinese language
 			" Run django tests
 			"map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
 
+	" ======================================================================
+	" ## RSpec
+	" ======================================================================
+	au BufRead *_spec.rb set ft=rspec
+	
 	" ======================================================================
 	" ## Ruby
 	" ======================================================================

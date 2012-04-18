@@ -1,0 +1,34 @@
+snippet enc
+	# encoding: UTF-8
+
+snippet re
+	require '${1:model name}'
+
+snippet ternary
+	${1:condition} ? ${2:when true} : ${3:when false}
+
+# RSpec
+snippet desc
+	describe "${1:method to test}" do
+		${2:# code}
+	end
+
+snippet cont
+	context "${1:context to test}" do
+		${2:# code}
+	end
+
+snippet it
+	it "${1:should}" do
+		${2:# code}
+	end
+
+snippet experr
+	expect {
+		${1:# code}
+	}.do raise_error(${2:Exception})
+
+snippet expchg
+	expect {
+		${1:# code}
+	}.do change { ${2:variable} }.from(${3:old}).to(${4:new})
