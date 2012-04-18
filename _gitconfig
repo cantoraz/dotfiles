@@ -3,3 +3,7 @@
 	email = cantoraz@gmail.com
 [color]
 	ui = auto
+[merge]
+	tool = mvimdiff
+[mergetool "mvimdiff"]
+	cmd = mvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
