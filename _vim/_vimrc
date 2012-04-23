@@ -55,7 +55,7 @@
 	Bundle 'kien/ctrlp.vim'
 
 	" Provides insert mode auto-completion for quotes, parens, brackets, etc.
-    Bundle 'delimitMate.vim'
+    " Bundle 'delimitMate.vim'
 
 	" Interface with git from vim
 	Bundle 'tpope/vim-fugitive'
@@ -402,11 +402,11 @@ set helplang=cn             " Enable help in Chinese language
 	map <C-V> "+p
 
 	" Insert current timestamp/date/time
-	if exists('*strftime')
-		imap <silent> <C-I><C-F> <C-R>=strftime('%a, %F %T %Z')<CR>
-		imap <silent> <C-I><C-T> <C-R>=strftime('%T %Z')<CR>
-		imap <silent> <C-I><C-D> <C-R>=strftime('%F')<CR>
-	endif
+	" if exists('*strftime')
+	" 	imap <silent> <C-I><C-F> <C-R>=strftime('%a, %F %T %Z')<CR>
+	" 	imap <silent> <C-I><C-T> <C-R>=strftime('%T %Z')<CR>
+	" 	imap <silent> <C-I><C-D> <C-R>=strftime('%F')<CR>
+	" endif
 
 	" and lets make these all work in insert mode too
 	" ( <C-O> makes next cmd happend as if in command mode )
@@ -420,6 +420,9 @@ set helplang=cn             " Enable help in Chinese language
 
 	" New line above
 	imap <S-CR> <Esc>O
+
+	" New line below
+	imap <C-CR> <Esc>o
 
 	" Turn off hlsearch on enter
 	nnoremap <CR> :nohlsearch<CR>
@@ -625,8 +628,8 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" delimitMate"
 	" ======================================================================
-	let delimitMate_expand_cr = 1
-	let delimitMate_expand_space = 1
+	" let delimitMate_expand_cr = 1
+	" let delimitMate_expand_space = 1
 
 	" ======================================================================
 	" ## Gundo
