@@ -55,7 +55,7 @@
 	Bundle 'kien/ctrlp.vim'
 
 	" Provides insert mode auto-completion for quotes, parens, brackets, etc.
-    " Bundle 'delimitMate.vim'
+    Bundle 'Raimondi/delimitMate'
 
 	" Interface with git from vim
 	Bundle 'tpope/vim-fugitive'
@@ -509,7 +509,7 @@ set helplang=cn             " Enable help in Chinese language
 	" Ability to run script beging edited.
 	" Execute file being edited with <F11>
 	au FileType python map <buffer> <F11> :w<CR>:!/usr/bin/env python %<CR>
-	" Debug file begin edited with <Shift> + <F11>
+	" Debug file being edited with <Shift> + <F11>
 	au FileType python map <buffer> <S-F11> :w<CR>:!/usr/bin/env python -m pdb %<CR>
 
 	" Trim trailing whitespace
@@ -580,11 +580,17 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	au BufRead *_spec.rb set ft=rspec
 	au FileType rspec setlocal commentstring=#\ %s
+	au FileType rspec let delimitMate_matchpairs = '(:),{:},[:]'
+	" Run current RSpec file being edited with <F11>
+	au FileType rspec map <buffer> <F11> :w<CR>:call RunRspecCurrentFileConque()<CR>
+	" Run current line in RSpec file being edited with <Shift> + <F11>
+	au FileType rspec map <buffer> <C-F11> :w<CR>:call RunRspecCurrentLineConque()<CR>
 	
 	" ======================================================================
 	" ## Ruby
 	" ======================================================================
 	au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 sta et ai
+	au FileType ruby let delimitMate_matchpairs = '(:),{:},[:]'
 	au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile
 				\,Guardfile,Capfile set ft=ruby
 
@@ -628,8 +634,8 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" delimitMate"
 	" ======================================================================
-	" let delimitMate_expand_cr = 1
-	" let delimitMate_expand_space = 1
+	let delimitMate_expand_cr = 1
+	let delimitMate_expand_space = 1
 
 	" ======================================================================
 	" ## Gundo
