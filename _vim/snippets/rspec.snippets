@@ -1,9 +1,18 @@
 snippet enc
 	# encoding: UTF-8
+snippet exer
+	expect {
+		${1:# code}
+	}.do raise_error(${2:Exception})
+snippet exch
+	expect {
+		${1:# code}
+	}.do change { ${2:variable} }.from(${3:old}).to(${4:new})
 snippet let
 	let(${1:sym}) { ${2} }
 snippet spe
 	specify { ${1} }
+
 #
 # specky: snippet file for rspec, to be used with the quite excellent
 # 'snipmate' Vim plugin by Michael Sanders <msanders42+vim@gmail.com>.

@@ -1,0 +1,49 @@
+snippet %
+	<% ${1} %>
+snippet %=
+	<%= ${1} %>
+snippet content
+	<%= content_for ${1}, ${2} %>
+snippet csrf
+	<%= csrf_meta_tags %>
+snippet each
+	<% ${1}.each do |${2}| %>
+		${3}
+	<% end %>
+snippet fit
+	<%= favicon_link_tag "${1:favicon.ico}" %>
+snippet form
+	<%= form_for ${1} do |${2:f}| %>
+		${3}
+	<$ end %>
+snippet html5
+	<!DOCTYPE html>
+snippet jit
+	<%= javascript_include_tag "${1:application}" %>
+snippet link
+	<%= link_to ${1:title}, ${2:url} %>
+snippet render
+	<%= render "${1}" %>
+snippet slt
+	<%= stylesheet_link_tag "${1:application}", :media => "${2:all}" %>
+snippet t
+	<%= t ${1} %>
+snippet yield
+	<%= yeild %>
+snippet if
+	<% if ${1} %>
+		${2}
+	<% end %>
+snippet ife
+	<% if ${1} %>
+		${2}
+	<% else %>
+		${3}
+	<% end %>
+snippet elsif
+	<% elsif ${1} %>
+		${2}
+snippet unless
+	<% unless ${1} %>
+		${2}
+	<% end %>
