@@ -45,6 +45,12 @@
 	"Bundle 'vim-scripts/ack.vim'
 	Bundle 'mileszs/ack.vim'
 
+	" CoffeeScript support for vim
+	Bundle 'kchmck/vim-coffee-script'
+
+	" Collections of snippets for CoffeScript
+	Bundle 'carlosvillu/coffeScript-VIM-Snippets'
+
 	" Allows easy search and opening of files within a given path 
 	" Bundle 'wincent/Command-T'
 
