@@ -4,6 +4,10 @@ snippet %=
 	<%= ${1} %>
 snippet content
 	<%= content_for ${1}, ${2} %>
+snippet contag
+	<%= content_tag_for ${1} do %>
+		${2}
+	<% end %>
 snippet csrf
 	<%= csrf_meta_tags %>
 snippet each
