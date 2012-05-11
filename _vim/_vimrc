@@ -57,6 +57,12 @@
 	" Auto-mirror of the official svn repo (syncs once per day)
 	Bundle 'rson/vim-conque'
 
+	" Highlight colors in css files
+	Bundle 'skammer/vim-css-color'
+
+	" Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
+	Bundle 'hail2u/vim-css3-syntax'
+
 	" Fuzzy file, buffer, mru and tag finder
 	Bundle 'kien/ctrlp.vim'
 
@@ -77,6 +83,9 @@
 
 	" An alternative indentation script for python
 	Bundle 'vim-scripts/indentpython.vim'
+
+	" vim syntax for LESS (dynamic CSS)
+	Bundle 'groenewege/vim-less'
 
 	" Extended % matching for HTML, LaTeX, and many other languages
 	Bundle 'vim-scripts/matchit.zip'
@@ -492,6 +501,11 @@ set helplang=cn             " Enable help in Chinese language
 	au FileType javascript setlocal ts=4 sts=4 sw=4 et ai
 	au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 	au FileType javascript set makeprg=jsl\ %
+
+	" ======================================================================
+	" ## LESS
+	" ======================================================================
+	au FileType less setlocal ts=2 sts=2 sw=2 noet ai
 
 	" ======================================================================
 	" ## PHP
