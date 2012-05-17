@@ -5,11 +5,21 @@ snippet %=
 snippet content
 	<%= content_for ${1}, ${2} %>
 snippet contag
+	<%= content_tag ${1} %>
+snippet contagd
+	<%= content_tag ${1} do %>
+		${2}
+	<% end %>
+snippet contf
+	<%= content_tag_for ${1} %>
+snippet contfd
 	<%= content_tag_for ${1} do %>
 		${2}
 	<% end %>
 snippet csrf
 	<%= csrf_meta_tags %>
+snippet debug
+	<%= debug ${1} %>
 snippet each
 	<% ${1}.each do |${2}| %>
 		${3}
@@ -33,7 +43,7 @@ snippet slt
 snippet t
 	<%= t ${1} %>
 snippet yield
-	<%= yeild %>
+	<%= yield %>
 snippet if
 	<% if ${1} %>
 		${2}
