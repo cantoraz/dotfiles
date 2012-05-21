@@ -52,6 +52,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 	source `brew --prefix`/etc/bash_completion
 fi
 
+# Use VIM as default editor for console utilities
 export EDITOR=vim
 
 # Virtualenvwrapper
@@ -68,6 +69,9 @@ esac
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
-	export RSENSE_HOME=$HOME/Applications/rsense-0.3
-fi
+# Load selected bash-compatible zsh conf from YADR
+[[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
+
+# if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
+# 	export RSENSE_HOME=$HOME/Applications/rsense-0.3
+# fi

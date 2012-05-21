@@ -17,3 +17,7 @@ fi
 if [[ -d "$HOME/Applications/Argyll_V1.3.3/bin" ]]; then
 	PATH="$HOME/Applications/Argyll_V1.3.3/bin":$PATH
 fi
+
+# Tools from YADR. Append them as last to avoid mix up preferred tools
+[[ -d "$YADR/bin" ]] && PATH=$PATH:"$YADR/bin"
+[[ -d "$YADR/bin/yadr" ]] && PATH=$PATH:"$YADR/bin/yadr"

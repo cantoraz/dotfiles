@@ -1,0 +1,10 @@
+# vim:ft=conf
+
+# YADR HOME
+export YADR="$HOME/.yadr"
+
+# Load selected bash-compatible zsh conf from YADR
+# Alias
+source "$YADR/zsh/aliases.zsh"
+source "$YADR/zsh/color-man-pages.zsh"
+source "$YADR/zsh/fasd.zsh"

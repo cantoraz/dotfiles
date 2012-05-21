@@ -1,3 +1,5 @@
+# vim:ft=conf
+
 case "$SHELL" in
 	'/bin/bash')
 		alias ls='ls -G'
@@ -11,4 +13,4 @@ alias ll='ls -l'
 alias lh='ls -lh'
 alias vi='vim'
 alias crontab='EDITOR=/usr/bin/vim crontab'
-alias tailf='tail -f'	
+alias tailf='tail -f'
