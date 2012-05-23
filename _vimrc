@@ -340,11 +340,11 @@ set helplang=cn             " Enable help in Chinese language
 	" ## Indentation
 	" ======================================================================
 	set autoindent              " always set autoindenting on
-	set tabstop=4               " <tab> inserts 4 spaces
-	set shiftwidth=4            " and an indent level is 4 spaces wide
-	set softtabstop=4           " <BS> over an autoindent deletes both spaces.
-	"set expandtab				" Use spaces, not tabs, for autoindent/tab key.
-	"set shiftround				" rounds indent to a multiple of shiftwidth
+	set tabstop=2               " <tab> inserts 4 spaces
+	set shiftwidth=2            " and an indent level is 4 spaces wide
+	set softtabstop=2           " <BS> over an autoindent deletes both spaces.
+	" set expandtab				" Use spaces, not tabs, for autoindent/tab key.
+	" set shiftround				" rounds indent to a multiple of shiftwidth
 
 	" ======================================================================
 	" ## Completion
@@ -480,43 +480,43 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## C
 	" ======================================================================
-	au FileType c setlocal ts=4 sts=4 sw=4 sta et ai
+	au FileType c setlocal ts=4 sts=4 sw=4 et ai sta 
 	au FileType c set omnifunc=ccomplete#Complete
 
 	" ======================================================================
 	" ## CSS
 	" ======================================================================
-	au FileType css setlocal ts=2 sts=2 sw=2 noet ai
+	au FileType css setlocal ts=2 sts=2 sw=2 et ai sta
 	au FileType css set omnifunc=csscomplete#CompleteCSS
 	
 	" ======================================================================
 	" ## HTML
 	" ======================================================================
-	au FileType html,xhtml setlocal ts=2 sts=2 sw=2 noet ai
+	au FileType html,xhtml setlocal ts=2 sts=2 sw=2 noet ai sta
 	au FileType html set omnifunc=htmlcomplete#CompleteTags
 
 	" ======================================================================
 	" ## Javscript
 	" ======================================================================
-	au FileType javascript setlocal ts=4 sts=4 sw=4 et ai
+	au FileType javascript setlocal ts=2 sts=2 sw=2 et ai sta
 	au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 	au FileType javascript set makeprg=jsl\ %
 
 	" ======================================================================
 	" ## LESS
 	" ======================================================================
-	au FileType less setlocal ts=2 sts=2 sw=2 noet ai
+	au FileType less setlocal ts=2 sts=2 sw=2 et ai sta
 
 	" ======================================================================
 	" ## PHP
 	" ======================================================================
-	au FileType php setlocal ts=4 sts=4 sw=4 et ai
+	au FileType php setlocal ts=2 sts=2 sw=2 et ai sta
 	au FileType php map <buffer> <F11> :w<CR>:!/usr/bin/env php %<CR>
 
 	" ======================================================================
 	" ## Python
 	" ======================================================================
-	au FileType python setlocal ts=4 sts=4 sw=4 sta et ai
+	au FileType python setlocal ts=4 sts=4 sw=4 et ai sta
 	au FileType python set omnifunc=pythoncomplete#Complete
 	au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\
 				\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
@@ -609,7 +609,7 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## Ruby
 	" ======================================================================
-	au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 sta et ai
+	au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 et ai sta
 	au FileType ruby let delimitMate_matchpairs = '(:),{:},[:]'
 	au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile
 				\,Guardfile,Capfile set ft=ruby
@@ -629,7 +629,8 @@ set helplang=cn             " Enable help in Chinese language
 	" ======================================================================
 	" ## Vim
 	" ======================================================================
-	set listchars=tab:▸\ ,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
+	au FileType vim setlocal ts=2 sts=2 sw=2 noet ai sta
+	" au FileType vim set listchars=tab:▸\ ,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
 
 " ======================================================================
 " # General Plugins
