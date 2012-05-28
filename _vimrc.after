@@ -2,337 +2,352 @@
 " Extracted settings from .vimrc in my own dotfiles
 "
 " Title: Cantoraz's vimrc
-" Author: Cantoraz
+" Author: Cantoraz Chou
 " License: GPLv3
-" Date: Mon, 2012-05-21 22:21:10 CST
+" Date: Mon, 2012-05-28 20:31:13 CST
 
-" ==================== Plugins Management ====================
-	" ==================== Vundle - Manage our vim plugins ====================
-	" original repos on github:
-	" Eg, Bundle 'lokaltog/vim-easymotion'
-	" Eg, Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-	"
-	" vim-scripts repos:
-	" Eg, Bundle 'L9'
-	" Eg, Bundle 'FuzzyFinder'
-	" Eg, Bundle 'rails.vim'
-	"
-	" non github repos:
-	" Eg, Bundle 'git://git.wincent.com/command-t.git'
+" ==================== Vundle - Manage our vim plugins ====================
+set nocompatible  " be iMproved
+filetype off      " required!
+set rtp+=$HOME/dotfiles/_vim/bundle/vundle/
+call vundle#rc('$HOME/dotfiles/_vim/bundle/')
 
-	" Load all plugins
-	set nocompatible			" be iMproved
-	filetype off				" required!
-	set rtp+=~/.vim/bundle/vundle/
-	call vundle#rc()
+" The plug-in manager for Vim. Here let Vundle manage Vundel
+Bundle 'gmarik/vundle'
+" ========== general ==========
+" Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+" Bundle 'vim-scripts/taglist.vim'
+" Eclipse like task list
+" Bundle 'vim-scripts/TaskList.vim'
+" ========== color schemes ==========
+" A slightly-modified desert theme, for 88- and 256-color xterms.
+Bundle 'desert256.vim'
+" A port of the Railscasts Textmate theme to Vim (GUI Only)
+Bundle 'jpo/vim-railscasts-theme'
+" A color scheme that imitates the Twilight theme for TextMate
+Bundle 'twilight256.vim'
+" A low-contrast color scheme for Vim. 
+Bundle 'Zenburn'
+" ========== coffee script ==========
+" Collections of snippets for CoffeScript
+Bundle 'carlosvillu/coffeScript-VIM-Snippets'
+" ========== css ==========
+" vim syntax for LESS (dynamic CSS)
+Bundle 'groenewege/vim-less'
+" Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
+Bundle 'hail2u/vim-css3-syntax'
+" Highlight colors in css files
+Bundle 'skammer/vim-css-color'
+" ========== python ==========
+" Run py.test test's from within vim 
+"Bundle 'alfredodeza/pytest.vim'
+" pydoc integration for the best text editor on earth
+"Bundle 'fs111/pydoc.vim'
+" Pathogen compatable ropevim plugin. Dont need install rope libs in system.
+"Bundle 'klen/rope-vim'
+" Underlines and displays errors with Python on-the-fly.
+" An improved pyflakes module is INCLUDED with this plugin,
+" so you don't need to install it separately
+" Bundle 'mitechie/pyflakes-pathogen'
+" Generic test runner that works with nose
+"Bundle 'reinh/vim-makegreen'
+" Pathogen compatable ropevim plugin. Dont need install rope libs in system.
+"Bundle 'sontek/rope-vim'
+" Tab-complete your Python code
+"Bundle 'vim-scripts/Pydiction'
+" An alternative indentation script for python
+" Bundle 'vim-scripts/indentpython.vim'
+" Check your python source files with PEP8
+"Bundle 'vim-scripts/pep8'
+" Bundle 'vim-scripts/python.vim--Vasiliev'
+" Bundle 'vim-scripts/python.vim'
+" ========== ruby ==========
+" switch Ruby versions from inside Vim
+" Bundle 'tpope/vim-rvm'
+" ========== tmux ==========
+" tmux syntax
+" Bundle 'tsaleh/vim-tmux'
+Bundle 'acustodioo/vim-tmux'
 
-	Bundle 'gmarik/vundle'				" The plug-in manager for Vim. Here let Vundle manage Vundel
-	" ========== general ==========
-	Bundle 'vim-scripts/taglist.vim'	" Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
-	Bundle 'vim-scripts/TaskList.vim'	" Eclipse like task list
-	" ========== color schemes ==========
-	Bundle 'desert256.vim'				" A slightly-modified desert theme, for 88- and 256-color xterms.
-	Bundle 'jpo/vim-railscasts-theme'	" A port of the Railscasts Textmate theme to Vim (GUI Only)
-	Bundle 'twilight256.vim'			" A color scheme that imitates the Twilight theme for TextMate
-	Bundle 'Zenburn'					" A low-contrast color scheme for Vim. 
-	" ========== coffee script ==========
-	Bundle 'carlosvillu/coffeScript-VIM-Snippets'	" Collections of snippets for CoffeScript
-	" ========== css ==========
-	Bundle 'groenewege/vim-less'		" vim syntax for LESS (dynamic CSS)
-	Bundle 'hail2u/vim-css3-syntax'		" Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
-	Bundle 'skammer/vim-css-color'		" Highlight colors in css files
-	" ========== python ==========
-	"Bundle 'alfredodeza/pytest.vim'		" Run py.test test's from within vim 
-	"Bundle 'fs111/pydoc.vim'				" pydoc integration for the best text editor on earth
-	"Bundle 'klen/rope-vim'					" Pathogen compatable ropevim plugin. Dont need install rope libs in system.
-	" Bundle 'mitechie/pyflakes-pathogen'	" Underlines and displays errors with Python on-the-fly.
-											" An improved pyflakes module is INCLUDED with this plugin,
-											" so you don't need to install it separately
-	"Bundle 'reinh/vim-makegreen'			" Generic test runner that works with nose
-	"Bundle 'sontek/rope-vim'				" Pathogen compatable ropevim plugin. Dont need install rope libs in system.
-	"Bundle 'vim-scripts/Pydiction'			" Tab-complete your Python code
-	" Bundle 'vim-scripts/indentpython.vim'	" An alternative indentation script for python
-	"Bundle 'vim-scripts/pep8'				" Check your python source files with PEP8
-	" Bundle 'vim-scripts/python.vim'		" Bundle 'vim-scripts/python.vim--Vasiliev'
-	" ========== ruby ==========
-	" Bundle 'tpope/vim-rvm'			" switch Ruby versions from inside Vim
-	" ========== tmux ==========
-	" Bundle 'tsaleh/vim-tmux'			" tmux syntax
-	Bundle 'acustodioo/vim-tmux'		" tmux syntax
-
-	" ==================== Pathogen - organize our vim plugins out of Vundle ====================
-	" Load pathogen with docs for all plugins
-	call pathogen#runtime_append_all_bundles('nobundle')
-	call pathogen#helptags()
+" ==================== Pathogen - organize our vim plugins out of Vundle ====================
+" Load pathogen with docs for all plugins
+call pathogen#runtime_append_all_bundles('$HOME/dotfiles/_vim/nobundle')
+call pathogen#helptags()
 
 " ==================== General Settings ====================
 filetype plugin indent on   " required! Trye to detect filetypes. Enable loading indent file for filetype
 set helplang=cn             " Enable help in Chinese language
 
-	" ==================== File Reading/Writing ====================
-	"set modeline				" Allow vim options to be embedded in files;
-	"set modellines=5			" they must be within the first or last 5 lines.
-	set noautowrite             " Never write a file unless I request it.
-	set noautowriteall          " NEVER.
-	set noautoread              " Don't automatically re-read changed files.
-	set ffs=unix,mac,dos        " Try recognizing dos, unix and mac line endings.
-	let &termencoding=&encoding " Encoding detection
-	set fileencodings=ucs-bom,utf-8,cp936,euc-cn,cp950,big5,euc-tw,default,latin0
+  " ==================== File Reading/Writing ====================
+  "set modeline        " Allow vim options to be embedded in files;
+  "set modellines=5      " they must be within the first or last 5 lines.
+  set noautowrite             " Never write a file unless I request it.
+  set noautowriteall          " NEVER.
+  set noautoread              " Don't automatically re-read changed files.
+  set ffs=unix,mac,dos        " Try recognizing dos, unix and mac line endings.
+  let &termencoding=&encoding " Encoding detection
+  set fileencodings=ucs-bom,utf-8,cp936,euc-cn,cp950,big5,euc-tw,default,latin0
 
-	" ==================== Display ====================
-	syntax enable               " syntax highlighting
-	set number                  " Display line numbers
-	set numberwidth=1           " using only 1 column (and 1 space)
-								" while possible
-	"set background=dark        " We are using dark background in vim
-	set cursorline              " have a line indicate the cursor location
-	"set nowrap					" don't wrap text
-	set linebreak               " don't wrap text in the middle of a world
-	"set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-	"set listchars=tab:▸\ ,eol:↵
-	set listchars=tab:│┈,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
+  " ==================== Display ====================
+  syntax enable               " syntax highlighting
+  set number                  " Display line numbers
+  set numberwidth=1           " using only 1 column (and 1 space)
+                " while possible
+  "set background=dark        " We are using dark background in vim
+  set cursorline              " have a line indicate the cursor location
+  " set nowrap                  " don't wrap text
+  set linebreak               " don't wrap text in the middle of a world
+  "set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
+  "set listchars=tab:▸\ ,eol:↵
+  set listchars=tab:│┈,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
 
-	" set t_Co=256
-	" colorscheme twilight256
+  " set t_Co=256
+  " colorscheme twilight256
 
-	if has('gui_running')
-		" colorscheme railscasts
-		" set guicursor+=a:blinkon0
-		set list                " displays tabs with :set list. displays when a line runs off-screen
-		if has("gui_macvim")    " MacVim
-			let s:caz_guifont = "Menlo:h14"
-			" let s:caz_lines = 999
-			" let s:caz_columns = 84
-		elseif has("gui_gtk2")  " GTK+2
-			let s:caz_guifont = "DejaVu\ Sans\ Mono\ 12"
-			" let s:caz_lines = 50
-			" let s:caz_columns = 84
-		elseif has("gui_win32") " WIN32
-			let s:caz_guifont = "DejaVu\ Sans\ Mono:h13"
-			" let s:caz_lines = 38
-			" let s:caz_columns = 84
-		endif
+  if has('gui_running')
+    " colorscheme railscasts
+    " set guicursor+=a:blinkon0
+    set list                  " displays tabs with :set list.
+                              " displays when a line runs off-screen
+    if has("gui_macvim")                          " MacVim
+      let s:caz_guifont = "Menlo:h14"
+      let s:caz_lines = 999
+      " let s:caz_columns = 84
+    elseif has("gui_gtk2")                        " GTK+2
+      let s:caz_guifont = "DejaVu\ Sans\ Mono\ 12"
+      " let s:caz_lines = 50
+      " let s:caz_columns = 84
+    elseif has("gui_win32")                       " WIN32
+      let s:caz_guifont = "DejaVu\ Sans\ Mono:h13"
+      " let s:caz_lines = 38
+      " let s:caz_columns = 84
+    endif
 
-		let &guifont = s:caz_guifont
-		" let &lines = s:caz_lines
-		" if !exists('b:caz_columns_saved')
-		" 	let &columns = s:caz_columns
-		" 	let b:caz_columns_saved = &columns
-		" endif
-	endif
+    let &guifont = s:caz_guifont
+    let &lines = s:caz_lines
+    " if !exists('b:caz_columns_saved')
+    "   let &columns = s:caz_columns
+    "   let b:caz_columns_saved = &columns
+    " endif
+  endif
 
-	if exists("&colorcolumn")
-		setlocal colorcolumn=80
-		" Incompatible with MiniBufExpl, hack this color in used ColorScheme
-		"hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
-	endif
+  if exists("&colorcolumn")
+    setlocal colorcolumn=80
+    " Incompatible with MiniBufExpl, hack this color in used ColorScheme
+    "hi ColorColumn term=reverse ctermbg=3 guibg=#3d3535
+  endif
 
-	" ==================== Messages/Info/Status ====================
-	"set vb t_vb=				" Disable all bells. I hate ringing/flashing.
-	set title                   " show title in console title bar
-	set ruler                   " show the cursor position all the time
-	set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
-	set laststatus=2            " Always show status line, even if only 1 window.
+  " ==================== Messages/Info/Status ====================
+  "set vb t_vb=        " Disable all bells. I hate ringing/flashing.
+  set title           " show title in console title bar
+  set ruler           " show the cursor position all the time
+  set shortmess+=a    " Use [+]/[RO]/[w] for modified/readonly/written.
+  set laststatus=2    " Always show status line, even if only 1 window.
 
-	" 缓冲区号 文件名 行数 修改 帮助 只读 编码 换行符 BOM ======== 字符编码 位置 百分比位置
-	set statusline=%n\ %<%f\ %LL\ 
-				\%{&modified?'[+]':&modifiable\|\|
-				\&ft=~'^\\vhelp\|qf$'?'':'[-]'}%h%r
-				\%{&fenc=='utf-8'\|\|&fenc==''?'':'['.&fenc.']'}
-				\%{&ff=='unix'?'':'['.&ff.']'}
-				\%{&bomb?'[BOM]':''}%{&eol?'':'[noeol]'}
-				\%=
-				\%{exists('$rvm_path')?rvm#statusline():''}
-				\%{fugitive#statusline()}
-				\\ 0x%-4.4B\ \ \ \ %-14.(%l,%c%V%)\ %P
-	"set statusline=%<%f\ (%{&ft})
-				\%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
-	set wildmenu                " Menu completion in commond mode on <Tab>
-	set wildmode=full           " <Tab> cycles between all matching choices.
-	" Ignore these files when completing
-	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/.o,*/.obj,*/.pyc
-	set showcmd                 " Show incomplete normal mode commands as I type.
-	set confirm                 " Y-N-C prompt if closing with unsaved changes.
-	set report=0                " : commands always print changed line count.
+  " 缓冲区号 文件名 行数 修改 帮助 只读 编码 换行符 BOM
+  " ======== 字符编码 位置 百分比位置
+  set statusline=%n\ %<%f\ %LL\ 
+        \%{&modified?'[+]':&modifiable\|\|
+        \&ft=~'^\\vhelp\|qf$'?'':'[-]'}%h%r
+        \%{&fenc=='utf-8'\|\|&fenc==''?'':'['.&fenc.']'}
+        \%{&ff=='unix'?'':'['.&ff.']'}
+        \%{&bomb?'[BOM]':''}%{&eol?'':'[noeol]'}
+        \%=
+        \%{exists('$rvm_path')?rvm#statusline():''}
+        \%{fugitive#statusline()}
+        \\ 0x%-4.4B\ \ \ \ %-14.(%l,%c%V%)\ %P
+  "set statusline=%<%f\ (%{&ft})%=%-19(%3l,%02c0%03V%)%{fugitive#statusline()}
+  set wildmenu                " Menu completion in commond mode on <Tab>
+  set wildmode=full           " <Tab> cycles between all matching choices.
+  " Ignore these files when completing
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/.o,*/.obj,*/.pyc
+  set showcmd                 " Show incomplete normal mode commands as I type.
+  set confirm                 " Y-N-C prompt if closing with unsaved changes.
+  set report=0                " : commands always print changed line count.
 
-	" ==================== Moving/Editing ====================
-	set backspace=2             " Allow backspacing over autoindext, EOL and BOL
-	set nostartofline           " Avoid moving cursor to BOL when jumping around
-	set scrolloff=3             " Keep 3 context lines above and below the cursor
-	set virtualedit=block       " Let cursor move past the last char in <C-v> mode
+  " ==================== Moving/Editing ====================
+  set backspace=2             " Allow backspacing over autoindext, EOL and BOL
+  set nostartofline           " Avoid moving cursor to BOL when jumping around
+  set scrolloff=3             " Keep 3 context lines above and below the cursor
+  set virtualedit=block       " Let cursor move past the last char in <C-v> mode
 
-	set showmatch               " Briefly jump to a paren once it's balanced
-	set matchtime=2             " (for only .2 seconds)
-	set matchpairs+=<:>         " show matching <> (xml/html mainly) as well
+  set showmatch               " Briefly jump to a paren once it's balanced
+  set matchtime=2             " (for only .2 seconds)
+  set matchpairs+=<:>         " show matching <> (xml/html mainly) as well
 
-	set foldmethod=indent       " allow us to fold on indents
-	set foldlevel=99            " don't fold by default
+  set foldmethod=indent       " allow us to fold on indents
+  set foldlevel=99            " don't fold by default
 
-	"au BufEnter * lcd %:p:h	" Auto change the directory to the current file I'm working on
+  "au BufEnter * lcd %:p:h  " Auto change the directory to the current file I'm working on
 
-	" close preview window automatically when we move around
-	"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-	"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+  " close preview window automatically when we move around
+  "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+  "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-	" ==================== Indentation ====================
-	set autoindent              " always set autoindenting on
-	set tabstop=2               " <tab> inserts 4 spaces
-	set shiftwidth=2            " and an indent level is 4 spaces wide
-	set softtabstop=2           " <BS> over an autoindent deletes both spaces.
-	set expandtab				" Use spaces, not tabs, for autoindent/tab key.
-	"set shiftround				" rounds indent to a multiple of shiftwidth
+  " ==================== Indentation ====================
+  set autoindent      " always set autoindenting on
+  set tabstop=2       " <tab> inserts 4 spaces
+  set shiftwidth=2    " and an indent level is 4 spaces wide
+  set softtabstop=2   " <BS> over an autoindent deletes both spaces.
+  set expandtab       " Use spaces, not tabs, for autoindent/tab key.
+  set smarttab
+  " set shiftround      " rounds indent to a multiple of shiftwidth
 
-	" ==================== Completion ====================
-	" don't select first item, follow typeing in autocomplete
-	set completeopt=menuone,longest,preview
-	set pumheight=20            " Keep a small completion window
+  " ==================== Completion ====================
+  " don't select first item, follow typeing in autocomplete
+  set completeopt=menuone,longest,preview
+  set pumheight=20    " Keep a small completion window
 
-	" Refer: ft-syntax-omni
-	" if has("autocmd") && exists("+omnifunc")
-	" 	autocmd Filetype *
-	" 			\	if &omnifunc == "" |
-	" 			\		setlocal omnifunc=syntaxcomplete#Complete |
-	" 			\	endif
-	" endif
+  " Refer: ft-syntax-omni
+  " if has("autocmd") && exists("+omnifunc")
+  "   autocmd Filetype *
+  "       \  if &omnifunc == "" |
+  "       \    setlocal omnifunc=syntaxcomplete#Complete |
+  "       \  endif
+  " endif
 
-	" ==================== Searching/Patterns ====================
-	set ignorecase          " Default to using case insensitive searches,
-	set smartcase           " unless uppercase letters are used in the regex.
-	set hlsearch            " Highlight searches by default.
-	set incsearch           " Incrementally search while typing a /regex
-	"set grepprg=ack-prep	" replace the default grep program with ack
+  " ==================== Searching/Patterns ====================
+  set ignorecase          " Default to using case insensitive searches,
+  set smartcase           " unless uppercase letters are used in the regex.
+  set hlsearch            " Highlight searches by default.
+  set incsearch           " Incrementally search while typing a /regex
+  " set grepprg=ack-prep    " replace the default grep program with ack
 
 " ==================== FileType Setting ====================
-	" ==================== C ====================
-	au FileType c setlocal ts=4 sts=4 sw=4 et ai sta
-	" au FileType c set omnifunc=ccomplete#Complete
+  " ==================== C ====================
+  au FileType c setlocal ts=4 sts=4 sw=4 et ai sta
+  " au FileType c set omnifunc=ccomplete#Complete
 
-	" ==================== CSS ====================
-	" au FileType css setlocal ts=2 sts=2 sw=2 noet ai sta
-	" au FileType css set omnifunc=csscomplete#CompleteCSS
-	
-	" ==================== CSS/LESS ====================
-	" au FileType less setlocal ts=2 sts=2 sw=2 noet ai sta
-	"
-	" ==================== HTML ====================
-	au FileType html,xhtml setlocal ts=2 sts=2 sw=2 noet ai sta
-	" au FileType html set omnifunc=htmlcomplete#CompleteTags
+  " ==================== CSS ====================
+  " au FileType css setlocal ts=2 sts=2 sw=2 et ai sta
+  " au FileType css set omnifunc=csscomplete#CompleteCSS
 
-	" ==================== Javscript ====================
-	" au FileType javascript setlocal ts=2 sts=2 sw=2 et ai sta
-	" au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-	au FileType javascript set makeprg=jsl\ %
+  " ==================== CSS/LESS ====================
+  " au FileType less setlocal ts=2 sts=2 sw=2 et ai sta
+  "
+  " ==================== HTML ====================
+  au FileType html,xhtml setlocal ts=2 sts=2 sw=2 noet ai sta
+  " au FileType html set omnifunc=htmlcomplete#CompleteTags
 
-	" ==================== ## PHP==================== 
-	" au FileType php setlocal ts=2 sts=2 sw=2 et ai sta
-	au FileType php map <buffer> <F11> :w<CR>:!/usr/bin/env php %<CR>
+  " ==================== Javscript ====================
+  " au FileType javascript setlocal ts=2 sts=2 sw=2 et ai sta
+  " au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  au FileType javascript set makeprg=jsl\ %
 
-	" ==================== ## Python==================== 
-	au FileType python setlocal ts=4 sts=4 sw=4 et ai sta
-	" au FileType python set omnifunc=pythoncomplete#Complete
-	au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\ \,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-	"au FileType python compiler nose
+  " ==================== PHP ==================== 
+  " au FileType php setlocal ts=2 sts=2 sw=2 et ai sta
+  au FileType php map <buffer> <F11> :w<CR>:!/usr/bin/env php %<CR>
 
-	" Improve formatting and display of improper indentation.
-	" Refer: http://www.vim.org/scripts/script.php?script_id=790
-	"au FileType python set complete+=k~/.vim/bundle/python.vim--Vasiliev/syntax/python3.0.vim isk+=.,(
+  " ==================== Python ==================== 
+  au FileType python setlocal ts=4 sts=4 sw=4 et ai sta
+  " au FileType python set omnifunc=pythoncomplete#Complete
+  au FileType python set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\ \,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+  "au FileType python compiler nose
 
-	" Ability to run script beging edited.
-	" Execute file being edited with <F11>
-	au FileType python map <buffer> <F11> :w<CR>:!/usr/bin/env python %<CR>
-	" Debug file being edited with <Shift> + <F11>
-	au FileType python map <buffer> <S-F11> :w<CR>:!/usr/bin/env python -m pdb %<CR>
+  " Improve formatting and display of improper indentation.
+  " Refer: http://www.vim.org/scripts/script.php?script_id=790
+  "au FileType python set complete+=k~/.vim/bundle/python.vim--Vasiliev/syntax/python3.0.vim isk+=.,(
 
-	" Trim trailing whitespace
-	"au BufWritePre *.py normal m`:%s/\s\+$//e``
+  " Ability to run script beging edited.
+  " Execute file being edited with <F11>
+  au FileType python map <buffer> <F11> :w<CR>:!/usr/bin/env python %<CR>
+  " Debug file being edited with <Shift> + <F11>
+  au FileType python map <buffer> <S-F11> :w<CR>:!/usr/bin/env python -m pdb %<CR>
 
-	" turn off hlsearch and update pyflakes on enter
-	"au FileType python nnoremap <CR> :nohlsearch\|:call PressedEnter()<CR>
+  " Trim trailing whitespace
+  "au BufWritePre *.py normal m`:%s/\s\+$//e``
 
-	" ==================== Plugins for Python ====================
-		" ==================== Pep8 ====================
-		"let g:pep8_map='<leader>8'  " Run pep8
+  " turn off hlsearch and update pyflakes on enter
+  "au FileType python nnoremap <CR> :nohlsearch\|:call PressedEnter()<CR>
 
-		" ==================== Py.test ====================
-		" Execute the tests
-		"nmap <silent><leader>tf <Esc>:Pytest file<CR>
-		"nmap <silent><leader>tc <Esc>:Pytest class<CR>
-		"nmap <silent><leader>tm <Esc>:Pytest method<CR>
+  " ==================== Plugins for Python ====================
+    " ==================== Pep8 ====================
+    "let g:pep8_map='<leader>8'  " Run pep8
 
-		" Cycle through test errors
-		"nmap <silent><leader>tn <Esc>:Pytest next<CR>
-		"nmap <silent><leader>tp <Esc>:Pytest previous<CR>
-		"nmap <silent><leader>te <Esc>:Pytest error<CR>
+    " ==================== Py.test ====================
+    " Execute the tests
+    "nmap <silent><leader>tf <Esc>:Pytest file<CR>
+    "nmap <silent><leader>tc <Esc>:Pytest class<CR>
+    "nmap <silent><leader>tm <Esc>:Pytest method<CR>
 
-		" ==================== Pydiction ====================
-		"let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
-		"let g:pydiction_menu_height = 20		" The default menu height is 15.
+    " Cycle through test errors
+    "nmap <silent><leader>tn <Esc>:Pytest next<CR>
+    "nmap <silent><leader>tp <Esc>:Pytest previous<CR>
+    "nmap <silent><leader>te <Esc>:Pytest error<CR>
 
-		" ==================== Pyflakes ====================
-		" Don't let pyflakes use the quickfix window
-		" let g:pyflakes_use_quickfix=0
+    " ==================== Pydiction ====================
+    "let g:pydiction_location = '$HOME/.vim/bundle/Pydiction/complete-dict'
+    "let g:pydiction_menu_height = 20    " The default menu height is 15.
 
-		" clear the search bufrer when hitting return
-		" and update pyflakes checks
-		" function! PressedEnter()
-		" 	:nohlsearch
-		" 	if &filetype == 'python'
-		" 		:PyflakesUpdate
-		" 	end
-		" endfunction
+    " ==================== Pyflakes ====================
+    " Don't let pyflakes use the quickfix window
+    " let g:pyflakes_use_quickfix=0
 
-		" ==================== Rope ====================
-		" Jump to the definition of whatever the cursor is on
-		"map <leader>j :RopeGotoDefinition<CR>
-		" Rename whatever the cursor is on (including references to it)
-		"map <leader>r :RopeRename<CR>
+    " clear the search bufrer when hitting return
+    " and update pyflakes checks
+    " function! PressedEnter()
+    "   :nohlsearch
+    "   if &filetype == 'python'
+    "     :PyflakesUpdate
+    "   end
+    " endfunction
 
-		" ==================== Nose, Django-Nose, MakeGreen ====================
-		" Run django tests
-		"map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
+    " ==================== Rope ====================
+    " Jump to the definition of whatever the cursor is on
+    "map <leader>j :RopeGotoDefinition<CR>
+    " Rename whatever the cursor is on (including references to it)
+    "map <leader>r :RopeRename<CR>
 
-	" ==================== RSpec ====================
-	au BufRead *_spec.rb set ft=rspec
-	au FileType rspec setlocal commentstring=#\ %s
-	au FileType rspec let delimitMate_matchpairs = '(:),{:},[:]'
-	" Run current RSpec file being edited with <F11>
-	au FileType rspec map <buffer> <F11> :w<CR>:call RunRspecCurrentFileConque()<CR>
-	" Run current line in RSpec file being edited with <Shift> + <F11>
-	au FileType rspec map <buffer> <C-F11> :w<CR>:call RunRspecCurrentLineConque()<CR>
-	
-	" ==================== Ruby ====================
-	" au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 et ai sta
-	au FileType ruby let delimitMate_matchpairs = '(:),{:},[:]'
-	au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
+    " ==================== Nose, Django-Nose, MakeGreen ====================
+    " Run django tests
+    "map <leader>dt :set makeprg=pyton\ manger.py\ test\|:call MakeGreen()<CR>
 
-	" ==================== Plugins for Ruby ====================
-		" ==================== Vim-Ruby ====================
-		autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-		autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-		" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-		" autocmd FileType ruby,eruby let g:rubycomplete_include_object = 1
-		" autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace = 1
+  " ==================== RSpec ====================
+  au BufRead *_spec.rb set ft=rspec
+  au FileType rspec setlocal commentstring=#\ %s
+  au FileType rspec let delimitMate_matchpairs = '(:),{:},[:]'
+  " Run current RSpec file being edited with <F11>
+  au FileType rspec map <buffer> <F11> :w<CR>:call RunRspecCurrentFileConque()<CR>
+  " Run current line in RSpec file being edited with <Shift> + <F11>
+  au FileType rspec map <buffer> <C-F11> :w<CR>:call RunRspecCurrentLineConque()<CR>
 
-	" ==================== Vim ====================
-	set listchars=tab:▸\ ,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
+  " ==================== Ruby ====================
+  " au FileType ruby,eruby,yaml setlocal ts=2 sts=2 sw=2 et ai sta
+  au FileType ruby let delimitMate_matchpairs = '(:),{:},[:]'
+  au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
+
+  " ==================== Plugins for Ruby ====================
+    " ==================== Vim-Ruby ====================
+    autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+    autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+    " autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+    " autocmd FileType ruby,eruby let g:rubycomplete_include_object = 1
+    " autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace = 1
+
+  " ==================== Vim ====================
+  " au FileType vim setlocal ts=2 sts=2 sw=2 et ai sta
+  set listchars=tab:▸\ ,eol:↵,trail:·,extends:>,precedes:<,nbsp:˽
 
 " ==================== General Plugins ====================
-	" ==================== delimitMate" ====================
-	let delimitMate_expand_cr = 1
-	let delimitMate_expand_space = 1
+  " ==================== delimitMate" ====================
+  let delimitMate_expand_cr = 1
+  let delimitMate_expand_space = 1
 
-	" ==================== NerdTree ====================
-	"au VimEnter * NERDTree|wincmd p
-	"au TabEnter * NERDTreeMirror|wincmd p
-	" let NERDTreeWinPos = 'right'
+  " ==================== NerdTree ====================
+  "au VimEnter * NERDTree|wincmd p
+  "au TabEnter * NERDTreeMirror|wincmd p
+  " let NERDTreeWinPos = 'right'
 
-	" ==================== TagList ====================
-	let Tlist_Show_One_File=1
-	let Tlist_Exit_OnlyWindow=1
-	" map <leader>tg :TlistToggle<CR>
+  " ==================== NerdTree tabs ====================
+  let g:nerdtree_tabs_open_on_gui_startup = 0
 
-	" ==================== TaskList ====================
-	" map <leader>ts <Plug>TaskList
+  " ==================== TagList ====================
+  let Tlist_Show_One_File=1
+  let Tlist_Exit_OnlyWindow=1
+  " map <leader>tg :TlistToggle<CR>
+
+  " ==================== TaskList ====================
+  " map <leader>ts <Plug>TaskList
 
 " ==================== Functions ====================
 
@@ -340,9 +355,9 @@ set helplang=cn             " Enable help in Chinese language
 " Note: Do not map <C-S>, <C-Q> or <C-unprintable>
 
 " if exists('&macmeta')
-" 	" set macmeta				" Enable option key as meta key under Mac
+"   " set macmeta        " Enable option key as meta key under Mac
 " endif
-" "let mapleader=","			" Change the leader to be a comma vs splash
+" "let mapleader=","      " Change the leader to be a comma vs splash
 " 
 " " Autocomplete
 " imap <F2> <C-X><C-O>
