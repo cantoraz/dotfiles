@@ -32,8 +32,6 @@ Bundle 'Zenburn'
 " Collections of snippets for CoffeScript
 Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 " ========== css ==========
-" vim syntax for LESS (dynamic CSS)
-Bundle 'groenewege/vim-less'
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
 Bundle 'hail2u/vim-css3-syntax'
 " Highlight colors in css files
@@ -71,7 +69,7 @@ Bundle 'acustodioo/vim-tmux'
 
 " ==================== Pathogen - organize our vim plugins out of Vundle ====================
 " Load pathogen with docs for all plugins
-call pathogen#runtime_append_all_bundles('$HOME/dotfiles/_vim/nobundle')
+call pathogen#infect('$HOME/dotfiles/_vim/nobundle')
 call pathogen#helptags()
 
 " ==================== General Settings ====================
