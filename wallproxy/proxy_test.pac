@@ -15,6 +15,7 @@ function FindProxyForURL(url, host) {
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?git\-scm\.com/i.test(url)) return PROXY;
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?jasig\.org/i.test(url)) return PROXY;
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?mattfleming\.com/i.test(url)) return PROXY;
+  if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?nokogiri\.org/i.test(url)) return PROXY;
   /*if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?pinterest\.com/i.test(url)) return PROXY;*/
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?readability\.com/i.test(url)) return PROXY;
   if(/^[\w\-]+:\/+(?!\/)(?:[^\/]+\.)?t\.co/i.test(url)) return PROXY;
