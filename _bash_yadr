@@ -1,4 +1,4 @@
-# vim:ft=conf
+# vim:ft=sh
 
 # YADR HOME
 export YADR="$HOME/.yadr"

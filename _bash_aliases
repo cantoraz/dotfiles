@@ -1,12 +1,12 @@
-# vim:ft=conf
+# vim:ft=sh
 
 case "$SHELL" in
-	'/bin/bash')
-		alias ls='ls -G'
-		;;
-	"$HOME/Gentoo/bin/bash")
-		alias ls='ls --color=auto'
-		;;
+  '/bin/bash')
+    alias ls='ls -G'
+    ;;
+  "$HOME/Gentoo/bin/bash")
+    alias ls='ls --color=auto'
+    ;;
 esac
 alias la='ls -A'
 alias ll='ls -l'

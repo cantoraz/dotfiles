@@ -1,3 +1,5 @@
+# vim:ft=sh
+
 # Colored prompt
 PS1='\
 `a=$?; [[ $a -ne 0 ]] && echo -n "\[\033[07;31;47m\]-$a-\[\033[00m\]";`\
@@ -11,25 +13,25 @@ PS1='\
 # detect version control system and its branch
 # used in PS1
 function detect_vcs {
-    b=$(git branch 2>/dev/null | sed -e "/^ /d" -e "s/* \(.*\)/\1/")
+  b=$(git branch 2>/dev/null | sed -e "/^ /d" -e "s/* \(.*\)/\1/")
 
-    if [ x"$b" != "x" ]; then s="git"
-    elif [ -e .svn ]; then s="svn"
-    elif [ -e .bzr ]; then s="bzr"
-    elif [ -e .hg ]; then s="hg"
-    fi
+  if [ x"$b" != "x" ]; then s="git"
+  elif [ -e .svn ]; then s="svn"
+  elif [ -e .bzr ]; then s="bzr"
+  elif [ -e .hg ]; then s="hg"
+  fi
 
-    case $s in
-        git) sb=$s:$b;;
-        *) sb=$s;;
-    esac
+  case $s in
+    git) sb=$s:$b;;
+    *) sb=$s;;
+  esac
 
-    echo $sb
+  echo $sb
 }
 
 # Alias definitions.
 if [ -f "$HOME/.bash_aliases" ]; then
-    . "$HOME/.bash_aliases"
+  . "$HOME/.bash_aliases"
 fi
 
 # Exclude ._ (dot underscore) files while coping or taring under Mac OS X
@@ -40,16 +42,16 @@ export COPYFILE_DISABLE=true
 #export ARCHFLAGS='-arch i386 -arch x86_64'
 
 # MySQL (Official Installation) library path for some compiling
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # Node.js installed by HomeBrew suggest
 if [ -d "/usr/local/lib/node_modules" ]; then
-	export NODE_PATH="/usr/local/lib/node_modules"
+  export NODE_PATH="/usr/local/lib/node_modules"
 fi
 
 # bash completion support installed by HomeBrew.
 if [ -f `brew --prefix`/etc/bash_completion ]; then
-	source `brew --prefix`/etc/bash_completion
+  source `brew --prefix`/etc/bash_completion
 fi
 
 # Use VIM as default editor for console utilities
@@ -58,12 +60,12 @@ export EDITOR=vim
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 case "$SHELL" in
-	'/bin/bash')
-		. "/usr/local/share/python/virtualenvwrapper.sh"
-		;;
-	"$HOME/Gentoo/bin/bash")
-		. "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
-		;;
+  '/bin/bash')
+    . "/usr/local/share/python/virtualenvwrapper.sh"
+    ;;
+  "$HOME/Gentoo/bin/bash")
+    . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
+    ;;
 esac
 
 # Load RVM into a shell session *as a function*
@@ -73,5 +75,5 @@ esac
 [[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
 
 # if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
-# 	export RSENSE_HOME=$HOME/Applications/rsense-0.3
+#   export RSENSE_HOME=$HOME/Applications/rsense-0.3
 # fi
