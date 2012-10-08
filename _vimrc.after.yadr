@@ -36,6 +36,8 @@ Bundle 'carlosvillu/coffeScript-VIM-Snippets'
 Bundle 'hail2u/vim-css3-syntax'
 " Highlight colors in css files
 Bundle 'skammer/vim-css-color'
+" ========== nginx ==========
+Bundle 'evanmiller/nginx-vim-syntax'
 " ========== python ==========
 " Run py.test test's from within vim 
 "Bundle 'alfredodeza/pytest.vim'
