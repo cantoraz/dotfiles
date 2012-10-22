@@ -14,6 +14,7 @@ alias lh='ls -lh'
 alias vi='vim'
 alias crontab='EDITOR=/usr/bin/vim crontab'
 alias tailf='tail -f'
+alias grep='grep --color=auto'
 
 # SSH
 alias dskb165='ssh dskb165'
