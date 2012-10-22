@@ -72,7 +72,17 @@ esac
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Load selected bash-compatible zsh conf from YADR
-[[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
+# [[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
+
+DOTFILES=$HOME/dotfiles
+# Load extra customization
+if [[ -d "$DOTFILES/bash" ]]; then
+  if [[ "$(ls -A $DOTFILES/bash)" ]]; then
+    for bash_config in /Users/caz/dotfiles/bash/*.sh; do
+      source $bash_config
+    done
+  fi
+fi
 
 # if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
 #   export RSENSE_HOME=$HOME/Applications/rsense-0.3
