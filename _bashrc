@@ -77,3 +77,7 @@ esac
 # if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
 #   export RSENSE_HOME=$HOME/Applications/rsense-0.3
 # fi
+
+# Add byobu prefix
+command -v brew >/dev/null 2>&1
+[[ $? -eq 0 ]] && export BYOBU_PREFIX=$(brew --prefix)
