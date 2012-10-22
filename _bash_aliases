@@ -14,3 +14,13 @@ alias lh='ls -lh'
 alias vi='vim'
 alias crontab='EDITOR=/usr/bin/vim crontab'
 alias tailf='tail -f'
+
+# SSH
+alias dskb165='ssh dskb165'
+alias dskb167='ssh dskb167'
+alias dskb168='ssh dskb168'
+alias dskb170='ssh dskb170'
+alias dskbgit='ssh git.dskb.co'
+alias dskb173='ssh dskb173'
+alias dskb184='ssh dskb184'
+alias dskb188='ssh dskb188'
