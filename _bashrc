@@ -78,7 +78,7 @@ DOTFILES=$HOME/dotfiles
 # Load extra customization
 if [[ -d "$DOTFILES/bash" ]]; then
   if [[ "$(ls -A $DOTFILES/bash)" ]]; then
-    for bash_config in /Users/caz/dotfiles/bash/*.sh; do
+    for bash_config in $DOTFILES/bash/*.sh; do
       source $bash_config
     done
   fi
