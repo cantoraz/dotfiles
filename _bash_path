@@ -5,7 +5,7 @@
 #   PATH="/usr/local/share/python":$PATH
 # fi
 
-[[ -d  "/usr/local/mysql/bin" ]] && PATH=/usr/local/mysql/bin:$PATH
+[[ -d "/usr/local/mysql/bin" ]] && PATH=/usr/local/mysql/bin:$PATH
 [[ -d "$HOME/Applications/glassfish3_1/bin" ]] && PATH=$HOME/Applications/glassfish3_1/bin:$PATH
 
 # Git official installation
@@ -14,9 +14,9 @@
 # fi
 
 # Android SDK
-if [[ -d "$HOME/Applications/android-sdk-macosx" ]]; then
-  PATH="$HOME/Applications/android-sdk-macosx/platform-tools":$PATH
-  PATH=$PATH:"$HOME/Applications/android-sdk-macosx/tools"
+if [[ -d "/Applications/Android Studio.app/sdk" ]]; then
+  PATH=$PATH:"/Applications/Android Studio.app/sdk/platform-tools"
+  PATH=$PATH:"/Applications/Android Studio.app/sdk/tools"
 fi
 
 # Argyll CMS
