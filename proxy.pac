@@ -1,7 +1,7 @@
 /**
  * GenPAC 0.2.1 http://jeeker.net/projects/genpac/
- * Generated: Thu, 08 Aug 2013 13:08:35 GMT
- * GFWList Last-Modified: Thu, 08 Aug 2013 10:58:30 GMT
+ * Generated: Sat, 24 Aug 2013 07:50:21 GMT
+ * GFWList Last-Modified: Fri, 23 Aug 2013 06:48:44 GMT
  */
 
 // proxy
@@ -9,7 +9,9 @@ var P = "PROXY 127.0.0.1:8087";
 
 // user rules
 var directUserRegexpList   = [];
-var directUserWildcardList = [];
+var directUserWildcardList = [
+    '*.douban.com/*'
+    ];
 var proxyUserRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?google\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?googlecode\.com',
@@ -472,6 +474,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?faiththedog\.info',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?falunhr\.org',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fanglizhi\.info',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangong\.org',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fbcdn\.net',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?famunion\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fangbinxing\.com',
@@ -526,6 +529,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fuckcnnic\.net',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?furinkan\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?futuremessage\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?fw\.cm',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gabocorp\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?galenwu\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gamer\.com\.tw',
@@ -712,6 +716,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?itshidden\.com',
     '^http://itweet\.net',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmozomg\.izihost\.org',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?j\.mp',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jgoodies\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?jiaoyou8\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?hk\.jiepang\.com',
@@ -1178,6 +1183,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tt1069\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tttan\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tube8\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tubewolf\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tumutanzi\.com',
     '^http://tunein\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tunnelbear\.com',
