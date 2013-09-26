@@ -71,6 +71,10 @@ esac
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Load GVM
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
+
 # Load selected bash-compatible zsh conf from YADR
 # [[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
 
