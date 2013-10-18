@@ -1,16 +1,18 @@
 /**
- * GenPAC 0.2.1 http://jeeker.net/projects/genpac/
- * Generated: Sat, 24 Aug 2013 07:50:21 GMT
- * GFWList Last-Modified: Fri, 23 Aug 2013 06:48:44 GMT
+ * genpac 1.0.1 http://jeeker.net/projects/genpac/
+ * Generated: Fri, 18 Oct 2013 02:29:26 GMT
+ * GFWList Last-Modified: Thu, 17 Oct 2013 02:23:06 GMT
  */
 
 // proxy
-var P = "PROXY 127.0.0.1:8087";
+var P = "SOCKS5 127.0.0.1:8087; SOCKS 127.0.0.1:8087";
 
 // user rules
 var directUserRegexpList   = [];
 var directUserWildcardList = [
-    '*.douban.com/*'
+    '*sina.com*',
+    '*163.com*',
+    '*douban.com*'
     ];
 var proxyUserRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?google\.com',
@@ -25,11 +27,18 @@ var proxyUserRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cbsnews\.com',
     '^https?:\/\/.+?video.+?\.akamaihd\.net\/',
     '.+?\.unionabcd\.com[:\/].+?&surl=[^&]+',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cloud\.feedly\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?s3\.feedly\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?top81\.org',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?tweetdeck\.com'
     ];
-var proxyUserWildcardList  = [];
+var proxyUserWildcardList  = [
+    '*twitter.com*',
+    '*youtube.com*',
+    '*code.google.com*',
+    '*googlecode.com*',
+    '*sourceforge.net*'
+    ];
 
 // gfwlist rules
 var directRegexpList   = [
@@ -157,6 +166,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pandora\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?pure18\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?spotify\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?target\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?turntable\.fm',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?vevo\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?zattoo\.com',
@@ -559,6 +569,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?globalvoicesonline\.org',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?gmhz\.org',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?godfootsteps\.org',
+    '^http://www\.goldenmelody\.com\.tw',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goldwave\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreads\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?goodreaders\.com',
@@ -800,6 +811,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matainja\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mathiew-badimon\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?matsushimakaede\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?mcadforums\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?md-t\.org',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?meetup\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?megarotic\.com',
@@ -877,6 +889,7 @@ var proxyRegexpList    = [
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?novelasia\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nownews\.com',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?noypf\.com',
+    '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?npa\.go\.jp',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nrk\.no',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?nsc\.gov\.tw',
     '^[\\w\\-]+:\\/+(?!\\/)(?:[^\\/]+\\.)?cbs\.ntu\.edu\.tw',
@@ -1764,6 +1777,7 @@ var proxyWildcardList  = [
     '*christusrex.org/www1/sdc*',
     '*chubun.com*',
     '*chuizi.net*',
+    '*.chrlawyers.hk*',
     '*.citizenlab.org*',
     '*citizensradio.org*',
     '*city9x.com*',
@@ -2122,7 +2136,7 @@ var proxyWildcardList  = [
     '*.google.*64*%E9%95%87%E5%8E%8B*',
     '*.google.*%E5%85%AB%E4%B9%9D*',
     '*.google.*%E5%8C%97%E5%9B%BD%E4%B9%8B%E6%98%A5*',
-    '*.google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5 *',
+    '*.google.*%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%98%A5*',
     '*.google.*%E9%99%88%E7%A0%B4%E7%A9%BA*',
     '*.google.*%E8%B5%A4%E5%8C%AA*',
     '*.google.*%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B*',
@@ -2161,6 +2175,7 @@ var proxyWildcardList  = [
     '*.google.*%E5%85%AD*%E5%9B%9B*',
     '*.google.*%E9%B2%81%E6%98%95*',
     '*.google.*%E9%A9%AC%E5%87%AF*',
+    '*.google.*%E9%A9%AC%E5%8A%9B*',
     '*.google.*%E9%BA%A6%E5%BD%93%E5%8A%B3*',
     '*.google.*%E5%86%85%E8%92%99*%E7%A4%BA%E5%A8%81*',
     '*.google.*%E5%AD%9F%E5%BB%BA%E6%9F%B1*',
@@ -2312,6 +2327,7 @@ var proxyWildcardList  = [
     '*holyspiritspeaks.org*',
     '*hongmeimei.com*',
     '*hootsuite.com*',
+    '*hotfile.com/dl*',
     '*hotpot.hk*',
     '*.hqcdp.org*',
     '*.hrcir.com*',
@@ -2582,6 +2598,7 @@ var proxyWildcardList  = [
     '*ntdtv.ca*',
     '*ntdtv.org*',
     '*ntdtv.ru*',
+    '*.nuvid.com*',
     '*nuzcom.com*',
     '*.nytimes.com*',
     '*nysingtao.com*',
@@ -2845,6 +2862,7 @@ var proxyWildcardList  = [
     '*sinoquebec.com*',
     '*.sitebro.tw*',
     '*sitetag.us*',
+    '*.sis.xxx*',
     '*sis001.us*',
     '*bbs.skykiwi.com*',
     '*share.skype.com/sites/en/2008/10/skype_president_addresses_chin*',
@@ -2965,6 +2983,7 @@ var proxyWildcardList  = [
     '*.tibetonline.tv*',
     '*.time.com/time/time100/leaders/profile/rebel*',
     '*.time.com/time/specials/packages/article/0,28804*',
+    '*.time.com/time/magazine*',
     '*tinychat.com*',
     '*.tistory.com*',
     '*.tnaflix.com*',
@@ -3379,6 +3398,7 @@ var proxyWildcardList  = [
     '*en.wikipedia.org/wiki/Deep_packet_inspection*',
     '*en.wikipedia.org/wiki/Freegate*',
     '*en.wikipedia.org/wiki/Golden_Shield_Project*',
+    '*en.wikipedia.org/wiki/Great_Firewall_of_China*',
     '*en.wikipedia.org/wiki/Hong_Kong*',
     '*en.wikipedia.org/wiki/Huang_Qi*',
     '*en.wikipedia.org/wiki/Internet_censorship*',
@@ -3431,7 +3451,7 @@ var proxyWildcardList  = [
     '*zh.wikipedia.org*%E5%A4%A7%E6%98%AD%E5%AF%BA*',
     '*zh.wikipedia.org*%E4%B8%B9%E5%A2%9E%E5%98%89%E6%8E%AA*',
     '*zh.wikipedia.org*%E4%B8%81%E5%AD%90%E9%9C%96*',
-    '*zh.wikipedia.org*%E4%B8%9C%E9%A3%8E-21%E4%B8%AD%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9 *',
+    '*zh.wikipedia.org*%E4%B8%9C%E9%A3%8E-21%E4%B8%AD%E7%A8%8B%E5%BC%B9%E9%81%93%E5%AF%BC%E5%BC%B9*',
     '*zh.wikipedia.org*%E6%9D%B1%E9%A2%A8-31%E6%B4%B2%E9%9A%9B%E5%BD%88%E9%81%93%E5%B0%8E%E5%BD%88*',
     '*zh.wikipedia.org*%E6%9D%B1%E7%AA%81%E5%8E%A5*',
     '*zh.wikipedia.org*%E4%B8%9C%E7%AA%81%E5%8E%A5%E6%96%AF%E5%9D%A6*',
@@ -3447,6 +3467,7 @@ var proxyWildcardList  = [
     '*zh.wikipedia.org*%E5%B0%81%E4%BB%8E%E5%BE%B7*',
     '*zh.wikipedia.org*%E5%B0%81%E5%BE%9E%E5%BE%B7*',
     '*zh.wikipedia.org*%E5%86%AF%E6%AD%A3%E8%99%8E*',
+    '*zh.wikipedia.org*%E5%82%85%E9%93%81%E5%B1%B1*',
     '*zh.wikipedia.org*%E5%99%B6%E5%80%AB%E8%B5%A4%E5%B7%B4*',
     '*zh.wikipedia.org*%E9%AB%98%E6%99%BA%E6%99%9F*',
     '*zh.wikipedia.org*%E6%9B%B4%E7%99%BB%E7%A2%BA%E5%90%89%E5%B0%BC%E7%91%AA*',
@@ -3803,3 +3824,4 @@ function FindProxyForURL(url, host) {
 
     return D;
 }
+
