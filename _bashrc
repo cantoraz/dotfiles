@@ -61,7 +61,7 @@ export EDITOR=vim
 export WORKON_HOME=$HOME/.virtualenvs
 case "$SHELL" in
   '/bin/bash')
-    . "/usr/local/share/python/virtualenvwrapper.sh"
+    . "/usr/local/bin/virtualenvwrapper.sh"
     ;;
   "$HOME/Gentoo/bin/bash")
     . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
