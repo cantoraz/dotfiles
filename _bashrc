@@ -58,15 +58,19 @@ fi
 export EDITOR=vim
 
 # Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-case "$SHELL" in
-  '/bin/bash')
-    . "/usr/local/bin/virtualenvwrapper.sh"
-    ;;
-  "$HOME/Gentoo/bin/bash")
-    . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
-    ;;
-esac
+# export WORKON_HOME=$HOME/.virtualenvs
+# case "$SHELL" in
+#   '/bin/bash')
+#     . "/usr/local/bin/virtualenvwrapper.sh"
+#     ;;
+#   "$HOME/Gentoo/bin/bash")
+#     . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
+#     ;;
+# esac
+
+# Load Simple Python Version Management (pyenv) into shell
+# to enable shims and autocompletion
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
