@@ -57,28 +57,6 @@ fi
 # Use VIM as default editor for console utilities
 export EDITOR=vim
 
-# Virtualenvwrapper
-# export WORKON_HOME=$HOME/.virtualenvs
-# case "$SHELL" in
-#   '/bin/bash')
-#     . "/usr/local/bin/virtualenvwrapper.sh"
-#     ;;
-#   "$HOME/Gentoo/bin/bash")
-#     . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
-#     ;;
-# esac
-
-# Load Simple Python Version Management (pyenv) into shell
-# to enable shims and autocompletion
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Load GVM
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
-
 # Load selected bash-compatible zsh conf from YADR
 # [[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
 
@@ -99,3 +77,25 @@ fi
 # Add byobu prefix
 command -v brew >/dev/null 2>&1
 [[ $? -eq 0 ]] && export BYOBU_PREFIX=$(brew --prefix)
+
+# Load Simple Python Version Management (pyenv) into shell
+# to enable shims and autocompletion
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Virtualenvwrapper
+# export WORKON_HOME=$HOME/.virtualenvs
+# case "$SHELL" in
+#   '/bin/bash')
+#     . "/usr/local/bin/virtualenvwrapper.sh"
+#     ;;
+#   "$HOME/Gentoo/bin/bash")
+#     . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
+#     ;;
+# esac
+
+# Load GVM
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

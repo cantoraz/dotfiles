@@ -29,3 +29,5 @@ fi
 #   [[ -d "$YADR/bin" ]] && PATH=$PATH:"$YADR/bin"
 #   [[ -d "$YADR/bin/yadr" ]] && PATH=$PATH:"$YADR/bin/yadr"
 # fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
