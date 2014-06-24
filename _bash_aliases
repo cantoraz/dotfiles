@@ -17,6 +17,7 @@ alias tailf='tail -f'
 alias grep='grep --color=auto'
 
 # SSH
+alias dskb164='ssh dskb164'
 alias dskb165='ssh dskb165'
 alias dskb167='ssh dskb167'
 alias dskb168='ssh dskb168'
