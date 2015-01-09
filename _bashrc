@@ -1,4 +1,4 @@
- # vim:ft=sh
+# vim:ft=sh
 
 # detect version control system and its branch
 # used in PS1
