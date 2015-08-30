@@ -19,10 +19,27 @@ function detect_vcs {
   echo $sb
 }
 
+function pyenv-prompt {
+  vn=$(pyenv version-name 2>/dev/null)
+  vp=$(pyenv virtualenv-prefix 2>/dev/null | sed -e "s/.*\/.pyenv\/versions\/\(.*\)/\1/")
+
+  if [ "$vn" = "system" ]; then
+    n=""
+  elif [ x"$vp" = "x" ]; then
+    n="python-$vn"
+  else
+    n="python-$vp"
+  fi
+
+  echo $n
+}
+
 # Colored prompt
+# `[[ -n "$(rvm-prompt)" ]] && echo -n "\[\033[31m\]($(rvm-prompt))\[\033[00m\]";`\
 PS1='\
 `a=$?; [[ $a -ne 0 ]] && echo -n "\[\033[07;31;47m\]-$a-\[\033[00m\]";`\
-`[[ -n "$(rvm-prompt)" ]] && echo -n "\[\033[31m\]($(rvm-prompt))\[\033[00m\]";`\
+`n=$(pyenv-prompt); echo -n ${n:+\[\033[32m\]($n)\[\033[00m\]};`\
+`r=$(rvm-prompt); echo -n ${r:+\[\033[31m\]($r)\[\033[00m\]};`\
 `[[ "$SHELL" = "$HOME/Gentoo/bin/bash" ]] && echo -n "\[\033[35m\](gentoo-prefix)\[\033[00m\]";`\
 \[\033[01;35m\]\u\[\033[01;30m\]@\[\033[01;34m\]\h\[\033[01;30m\]:\[\033[01;34m\]\w\
 `b=$(detect_vcs); echo -n ${b:+\[\033[33m\]($b)\[\033[00m\]};`\
