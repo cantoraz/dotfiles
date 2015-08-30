@@ -34,34 +34,8 @@ if [ -f "$HOME/.bash_aliases" ]; then
   . "$HOME/.bash_aliases"
 fi
 
-# Exclude ._ (dot underscore) files while coping or taring under Mac OS X
-export COPYFILE_DISABLE=true
-
-# Xcode 4 has removed support for -arch ppc, but Python2.6 on Mac OS X 10.6
-# expects to build with all three architectures.
-#export ARCHFLAGS='-arch i386 -arch x86_64'
-
-# MySQL (Official Installation) library path for some compiling
-# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
-
-# Node.js installed by HomeBrew suggest
-if [ -d "/usr/local/lib/node_modules" ]; then
-  export NODE_PATH="/usr/local/lib/node_modules"
-fi
-
-# bash completion support installed by HomeBrew.
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  source `brew --prefix`/etc/bash_completion
-fi
-
-# Use VIM as default editor for console utilities
-export EDITOR=vim
-
-# Load selected bash-compatible zsh conf from YADR
-# [[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
-
-DOTFILES=$HOME/dotfiles
 # Load extra customization
+DOTFILES=$HOME/dotfiles
 if [[ -d "$DOTFILES/bash" ]]; then
   if [[ "$(ls -A $DOTFILES/bash)" ]]; then
     for bash_config in $DOTFILES/bash/*.sh; do
@@ -70,18 +44,57 @@ if [[ -d "$DOTFILES/bash" ]]; then
   fi
 fi
 
+# DEPRECATED: YADR not in use
+# Load selected bash-compatible zsh conf from YADR
+# [[ -f "$HOME/.bash_yadr" ]] && source "$HOME/.bash_yadr"
+
+# Exclude ._ (dot underscore) files while coping or taring under Mac OS X
+export COPYFILE_DISABLE=true
+
+# Use VIM as default editor for console utilities
+export EDITOR=vim
+
+# DEPRECATED: No need of Python2.6
+# Xcode 4 has removed support for -arch ppc, but Python2.6 on Mac OS X 10.6
+# expects to build with all three architectures.
+# export ARCHFLAGS='-arch i386 -arch x86_64'
+
+# DEPRECATED: Use HomeBrew installed MySQL
+# MySQL (Official Installation) library path for some compiling
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
+# DEPRECATED: rsense not in use
 # if [[ -d "$HOME/Applications/rsense-0.3" ]]; then
 #   export RSENSE_HOME=$HOME/Applications/rsense-0.3
 # fi
 
+# bash completion support installed by HomeBrew.
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  source `brew --prefix`/etc/bash_completion
+fi
+
+# DEPRECATED: No need of Byobu on my local machine
 # Add byobu prefix
-command -v brew >/dev/null 2>&1
-[[ $? -eq 0 ]] && export BYOBU_PREFIX=$(brew --prefix)
+# command -v brew >/dev/null 2>&1
+# [[ $? -eq 0 ]] && export BYOBU_PREFIX=$(brew --prefix)
+
+# Node.js installed by HomeBrew suggest
+if [ -d "/usr/local/lib/node_modules" ]; then
+  export NODE_PATH="/usr/local/lib/node_modules"
+fi
+
+# Load GVM
+# THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Load Simple Python Version Management (pyenv) into shell
 # to enable shims and autocompletion
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# DEPRECATED: Virtualenvwrapper not in use
 # Virtualenvwrapper
 # export WORKON_HOME=$HOME/.virtualenvs
 # case "$SHELL" in
@@ -92,10 +105,3 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 #     . "$HOME/Gentoo/usr/bin/virtualenvwrapper.sh"
 #     ;;
 # esac
-
-# Load GVM
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
