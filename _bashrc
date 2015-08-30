@@ -111,6 +111,10 @@ fi
 # to enable shims and autocompletion
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# Load Pyenv plugin pyenv-virtualenv
+# to enable auto-activation
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 # DEPRECATED: Virtualenvwrapper not in use
 # Virtualenvwrapper
 # export WORKON_HOME=$HOME/.virtualenvs
