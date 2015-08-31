@@ -23,9 +23,9 @@
 # fi
 
 # Android SDK
-if [[ -d "~/Applications/android-sdk" ]]; then
-  PATH=$PATH:"~/Applications/android-sdk/platform-tools"
-  PATH=$PATH:"~/Applications/android-sdk/tools"
+if [[ -d "$HOME/Applications/android-sdk" ]]; then
+  PATH=$PATH:"$HOME/Applications/android-sdk/platform-tools"
+  PATH=$PATH:"$HOME/Applications/android-sdk/tools"
 fi
 
 # DEPRECATED: AYADR not in use
