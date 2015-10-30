@@ -48,7 +48,7 @@ function node-prompt {
 # `[[ -n "$(rvm-prompt)" ]] && echo -n "\[\033[31m\]($(rvm-prompt))\[\033[00m\]";`\
 PS1='\
 `a=$?; [[ $a -ne 0 ]] && echo -n "\[\033[07;31;47m\]-$a-\[\033[00m\]";`\
-`n=$(pyenv-prompt); echo -n ${n:+\[\033[32m\]($n)\[\033[00m\]};`\
+`pp=$(pyenv-prompt); echo -n ${pp:+\[\033[32m\]($pp)\[\033[00m\]};`\
 `r=$(rvm-prompt); echo -n ${r:+\[\033[31m\]($r)\[\033[00m\]};`\
 `np=$(node-prompt); echo -n ${np:+\[\033[32m\]($np)\[\033[00m\]};`\
 `[[ "$SHELL" = "$HOME/Gentoo/bin/bash" ]] && echo -n "\[\033[35m\](gentoo-prefix)\[\033[00m\]";`\
