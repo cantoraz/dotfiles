@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ -n "$(type -t nvm)" && "$(type -t nvm)" = "function" ]]; then
+  # Ensure NVM is loaded.
+
+  if [[ -n "$rvm_ruby_string" ]]; then
+    # A Ruby version is used,
+    # when either change directory into or leave from an RVM project.
+
+    if [[ -n "$rvm_previous_environment" ]]; then
+      # The variable for previous Ruby environment exists,
+      # when we enter into a project.
+
+      [[ -e "$RVM_PROJECT_PATH/.nvmrc" ]] && nvm use
+
+    else
+      # Leave from an RVM project
+
+      nvm use system
+    fi
+
+  fi
+
+fi
