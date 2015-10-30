@@ -5,10 +5,10 @@
 function detect_vcs {
   b=$(git branch 2>/dev/null | sed -e "/^ /d" -e "s/* \(.*\)/\1/")
 
-  if [ x"$b" != "x" ]; then s="git"
-  elif [ -e .svn ]; then s="svn"
-  elif [ -e .bzr ]; then s="bzr"
-  elif [ -e .hg ]; then s="hg"
+  if [[ x"$b" != "x" ]]; then s="git"
+  elif [[ -e .svn ]]; then s="svn"
+  elif [[ -e .bzr ]]; then s="bzr"
+  elif [[ -e .hg ]]; then s="hg"
   fi
 
   case $s in
@@ -23,9 +23,9 @@ function pyenv-prompt {
   vn=$(pyenv version-name 2>/dev/null)
   vp=$(pyenv virtualenv-prefix 2>/dev/null | sed -e "s/.*\/.pyenv\/versions\/\(.*\)/\1/")
 
-  if [ "$vn" = "system" ]; then
+  if [[ $vn = "system" ]]; then
     n=""
-  elif [ x"$vp" = "x" ]; then
+  elif [[ x"$vp" = "x" ]]; then
     n="python-$vn"
   else
     n="python-$vp"
@@ -58,7 +58,7 @@ PS1='\
 '
 
 # Alias definitions.
-if [ -f "$HOME/.bash_aliases" ]; then
+if [[ -f "$HOME/.bash_aliases" ]]; then
   . "$HOME/.bash_aliases"
 fi
 
@@ -97,7 +97,7 @@ export EDITOR=vim
 # fi
 
 # bash completion support installed by HomeBrew.
-if [ -f `brew --prefix`/etc/bash_completion ]; then
+if [[ -f `brew --prefix`/etc/bash_completion ]]; then
   source `brew --prefix`/etc/bash_completion
 fi
 
@@ -107,7 +107,7 @@ fi
 # [[ $? -eq 0 ]] && export BYOBU_PREFIX=$(brew --prefix)
 
 # Node.js installed by HomeBrew suggest
-if [ -d "/usr/local/lib/node_modules" ]; then
+if [[ -d "/usr/local/lib/node_modules" ]]; then
   export NODE_PATH="/usr/local/lib/node_modules"
 fi
 
@@ -119,7 +119,7 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Load NVM
-if [ -s "$(brew --prefix nvm)/nvm.sh" ]; then
+if [[ -s "$(brew --prefix nvm)/nvm.sh" ]]; then
   export NVM_DIR=$HOME/.nvm
   export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
   export NVM_IOJS_ORG_MIRROR=http://npm.taobao.org/mirrors/iojs
