@@ -1,7 +1,8 @@
 ---
-:backtrace: false
-:bulk_threshold: 1000
+:update_sources: true
 :sources:
 - http://ruby.taobao.org/
-:update_sources: true
+:benchmark: false
+:backtrace: false
 :verbose: true
+gem: --no-document
