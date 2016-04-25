@@ -1,0 +1,90 @@
+# Good Tutorial: http://blog.hawkhost.com/2010/07/02/tmux-%E2%80%93-the-terminal-multiplexer-part-2/
+# Most in this config is inspired from:
+# - http://blog.hawkhost.com/2010/07/02/tmux-%E2%80%93-the-terminal-multiplexer-part-2/
+# - http://home.thep.lu.se/~karlf/tmux.conf.html
+
+########################################################################
+# General options
+########################################################################
+# Change prefix key
+set -g prefix C-a
+unbind C-b
+
+# Start window indexing at 1 instead of 0
+set -g base-index 1
+
+set -g status-keys vi
+setw -g mode-keys vi
+
+# Mouse support
+setw -g mode-mouse copy-mode # Do not enter copy-mode
+set -g mouse-select-pane on
+
+# Rather than constraining window size to the maximum size of any client 
+# connected to the *session*, constrain window size to the maximum size of any 
+# client connected to *that window*. Much more reasonable.
+# setw -g aggressive-resize on
+
+# Enable wm (e.g. fluxbox) window titles:
+# set -g set-titles on
+# set -g set-titles-string "tmux:#I [ #W ]"
+
+# Activity monitoring
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Automatically set window title
+setw -g automatic-rename
+
+# Customize status line
+set -g status-fg white
+set -g status-bg black
+set -g status-utf8 on
+set -g status-left-length 20
+set -g status-left '#[fg=blue,bright]#S#[default] #[fg=green,bright]#H#[default]'
+set -g status-right '#[default]#[fg=magenta,bright]#(uptime | cut -d "," -f 3- | cut -d ":" -f 2- | sed "s/^ *//g")#[default] #[fg=yellow,bright]%Y-%m-%d %H:%M#[default]'
+# •⚡⌚
+
+# Highlight active window
+setw -g window-status-current-bg red
+# setw -g window-status-current-format '#I:#W#F'
+
+########################################################################
+# Binding
+########################################################################
+
+# Reload config
+bind R source ~/.tmux.conf \; display "Reloaded config"
+
+# Allows us to use C-a a <command> to send commands to a TMUX session inside 
+# another TMUX session>
+bind a send-prefix
+
+# Cycle between last window
+bind C-a last-window
+
+# Split pane
+unbind '"'
+bind - splitw -v # Split the current pane into two, top and bottom.
+unbind %
+bind \ splitw -h # Split the current pane into two, left and right.
+
+# Select pane
+bind k selectp -U # Select up pane
+bind j selectp -D # Select down pane
+bind h selectp -L # Select left pane
+bind l selectp -R # Select right pane
+
+# Resize pane
+bind C-k resizep -U 10
+bind C-j resizep -D 10
+bind C-h resizep -L 10
+bind C-l resizep -R 10
+
+# Swap two panes
+bind C-u swapp -U # Swap current pane with up pane
+bind C-d swapp -D # Swap current pane with down pane
+
+# Execute command
+bind m command-prompt "splitw -h 'exec man %%'"
+
