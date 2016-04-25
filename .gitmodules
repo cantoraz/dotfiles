@@ -1,0 +1,6 @@
+[submodule "zprezto"]
+	path = zprezto
+	url = https://github.com/cantoraz/prezto.git
+[submodule "yadr"]
+	path = yadr
+	url = https://github.com/cantoraz/yadr.git
