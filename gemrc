@@ -1,7 +1,7 @@
 ---
 :update_sources: true
 :sources:
-- http://ruby.taobao.org/
+- https://ruby.taobao.org/
 :benchmark: false
 :backtrace: false
 :verbose: true
