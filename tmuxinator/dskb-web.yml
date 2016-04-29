@@ -1,0 +1,40 @@
+# ~/.tmuxinator/dskb-web.yml
+
+name: dskb-web
+root: ~/dskb.cn/ruby/dskb-web
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+pre_window: nvm use
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t dskb-web
+
+windows:
+  - editor:
+      # layout: main-vertical
+      layout: e50d,238x55,0,0[238x41,0,0,3,238x13,0,42{159x13,0,42,9,78x13,160,42,11}]
+      panes:
+        - vim
+        - bundle exec rails c
+        - #guard
+  - server: bundle exec rails s
+  - logs: tail -f log/development.log
