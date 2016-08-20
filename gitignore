@@ -46,7 +46,7 @@ cscope.in.out
 cscope.po.out
 
 ################################################################################
-# Tags.gitignore
+# Vim.gitignore
 # Refer to https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 ################################################################################
 
