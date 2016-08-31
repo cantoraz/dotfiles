@@ -1,3 +1,5 @@
+# vim: ft=zsh ts=2 sts=2 sw=2 et
+
 # Load NVM
 # NOTE: NVM has already been loaded by Prezto module `node', here only define required envs
 if [[ -s "$(brew --prefix nvm)/nvm.sh" ]]; then

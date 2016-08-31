@@ -1,3 +1,5 @@
+# vim: ft=zsh ts=2 sts=2 sw=2 et
+
 set -o vi
 export EDITOR=vim
 export VISUAL=vim
