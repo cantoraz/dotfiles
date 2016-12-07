@@ -1,6 +1,6 @@
 #DOTFILES_DIRS="$HOME/dotfiles"
-EXCLUDES="$EXCLUDES .dotfiles:*.old .dotfiles:*.bak"
 EXCLUDES="README *.md"
+EXCLUDES="$EXCLUDES *.old *.bak"
 EXCLUDES="$EXCLUDES .dotfiles:bash"
 EXCLUDES="$EXCLUDES .dotfiles:bash_yadr"
 EXCLUDES="$EXCLUDES .dotfiles:vimrc.after.yadr"
