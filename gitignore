@@ -1,6 +1,6 @@
 ################################################################################
-# OSX.gitignore
-# Refer to https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
+# macOS.gitignore
+# Refer to https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 ################################################################################
 
 .DS_Store
@@ -13,9 +13,14 @@ Icon
 # Thumbnails
 ._*
 
-# Files that might appear on external disk
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -40,19 +45,22 @@ gtags.files
 GTAGS
 GRTAGS
 GPATH
+GSYMS
 cscope.files
 cscope.out
 cscope.in.out
 cscope.po.out
 
 ################################################################################
-# Tags.gitignore
+# Vim.gitignore
 # Refer to https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 ################################################################################
 
 # swap
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
 # session
 Session.vim
 # temporary
