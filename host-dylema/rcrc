@@ -1,6 +1,6 @@
 #DOTFILES_DIRS="$HOME/dotfiles"
 
-EXCLUDES="README"
+EXCLUDES="README *.md"
 EXCLUDES+=" .dotfiles:*.old .dotfiles:*.bak"
 # Bash
 EXCLUDES+=" .dotfiles:bash"
@@ -13,7 +13,8 @@ EXCLUDES+=" .dotfiles:bashrc"
 EXCLUDES+=" .dotfiles:editrc"
 EXCLUDES+=" .dotfiles:inputrc"
 # Git
-EXCLUDES+=" .dotfiles:gitconfig"
+#EXCLUDES+=" .dotfiles:gitconfig"
+EXCLUDES+=" .dotfiles:iTerm2"
 # Node.js
 EXCLUDES+=" .dotfiles:npmrc"
 # Python
@@ -37,13 +38,14 @@ EXCLUDES+=" .dotfiles:vimrc.after.yadr"
 # YADR
 EXCLUDES+=" .dotfiles:yadr"
 # Zsh
-EXCLUDES+=" .dotfiles:zprezto .dotfiles:zsh"
+EXCLUDES+=" .dotfiles:zprezto"
 EXCLUDES+=" .dotfiles:zlogin"
 EXCLUDES+=" .dotfiles:zlogout"
 EXCLUDES+=" .dotfiles:zpreztorc"
 EXCLUDES+=" .dotfiles:zprofile"
 EXCLUDES+=" .dotfiles:zshenv"
 EXCLUDES+=" .dotfiles:zshrc"
+EXCLUDES+=" .dotfiles:zshrc.d"
 
 HOSTNAME="dylema"
 SYMLINK_DIRS="vim yadr zprezto zsh zsh.after zsh.before zsh.prompts"
