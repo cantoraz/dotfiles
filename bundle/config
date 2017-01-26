@@ -1,5 +1,5 @@
 ---
-BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: https://ruby.taobao.org
+BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: https://gems.ruby-china.org
 BUNDLE_GEM__COC: false
 BUNDLE_GEM__MIT: false
 BUNDLE_GEM__TEST: false
