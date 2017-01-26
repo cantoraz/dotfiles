@@ -1,0 +1,51 @@
+#DOTFILES_DIRS="$HOME/dotfiles"
+
+EXCLUDES="README"
+EXCLUDES+=" .dotfiles:*.old .dotfiles:*.bak"
+# Bash
+EXCLUDES+=" .dotfiles:bash"
+EXCLUDES+=" .dotfiles:bash_aliases"
+EXCLUDES+=" .dotfiles:bash_path"
+EXCLUDES+=" .dotfiles:bash_profile"
+EXCLUDES+=" .dotfiles:bash_yadr"
+EXCLUDES+=" .dotfiles:bashrc"
+# Editor
+EXCLUDES+=" .dotfiles:editrc"
+EXCLUDES+=" .dotfiles:inputrc"
+# Git
+EXCLUDES+=" .dotfiles:gitconfig"
+# Node.js
+EXCLUDES+=" .dotfiles:npmrc"
+# Python
+EXCLUDES+=" .dotfiles:virtualenvs"
+# Ruby
+EXCLUDES+=" .dotfiles:bundle .dotfiles:rvm"
+EXCLUDES+=" .dotfiles:aprc"
+EXCLUDES+=" .dotfiles:escaped_colors.rb"
+EXCLUDES+=" .dotfiles:unescaped_colors.rb"
+EXCLUDES+=" .dotfiles:gemrc"
+EXCLUDES+=" .dotfiles:pryrc"
+EXCLUDES+=" .dotfiles:rdebugrc"
+# screen/tmux
+EXCLUDES+=" .dotfiles:tmuxinator"
+EXCLUDES+=" .dotfiles:screenrc"
+EXCLUDES+=" .dotfiles:tmux.conf"
+EXCLUDES+=" .dotfiles:tmux.conf.user"
+# Vim
+EXCLUDES+=" .dotfiles:ctags"
+EXCLUDES+=" .dotfiles:vimrc.after.yadr"
+# YADR
+EXCLUDES+=" .dotfiles:yadr"
+# Zsh
+EXCLUDES+=" .dotfiles:zprezto .dotfiles:zsh"
+EXCLUDES+=" .dotfiles:zlogin"
+EXCLUDES+=" .dotfiles:zlogout"
+EXCLUDES+=" .dotfiles:zpreztorc"
+EXCLUDES+=" .dotfiles:zprofile"
+EXCLUDES+=" .dotfiles:zshenv"
+EXCLUDES+=" .dotfiles:zshrc"
+
+HOSTNAME="dylema"
+SYMLINK_DIRS="vim yadr zprezto zsh zsh.after zsh.before zsh.prompts"
+UNDOTTED="bin"
+
