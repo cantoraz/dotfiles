@@ -1,6 +1,7 @@
 #DOTFILES_DIRS="$HOME/dotfiles"
 
-EXCLUDES="README *.md"
+EXCLUDES="README"
+EXCLUDES+=" .dotfiles:*.md"
 EXCLUDES+=" .dotfiles:*.old .dotfiles:*.bak"
 # Bash
 EXCLUDES+=" .dotfiles:bash"
