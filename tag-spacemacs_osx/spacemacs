@@ -49,6 +49,12 @@ values."
      spell-checking
      syntax-checking
      version-control
+     ;; Programming and markup languages
+     html
+     javascript
+     shell-scripts
+     sql
+     ;; Operating systems
      osx
      )
    ;; List of additional packages that will be installed without being
