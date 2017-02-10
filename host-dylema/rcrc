@@ -9,15 +9,12 @@ EXCLUDES+=" .dotfiles:bash_aliases"
 EXCLUDES+=" .dotfiles:bash_path"
 EXCLUDES+=" .dotfiles:bash_profile"
 EXCLUDES+=" .dotfiles:bash_yadr"
-EXCLUDES+=" .dotfiles:bashrc"
 # Editor
 EXCLUDES+=" .dotfiles:editrc"
 EXCLUDES+=" .dotfiles:inputrc"
 # Git
 #EXCLUDES+=" .dotfiles:gitconfig"
 EXCLUDES+=" .dotfiles:iTerm2"
-# Node.js
-EXCLUDES+=" .dotfiles:npmrc"
 # Python
 EXCLUDES+=" .dotfiles:virtualenvs"
 # Ruby
@@ -49,6 +46,6 @@ EXCLUDES+=" .dotfiles:zshrc"
 EXCLUDES+=" .dotfiles:zshrc.d"
 
 HOSTNAME="dylema"
-SYMLINK_DIRS="vim yadr zprezto zsh zsh.after zsh.before zsh.prompts"
+TAGS="xenial"
+SYMLINK_DIRS="bashrc.d vim yadr zprezto zsh zsh.after zsh.before zsh.prompts"
 UNDOTTED="bin"
-
