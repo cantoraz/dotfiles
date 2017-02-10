@@ -1,5 +1,5 @@
 [submodule "zprezto"]
-	path = zprezto
+	path = tag-zsh/zprezto
 	url = https://github.com/cantoraz/prezto.git
 [submodule "yadr"]
 	path = yadr

@@ -37,4 +37,6 @@ windows:
         - bundle exec rails c
         - #guard
   - server: bundle exec rails s
+  - sidekiq: bundle exec sidekiq
   - logs: tail -f log/development.log
+  - shell:
