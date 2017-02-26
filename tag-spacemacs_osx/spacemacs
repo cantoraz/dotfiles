@@ -49,6 +49,10 @@ values."
      spell-checking
      syntax-checking
      version-control
+     ;; International support
+     (keyboard-layout :variables
+                      kl-layout 'dvorak
+                      kl-enabled-configurations '(ace-window))
      ;; Programming and markup languages
      html
      javascript
@@ -56,6 +60,8 @@ values."
      sql
      ;; Operating systems
      osx
+     ;; Tools
+     pdf-tools
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
