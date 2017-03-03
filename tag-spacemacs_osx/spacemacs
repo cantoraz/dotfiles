@@ -52,7 +52,7 @@ values."
      ;; International support
      (keyboard-layout :variables
                       kl-layout 'dvorak
-                      kl-enabled-configurations '(ace-window))
+                      kl-enabled-configurations '(ace-window avy))
      ;; Programming and markup languages
      html
      javascript
