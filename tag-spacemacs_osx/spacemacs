@@ -63,6 +63,7 @@ values."
            ruby-test-runner 'rspec)
      shell-scripts
      sql
+     yaml
      ;; Operating systems
      osx
      ;; Tools
