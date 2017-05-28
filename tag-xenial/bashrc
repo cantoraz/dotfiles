@@ -121,4 +121,5 @@ shopt -s nullglob
 for config_file in $HOME/.bashrc.d/*.sh; do
   source $config_file
 done
+unset config_file
 shopt -u nullglob
