@@ -68,6 +68,7 @@ values."
      osx
      ;; Tools
      ansible
+     nginx
      pdf-tools
      )
    ;; List of additional packages that will be installed without being
