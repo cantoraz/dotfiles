@@ -52,6 +52,7 @@ values."
      ;; Frameworks
      ruby-on-rails
      ;; International support
+     (chinese :variables chinese-default-input-method nil)
      (keyboard-layout :variables
                       kl-layout 'dvorak
                       kl-enabled-configurations '(ace-window avy))
@@ -333,6 +334,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq powerline-default-separator 'alternate)
   (setq-default evil-escape-key-sequence "ue")
+  (spacemacs//set-monospaced-font "Source Code Pro" "PingFang SC" 15 18)
+  ;; Refer to: https://www.zhihu.com/question/52693161
+  ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+  ;;   (set-fontset-font (frame-parameter nil 'font)
+  ;;                     charset (font-spec :family "PingFang SC")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
