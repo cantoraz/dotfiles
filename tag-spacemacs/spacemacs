@@ -54,8 +54,10 @@ values."
                       kl-layout 'dvorak
                       kl-enabled-configurations '(ace-window avy))
      ;; Programming and markup languages
+     graphviz
      html
      javascript
+     plantuml
      shell-scripts
      sql
      ;; Tools
