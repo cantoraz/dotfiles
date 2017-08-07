@@ -42,7 +42,7 @@ values."
      emacs-lisp
      git
      markdown
-     org
+     (org :variables org-enable-github-support t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -50,12 +50,15 @@ values."
      syntax-checking
      version-control
      ;; International support
+     (chinese :variables chinese-default-input-method nil)
      (keyboard-layout :variables
                       kl-layout 'dvorak
                       kl-enabled-configurations '(ace-window avy))
      ;; Programming and markup languages
+     graphviz
      html
      javascript
+     plantuml
      shell-scripts
      sql
      ;; Tools
@@ -324,6 +327,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq-default evil-escape-key-sequence "ue")
+  (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 18 22)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
