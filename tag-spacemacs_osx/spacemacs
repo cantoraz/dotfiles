@@ -57,8 +57,10 @@ values."
                       kl-layout 'dvorak
                       kl-enabled-configurations '(ace-window avy))
      ;; Programming and markup languages
+     graphviz
      html
      javascript
+     plantuml
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-test-runner 'rspec)
@@ -333,7 +335,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq powerline-default-separator 'alternate)
-  (setq-default evil-escape-key-sequence "ue")
+  ;; (setq-default evil-escape-key-sequence "ue")
   (spacemacs//set-monospaced-font "Source Code Pro" "PingFang SC" 15 18)
   ;; Refer to: https://www.zhihu.com/question/52693161
   ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
