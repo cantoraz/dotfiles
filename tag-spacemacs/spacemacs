@@ -49,6 +49,8 @@ values."
      spell-checking
      syntax-checking
      version-control
+     ;; Frameworks
+     react
      ;; International support
      (chinese :variables chinese-default-input-method nil)
      (keyboard-layout :variables
@@ -326,6 +328,25 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; To have a consistent 2 spaces indenting both on js and jsx
+  ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2
+   )
+  ;; To have 2 space indent also for element's attributes, concatenations and
+  ;; contiguous function calls
+  ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
   ;; (setq-default evil-escape-key-sequence "ue")
   (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 18 22)
   )
