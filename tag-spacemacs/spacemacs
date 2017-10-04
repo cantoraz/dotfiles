@@ -63,6 +63,8 @@ values."
      plantuml
      shell-scripts
      sql
+     ;; Tags
+     gtags
      ;; Tools
      ansible
      pdf-tools
