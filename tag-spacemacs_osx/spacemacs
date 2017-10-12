@@ -336,7 +336,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; To have a consistent 2 spaces indenting both on js and jsx
-  ;; settings
   ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
   (setq-default
    ;; js2-mode
@@ -347,6 +346,10 @@ you should place your code here."
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2
+   ;; To change how js-mode indents JSON files
+   ;; Refer to http://spacemacs.org/layers/+lang/javascript/README.html#configuration
+   ;; js-mode
+   js-indent-level 2
    )
   ;; To have 2 space indent also for element's attributes, concatenations and
   ;; contiguous function calls
