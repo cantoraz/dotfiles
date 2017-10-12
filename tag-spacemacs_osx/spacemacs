@@ -70,6 +70,8 @@ values."
      yaml
      ;; Operating systems
      osx
+     ;; Tags
+     gtags
      ;; Tools
      ansible
      nginx
