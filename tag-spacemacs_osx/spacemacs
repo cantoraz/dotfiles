@@ -74,6 +74,7 @@ values."
      gtags
      ;; Tools
      ansible
+     docker
      nginx
      pdf-tools
      )
