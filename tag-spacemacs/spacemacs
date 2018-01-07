@@ -68,6 +68,7 @@ values."
      ;; Tools
      ansible
      docker
+     nginx
      pdf-tools
      vagrant
      )
