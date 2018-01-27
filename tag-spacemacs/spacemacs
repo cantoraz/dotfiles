@@ -61,6 +61,9 @@ values."
      html
      javascript
      plantuml
+     (ruby :variables
+           ruby-version-manager 'rvm
+           ruby-test-runner 'rspec)
      shell-scripts
      sql
      ;; Tags
