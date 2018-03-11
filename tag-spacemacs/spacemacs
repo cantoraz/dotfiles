@@ -53,9 +53,9 @@ values."
      react
      ;; International support
      (chinese :variables chinese-default-input-method nil)
-     (keyboard-layout :variables
-                      kl-layout 'dvorak
-                      kl-enabled-configurations '(ace-window avy))
+     ;; (keyboard-layout :variables
+     ;;                  kl-layout 'dvorak
+     ;;                  kl-enabled-configurations '(ace-window avy))
      ;; Programming and markup languages
      graphviz
      html
