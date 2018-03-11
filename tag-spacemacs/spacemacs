@@ -51,6 +51,7 @@ values."
      version-control
      ;; Frameworks
      react
+     ruby-on-rails
      ;; International support
      (chinese :variables chinese-default-input-method nil)
      ;; (keyboard-layout :variables
@@ -66,6 +67,7 @@ values."
            ruby-test-runner 'rspec)
      shell-scripts
      sql
+     yaml
      ;; Tags
      gtags
      ;; Tools
@@ -74,6 +76,8 @@ values."
      nginx
      pdf-tools
      vagrant
+     ;; Private
+     direnv
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
