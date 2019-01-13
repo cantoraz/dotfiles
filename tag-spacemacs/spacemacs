@@ -75,6 +75,7 @@ values."
      docker
      nginx
      pdf-tools
+     (restclient :variables restclient-use-org t)
      vagrant
      ;; Private
      direnv
