@@ -364,8 +364,9 @@ you should place your code here."
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+  (setq powerline-default-separator 'slant)
   ;; (setq-default evil-escape-key-sequence "ue")
-  (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 20 24)
+  (spacemacs//set-monospaced-font "Source Code Pro" "Heiti SC" 20 24)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
