@@ -62,6 +62,7 @@ values."
      html
      javascript
      plantuml
+     python
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-test-runner 'rspec)
