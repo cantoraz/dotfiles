@@ -35,16 +35,19 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  \
   'archive' \
+  'docker' \
   'fasd' \
   'git' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'node' \
   'osx' \
   'python' \
   'ruby' \
-  'node' \
-  'syntax-highlighting' \
-  'history-substring-search' \
   'ssh' \
+  \
   'prompt'
 
 #
