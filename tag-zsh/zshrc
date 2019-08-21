@@ -1,6 +1,9 @@
 #
 # Executes commands at the start of an interactive session.
 #
+# Authors:
+#   Cantroaz Chou <cantoraz@gmail.com>
+#
 
 # Source my customization before Prezto
 # Usually they define environment variables on which some modules of Prezto might rely.
@@ -8,10 +11,12 @@
 for config_file ($HOME/.zshrc.before.d/*.zsh(N)) source $config_file
 unset config_file
 
-# Source zshrc from Prezto
+# Source Prezto
 prezto_zshrc="${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 [[ -s $prezto_zshrc ]] && source $prezto_zshrc
 unset prezto_zshrc
+
+# Customize to your needs...
 
 # Source my customization
 for config_file ($HOME/.zshrc.d/*.zsh(N)) source $config_file
