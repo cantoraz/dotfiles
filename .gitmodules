@@ -3,4 +3,4 @@
 	url = https://github.com/cantoraz/prezto.git
 [submodule "yadr"]
 	path = yadr
-	url = https://github.com/cantoraz/yadr.git
+	url = https://github.com/skwp/dotfiles
