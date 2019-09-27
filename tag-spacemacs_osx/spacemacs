@@ -50,6 +50,7 @@ values."
      syntax-checking
      version-control
      ;; Frameworks
+     django
      react
      ruby-on-rails
      ;; International support
