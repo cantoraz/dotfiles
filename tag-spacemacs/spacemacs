@@ -65,7 +65,7 @@ values."
      plantuml
      python
      (ruby :variables
-           ruby-version-manager 'rvm
+           ruby-version-manager 'rbenv
            ruby-test-runner 'rspec)
      shell-scripts
      sql
