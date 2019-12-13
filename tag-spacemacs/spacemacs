@@ -374,6 +374,9 @@ you should place your code here."
   (setq powerline-default-separator 'slant)
   ;; (setq-default evil-escape-key-sequence "ue")
   (spacemacs//set-monospaced-font "Source Code Pro" "Heiti SC" 20 24)
+  ;; Bypass `describe-key' failing which caused by the `ansible' layer
+  (setq-default ansible nil
+                ansible-doc-mode nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
