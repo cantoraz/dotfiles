@@ -375,6 +375,7 @@ you should place your code here."
   ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
   ;;   (set-fontset-font (frame-parameter nil 'font)
   ;;                     charset (font-spec :family "Heiti SC")))
+  (setq-default ispell-program-name "aspell")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
