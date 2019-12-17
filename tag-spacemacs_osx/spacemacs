@@ -376,6 +376,9 @@ you should place your code here."
   ;;   (set-fontset-font (frame-parameter nil 'font)
   ;;                     charset (font-spec :family "Heiti SC")))
   (setq-default ispell-program-name "aspell")
+  ;; Bypass `describe-key' failing which caused by the `ansible' layer
+  (setq-default ansible nil
+                ansible-doc-mode nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
