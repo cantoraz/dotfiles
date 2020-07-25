@@ -348,6 +348,15 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; ---------- 12.4.0.5 / GUI Elements / Mode-line --------------------
+  ;; Refer to https://www.spacemacs.org/doc/DOCUMENTATION.html#powerline-separators
+  (setq powerline-default-separator 'slant)
+
+  ;; ---------- 14.1.1 / Commands / Vim key bindings -------------------
+  ;; Refet to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
+  ;; (setq-default evil-escape-key-sequence "ue")
+
+  ;; ---------- Layer - 7 Frameworks / React ---------------------------
   ;; To have a consistent 2 spaces indenting both on js and jsx
   ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
   (setq-default
@@ -371,9 +380,16 @@ you should place your code here."
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
-  (setq powerline-default-separator 'slant)
-  ;; (setq-default evil-escape-key-sequence "ue")
+
+  ;; ---------- Layer - 9 International support / Chinese --------------
+  ;; Refet to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
   (spacemacs//set-monospaced-font "Source Code Pro" "Heiti SC" 20 24)
+  ;; Refer to https://www.zhihu.com/question/52693161
+  ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+  ;;   (set-fontset-font (frame-parameter nil 'font)
+  ;;                     charset (font-spec :family "Heiti SC")))
+
+  ;; ---------- Layer - 18 Tools / Ansible -----------------------------
   ;; Bypass `describe-key' failing which caused by the `ansible' layer
   (setq-default ansible nil
                 ansible-doc-mode nil)
