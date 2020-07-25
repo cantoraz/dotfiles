@@ -393,6 +393,10 @@ you should place your code here."
   ;; Bypass `describe-key' failing which caused by the `ansible' layer
   (setq-default ansible nil
                 ansible-doc-mode nil)
+
+  ;; ---------- Custom Variables ---------------------------------------
+  ;; Reset var `fill-column' from 80 which set by spacemacs
+  (setq-default fill-column 72)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
