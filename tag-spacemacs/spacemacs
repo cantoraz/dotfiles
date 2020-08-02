@@ -166,11 +166,11 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Hack"
                                :size 20
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.4)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -392,7 +392,7 @@ you should place your code here."
   (setq fcitx-use-dbus t) ; uncomment if you're using Linux
 
   ;; Refet to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
-  (spacemacs//set-monospaced-font "Source Code Pro" "Heiti SC" 20 24)
+  (spacemacs//set-monospaced-font "Hack" "Heiti SC" 20 24)
   ;; Refer to https://www.zhihu.com/question/52693161
   ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
   ;;   (set-fontset-font (frame-parameter nil 'font)
