@@ -417,4 +417,5 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(org-agenda-files "~/org-agenda-files")
  '(org-enforce-todo-dependencies t)
+ '(safe-local-variable-values (quote ((eval ansible 1))))
  '(split-width-threshold 150))
