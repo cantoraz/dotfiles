@@ -40,7 +40,6 @@ zstyle ':prezto:load' pmodule \
   'docker' \
   'fasd' \
   'git' \
-  'gpg' \
   'syntax-highlighting' \
   'history-substring-search' \
   'node' \
