@@ -61,7 +61,8 @@ This function should only modify configuration layer settings."
      ;; International support
      (chinese :variables
               chinese-default-input-method nil
-              chinese-enable-fcitx t)
+              chinese-enable-fcitx t
+              chinese-fcitx-use-dbus t)
      ;; (keyboard-layout :variables
      ;;                  kl-layout 'dvorak
      ;;                  kl-enabled-configurations '(ace-window avy))
@@ -588,9 +589,10 @@ before packages are loaded."
   ;; ---------- Layer - 9 International support / Chinese --------------
   ;; Refer to https://github.com/cute-jumper/fcitx.el#example-settings
   ;; Make sure the following comes before `(fcitx-default-setup)'
-  ;; (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
-  ;; (fcitx-default-setup)
-  ;; (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
+  (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
+  (fcitx-aggressive-setup)
+  (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
+  ;; following variable has been configured in `chinese' layer
   ;; (setq fcitx-use-dbus t) ; uncomment if you're using Linux
 
   ;; Refet to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
