@@ -556,10 +556,6 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; ---------- 12.4.0.5 / GUI Elements / Mode-line --------------------
-  ;; Refer to https://www.spacemacs.org/doc/DOCUMENTATION.html#powerline-separators
-  ;; (setq powerline-default-separator 'slant)
-
   ;; ---------- 14.1.1 / Commands / Vim key bindings -------------------
   ;; Refet to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
   ;; (setq-default evil-escape-key-sequence "ue")
