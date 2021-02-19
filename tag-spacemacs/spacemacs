@@ -602,7 +602,10 @@ before packages are loaded."
   ;; (setq fcitx-use-dbus t) ; uncomment if you're using Linux
 
   ;; Refet to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
-  (spacemacs//set-monospaced-font "Hack" "Heiti SC" 16 20)
+  (cond ((string= (system-name) "dylema")
+         (spacemacs//set-monospaced-font "Hack" "Heiti SC" 20 24))
+        (t
+         (spacemacs//set-monospaced-font "Hack" "Heiti SC" 16 20)))
   ;; Refer to https://www.zhihu.com/question/52693161
   ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
   ;;   (set-fontset-font (frame-parameter nil 'font)
