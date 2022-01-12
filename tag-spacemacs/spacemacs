@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
      ;; Frameworks
      ;; django
      ;; react
-     ruby-on-rails
+     ;; ruby-on-rails
      ;; International support
      (chinese :variables
               chinese-default-input-method nil
@@ -585,7 +585,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; ---------- 14.1.1 / Commands / Vim key bindings -------------------
-  ;; Refet to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
+  ;; Refer to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
   ;; (setq-default evil-escape-key-sequence "ue")
 
   ;; ---------- Layer - 7 Frameworks / React ---------------------------
@@ -622,7 +622,7 @@ before packages are loaded."
   ;; following variable has been configured in `chinese' layer
   ;; (setq fcitx-use-dbus t) ; uncomment if you're using Linux
 
-  ;; Refet to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
+  ;; Refer to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
   (cond ((string= (system-name) "dylema")
          (spacemacs//set-monospaced-font "Hack" "Heiti SC" 20 24))
         (t
