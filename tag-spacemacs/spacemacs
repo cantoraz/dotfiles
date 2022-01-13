@@ -62,7 +62,8 @@ This function should only modify configuration layer settings."
      (chinese :variables
               chinese-default-input-method nil
               chinese-enable-fcitx t
-              chinese-fcitx-use-dbus t)
+              chinese-fcitx-use-dbus t
+              chinese-enable-youdao-dict t)
      ;; (keyboard-layout :variables
      ;;                  kl-layout 'dvorak
      ;;                  kl-enabled-configurations '(ace-window avy))
