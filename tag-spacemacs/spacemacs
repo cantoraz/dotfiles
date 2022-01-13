@@ -70,7 +70,12 @@ This function should only modify configuration layer settings."
      ;; Programming and markup languages
      graphviz
      html
-     javascript
+     (javascript :variables
+                 javascript-import-tool 'import-js
+                 javascript-backend 'tide
+                 js2-basic-offset 2
+                 js-indent-level 2)
+     web-beautify import-js tide ;; auxiliaries of `javascript' layer
      plantuml
      python
      (ruby :variables
@@ -590,25 +595,20 @@ before packages are loaded."
   ;; (setq-default evil-escape-key-sequence "ue")
 
   ;; ---------- Layer - 7 Frameworks / React ---------------------------
-  ;; To have a consistent 2 spaces indenting both on js and jsx
   ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
+  ;; To have a consistent 2 spaces indenting both on js and jsx
   (setq-default
    ;; js2-mode
-   js2-basic-offset 2
+   ;; js2-basic-offset 2 ;; DEPRECATED: set in `javascript' layer
    ;; web-mode
    css-indent-offset 2
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2
-   ;; To change how js-mode indents JSON files
-   ;; Refer to http://spacemacs.org/layers/+lang/javascript/README.html#configuration
-   ;; js-mode
-   js-indent-level 2
    )
-  ;; To have 2 space indent also for element's attributes, concatenations and
-  ;; contiguous function calls
-  ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
+  ;; To have 2 space indent also for element's attributes,
+  ;; concatenations and contiguous function calls
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
