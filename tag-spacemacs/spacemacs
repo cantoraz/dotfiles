@@ -55,8 +55,7 @@ This function should only modify configuration layer settings."
      version-control
      treemacs
      ;; Frameworks
-     ;; django
-     ;; react
+     react
      ;; ruby-on-rails
      ;; International support
      (chinese :variables
