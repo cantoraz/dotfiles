@@ -83,6 +83,8 @@ This function should only modify configuration layer settings."
            ruby-test-runner 'rspec)
      shell-scripts
      sql
+     (typescript :variables
+                 typescript-linter 'eslint)
      yaml
      ;; Tags
      gtags
