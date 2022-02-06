@@ -1,0 +1,344 @@
+#
+# Compose Sequence
+#
+# Sequence Definition
+#
+#
+# <Multi_key> Means <Compose>
+
+include "%L"
+
+#################### Part 1 - Spacing Versions of Dead Accents #########
+
+# Mandarin Chinese Tones and Pinyin Marks ------------------------------
+
+  <dead_macron> <space>                   : "ˉ"   U02C9 # MODIFIER LETTER MACRON
+# <dead_macron> <dead_macron>             : "¯"   macron # MACRON
+# <Multi_key> <minus> <asciicircum>       : "¯"   macron # MACRON
+# <Multi_key> <asciicircum> <minus>       : "¯"   macron # MACRON
+# <Multi_key> <underscore> <underscore> 	: "¯"   macron # MACRON
+# <Multi_key> <underscore> <asciicircum> 	: "¯"   macron # MACRON
+
+  <dead_acute> <space>                    : "ˊ"   U02CA # MODIFIER LETTER ACUTE ACCENT
+# <dead_acute> <dead_acute>               : "´"   acute # ACUTE ACCENT
+# <Multi_key> <apostrophe> <apostrophe> 	: "´"   acute # ACUTE ACCENT
+
+# <dead_caron> <space>                    : "ˇ"   caron # CARON
+# <dead_caron> <dead_caron>               : "ˇ"   caron # CARON
+# <Multi_key> <space> <less>              : "ˇ"   caron # CARON
+# <Multi_key> <less> <space>              : "ˇ"   caron # CARON
+
+  <dead_grave> <space>                    : "ˋ"   U02CB # MODIFIER LETTER GRAVE ACCENT
+# <dead_grave> <dead_grave>               : "`"   grave # GRAVE ACCENT
+# <Multi_key> <grave> <space>             : "`"   grave # GRAVE ACCENT
+# <Multi_key> <space> <grave>             : "`"   grave # GRAVE ACCENT
+
+# <dead_abovedot> <space>                 : "˙"   abovedot # DOT ABOVE
+# <dead_abovedot> <dead_abovedot>         : "˙"   abovedot # DOT ABOVE
+
+# <dead_diaeresis> <dead_diaeresis>       : "¨"   diaeresis # DIAERESIS
+# <Multi_key> <quotedbl> <quotedbl>       : "¨"   diaeresis # DIAERESIS
+
+# Other Diacritics -----------------------------------------------------
+
+  <dead_circumflex> <space>               : "ˆ"   U02C6 # MODIFIER LETTER CIRCUMFLEX ACCENT
+# <dead_circumflex> <dead_circumflex>     : "^"   asciicircum # CIRCUMFLEX ACCENT
+# <Multi_key> <asciicircum> <space>       : "^"   asciicircum # CIRCUMFLEX ACCENT
+# <Multi_key> <space> <asciicircum>       : "^"   asciicircum # CIRCUMFLEX ACCENT
+# <Multi_key> <greater> <space>           : "^"   asciicircum # CIRCUMFLEX ACCENT
+# <Multi_key> <space> <greater>           : "^"   asciicircum # CIRCUMFLEX ACCENT
+
+#################### Part 2 - ASCII Characters #########################
+
+# <Multi_key> <plus> <plus>               : "#"   numbersign # NUMBER SIGN
+# <Multi_key> <A> <T>                     : "@"   at # COMMERCIAL AT
+# <Multi_key> <parenleft> <parenleft>     : "["   bracketleft # LEFT SQUARE BRACKET
+# <Multi_key> <slash> <slash>             : "\\"   backslash # REVERSE SOLIDUS
+# <Multi_key> <slash> <less>              : "\\"   backslash # REVERSE SOLIDUS
+# <Multi_key> <less> <slash>              : "\\"   backslash # REVERSE SOLIDUS
+# <Multi_key> <parenright> <parenright> 	: "]"   bracketright # RIGHT SQUARE BRACKET
+# <Multi_key> <parenleft> <minus>         : "{"   braceleft # LEFT CURLY BRACKET
+# <Multi_key> <minus> <parenleft>         : "{"   braceleft # LEFT CURLY BRACKET
+# <Multi_key> <slash> <asciicircum>       : "|"   bar # VERTICAL LINE
+# <Multi_key> <asciicircum> <slash>       : "|"   bar # VERTICAL LINE
+# <Multi_key> <V> <L>                     : "|"   bar # VERTICAL LINE
+# <Multi_key> <L> <V>                     : "|"   bar # VERTICAL LINE
+# <Multi_key> <v> <l>                     : "|"   bar # VERTICAL LINE
+# <Multi_key> <l> <v>                     : "|"   bar # VERTICAL LINE
+# <Multi_key> <parenright> <minus>        : "}"   braceright # RIGHT CURLY BRACKET
+# <Multi_key> <minus> <parenright>        : "}"   braceright # RIGHT CURLY BRACKET
+# <Multi_key> <L> <T>                     : "<"   less # LESS-THAN
+# <Multi_key> <l> <t>                     : "<"   less # LESS-THAN
+# <Multi_key> <G> <T>                     : ">"   greater # GREATER-THAN
+# <Multi_key> <g> <t>                     : ">"   greater # GREATER-THAN
+
+#################### Part 3 - Typographic Symbols ######################
+
+# Spaces ---------------------------------------------------------------
+
+# <Multi_key> <minus> <minus> <space>     : "­"   U00ad # SOFT HYPHEN
+
+# <Multi_key> <space> <space>             : " "   nobreakspace # NO-BREAK SPACE
+# <Multi_key> <space> <period>            : " "   U2008 # PUNCTUATION SPACE
+
+# Dashes ---------------------------------------------------------------
+
+# <Multi_key> <minus> <minus> <period>    : "–"   U2013 # EN DASH
+# <Multi_key> <minus> <minus> <minus>     : "—"   U2014 # EM DASH
+
+# Quotation Marks ------------------------------------------------------
+
+# <Multi_key> <period> <less>             : "‹"   U2039 # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+# <Multi_key> <period> <greater>          : "›"   U203a # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+# <Multi_key> <less> <less>               : "«"   guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+# <Multi_key> <greater> <greater>         : "»"   guillemotright # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+# <Multi_key> <less> <apostrophe>         : "‘"   U2018 # LEFT SINGLE QUOTATION MARK
+# <Multi_key> <apostrophe> <less>         : "‘"   U2018 # LEFT SINGLE QUOTATION MARK
+# <Multi_key> <greater> <apostrophe>      : "’"   U2019 # RIGHT SINGLE QUOTATION MARK
+# <Multi_key> <apostrophe> <greater>      : "’"   U2019 # RIGHT SINGLE QUOTATION MARK
+# <Multi_key> <comma> <apostrophe>        : "‚"   U201a # SINGLE LOW-9 QUOTATION MARK
+# <Multi_key> <apostrophe> <comma>        : "‚"   U201a # SINGLE LOW-9 QUOTATION MARK
+# <Multi_key> <less> <quotedbl>           : "“"   U201c # LEFT DOUBLE QUOTATION MARK
+# <Multi_key> <quotedbl> <less>           : "“"   U201c # LEFT DOUBLE QUOTATION MARK
+# <Multi_key> <greater> <quotedbl>        : "”"   U201d # RIGHT DOUBLE QUOTATION MARK
+# <Multi_key> <quotedbl> <greater>        : "”"   U201d # RIGHT DOUBLE QUOTATION MARK
+# <Multi_key> <comma> <quotedbl>          : "„"   U201e # DOUBLE LOW-9 QUOTATION MARK
+# <Multi_key> <quotedbl> <comma>          : "„"   U201e # DOUBLE LOW-9 QUOTATION MARK
+
+# Punctuation ----------------------------------------------------------
+
+# <Multi_key> <period> <period>           : "…"   ellipsis # HORIZONTAL ELLIPSIS
+# <Multi_key> <period> <minus>            : "·"   periodcentered # MIDDLE DOT
+# <Multi_key> <period> <equal>            : "•"   enfilledcircbullet # BULLET
+# <Multi_key> <exclam> <asciicircum>      : "¦"   brokenbar # BROKEN BAR
+# <Multi_key> <exclam> <exclam>           : "¡"   exclamdown # INVERTED EXCLAMATION MARK
+# <Multi_key> <question> <question>       : "¿"   questiondown # INVERTED QUESTION MARK
+
+# Currencies -----------------------------------------------------------
+
+  <Multi_key> <dollar> <U>                : "圓"   U5713 # YUAN / WEN
+  <Multi_key> <dollar> <u>                : "元"   U5143 # YUAN / WEN
+  <Multi_key> <dollar> <Y>                : "円"   U5186 # YEN
+
+# Ideographic ----------------------------------------------------------
+
+# NOT WORKING
+# Use Simplified Chinese in addition to original Tranditional Chinese
+  <Multi_key> <parenleft> <U8D22> <parenright>  : "㊖"   U3296 # CIRCLED IDEOGRAPH FINANCIAL
+  <Multi_key> <parenleft> <U52B3> <parenright> 	: "㊘"   U3298 # CIRCLED IDEOGRAPH LABOR
+  <Multi_key> <parenleft> <U9002> <parenright> 	: "㊜"   U329C # CIRCLED IDEOGRAPH SUITABLE
+  <Multi_key> <parenleft> <U4F18> <parenright> 	: "㊝"   U329D # CIRCLED IDEOGRAPH EXCELLENT
+  <Multi_key> <parenleft> <U9879> <parenright> 	: "㊠"   U32A0 # CIRCLED IDEOGRAPH ITEM
+  <Multi_key> <parenleft> <U76D1> <parenright> 	: "㊬"   U32AC # CIRCLED IDEOGRAPH SUPERVISE
+  <Multi_key> <parenleft> <U84DD> <parenright> 	: "㊮"   U32AE # CIRCLED IDEOGRAPH RESOURCE
+  <Multi_key> <parenleft> <U534F> <parenright>  : "㊯"   U32AF # CIRCLED IDEOGRAPH ALLIANCE
+
+#################### Part 4 - Technical Symbols ########################
+
+  <Multi_key> <o> <C>                     : "℃"   U2103 # DEGREE CELSIUS
+  <Multi_key> <degree> <C>                : "℃"   U2103 # DEGREE CELSIUS
+  <Multi_key> <o> <F>                     : "℉"   U2109 # DEGREE FAHRENHEIT
+  <Multi_key> <degree> <F>                : "℉"   U2109 # DEGREE FAHRENHEIT
+
+  <Multi_key> <h> <h>                     : "ℎ"   U210E # PLANCK CONSTANT
+  <Multi_key> <h> <minus>                 : "ℏ"   U210F # PLANCK CONSTANT OVER TWO PI
+
+  <Multi_key> <d> <i>                     : "⌀"   U2300 # DIAMETER SIGN
+
+  <Multi_key> <bracketleft> <o>           : "⎄"   U2384 # COMPOSITION SYMBOL
+
+#################### Part 5 - Math Symbols #############################
+
+# Vulgar Fractions -----------------------------------------------------
+
+# <Multi_key> <1> <4>                     : "¼"   onequarter    # VULGAR FRACTION ONE QUARTER
+# <Multi_key> <1> <2>                     : "½"   onehalf       # VULGAR FRACTION ONE HALF
+# <Multi_key> <3> <4>                     : "¾"   threequarters # VULGAR FRACTION THREE QUARTERS
+
+# <Multi_key> <1> <7>                     : "⅐"   U2150 # VULGAR FRACTION ONE SEVENTH
+# <Multi_key> <1> <9>                     : "⅑"   U2151 # VULGAR FRACTION ONE NINTH
+# <Multi_key> <1> <1> <0>                 : "⅒"   U2152 # VULGAR FRACTION ONE TENTH
+
+# <Multi_key> <1> <3>                     : "⅓"   U2153 # VULGAR FRACTION ONE THIRD
+# <Multi_key> <2> <3>                     : "⅔"   U2154 # VULGAR FRACTION TWO THIRDS
+
+# <Multi_key> <1> <5>                     : "⅕"   U2155 # VULGAR FRACTION ONE FIFTH
+# <Multi_key> <2> <5>                     : "⅖"   U2156 # VULGAR FRACTION TWO FIFTHS
+# <Multi_key> <3> <5>                     : "⅗"   U2157 # VULGAR FRACTION THREE FIFTHS
+# <Multi_key> <4> <5>                     : "⅘"   U2158 # VULGAR FRACTION FOUR FIFTHS
+
+# <Multi_key> <1> <6>                     : "⅙"   U2159 # VULGAR FRACTION ONE SIXTH
+# <Multi_key> <5> <6>                     : "⅚"   U215A # VULGAR FRACTION FIVE SIXTHS
+
+# <Multi_key> <1> <8>                     : "⅛"   U215B # VULGAR FRACTION ONE EIGHTH
+# <Multi_key> <3> <8>                     : "⅜"   U215C # VULGAR FRACTION THREE EIGHTHS
+# <Multi_key> <5> <8>                     : "⅝"   U215D # VULGAR FRACTION FIVE EIGHTHS
+# <Multi_key> <7> <8>                     : "⅞"   U215E # VULGAR FRACTION SEVEN EIGHTHS
+
+# <Multi_key> <0> <3>                     : "↉"   U2189 # VULGAR FRACTION ZERO THIRDS
+
+# Arrows ---------------------------------------------------------------
+
+  <Multi_key>         <equal> <x>               : "↔"   U2194 #   - x LEFT RIGHT ARROW
+
+  <Multi_key> <slash> <minus> <less>            : "↚"   U219A # / - < LEFTWARDS ARROW WITH STROKE
+  <Multi_key> <slash> <minus> <greater>         : "↛"   U219B # / - > RIGHTWARDS ARROW WITH STROKE
+  <Multi_key> <slash> <minus> <x>               : "↮"   U21AE # / - x LEFT RIGHT ARROW WITH STROKE
+
+  <Multi_key>         <equal> <less>            : "⇐"   U21D0 #   = < LEFTWARDS DOUBLE ARROW
+# <Multi_key>         <equal> <greater>         : "⇒"   U21D2 #   = > RIGHTWARDS DOUBLE ARROW
+  <Multi_key>         <equal> <x>               : "⇔"   U21D4 #   = x LEFT RIGHT DOUBLE ARROW
+
+# Equal Relations ------------------------------------------------------
+
+  <Multi_key>         <equal> <asciitilde>      : "≅"   U2245 #   = ~ APPROXIMATELY EQUAL TO
+  <Multi_key> <slash> <approximate>             : "≇"   U2247 # / ≅   NEITHER APPROXIMATELY NOR ACTUALLY EQUAL TO
+  <Multi_key> <slash> <equal> <asciitilde>      : "≇"   U2247 # / = ~ NEITHER APPROXIMATELY NOR ACTUALLY EQUAL TO
+
+  <Multi_key> <slash> <approxeq>                : "≉"   U2249 # / ≈   NOT ALMOST EQUAL TO
+  <Multi_key> <slash> <asciitilde> <asciitilde> : "≉"   U2249 # / ~ ~ NOT ALMOST EQUAL TO
+
+  <Multi_key>         <equal> <minus>           : "≡"   U2261 #   = - IDENTICAL TO
+  <Multi_key> <slash> <identical>               : "≢"   U2262 # / ≡   NOT IDENTICAL TO
+  <Multi_key> <slash> <equal> <minus>           : "≢"   U2262 # / = - NOT IDENTICAL TO
+
+# Inequal Relations ----------------------------------------------------
+
+  <Multi_key> <slash> <less>                    : "≮"   U226E # / <   NOT LESS-THAN
+  <Multi_key> <slash> <greater>                 : "≯"   U226F # / >   NOT GREATER-THAN
+
+  <Multi_key> <slash> <underscore> <less>       : "≰"   U2270 # / _ < NEITHER LESS-THAN NOR EQUAL TO
+  <Multi_key> <slash> <underscore> <greater>    : "≱"   U2271 # / _ > NEITHER GREATER-THAN NOR EQUAL TO
+
+  <Multi_key>         <less> <equal>            : "⩽"   U2A7D #   < = LESS-THAN OR SLANTED EQUAL TO
+  <Multi_key>         <greater> <equal>         : "⩾"   U2A7E #   > = GREATER-THAN OR SLANTED EQUAL TO
+
+# Set Theory Relations -------------------------------------------------
+
+  <Multi_key>         <e> <parenleft>           : "∈"   U2208 #   e ( ELEMENT OF
+# NOT WORKING
+  <Multi_key> <slash> <e> <parenleft>           : "∉"   U2209 # / e ( NOT AN ELEMENT OF
+  <Multi_key>         <e> <parenright>          : "∋"   U220B #   e ) CONTAINS AS MEMBER
+# NOT WORKING
+  <Multi_key> <slash> <e> <parenright>          : "∌"   U220C # / e ) DOES NOT CONTAIN AS MEMBER
+
+  <Multi_key>         <c> <parenleft>           : "⊂"   U2282 #   c ( SUBSET OF
+  <Multi_key>         <c> <parenright>          : "⊃"   U2283 #   c ) SUPERSET OF
+  <Multi_key> <slash> <c> <parenleft>           : "⊄"   U2284 # / c ( NOT A SUBSET OF
+  <Multi_key> <slash> <c> <parenright>          : "⊅"   U2285 # / c ) NOT A SUPERSET OF
+
+  <Multi_key>         <equal> <parenleft>       : "⊆"   U2286 #   = ( SUBSET OF OR EQUAL TO
+  <Multi_key>         <equal> <parenright>      : "⊇"   U2287 #   = ) SUPERSET OF OR EQUAL TO
+  <Multi_key> <slash> <equal> <parenleft>       : "⊈"   U2288 # / = ( NEITHER A SUBSET OF NOR EQUAL TO
+  <Multi_key> <slash> <equal> <parenright>      : "⊉"   U2289 # / = ) NEITHER A SUPERSET OF NOR EQUAL TO
+
+# Other Relations ------------------------------------------------------
+
+  <Multi_key>         <E> <E>                   : "∃"   U2204 #   E E THERE DOES NOT EXIST
+  <Multi_key> <slash> <E> <E>                   : "∄"   U2204 # / E E THERE DOES NOT EXIST
+
+  <Multi_key>         <bar> <bar>               : "∥"   U2225 #   | | PARALLEL TO
+  <Multi_key> <slash> <bar> <bar>               : "∦"   U2226 # / | | NOT PARALLEL TO
+
+  <Multi_key>         <asciitilde> <space>      : "∼"   U223C #   ~ ␣ TILDE OPERATOR
+  <Multi_key>         <space> <asciitilde>      : "∼"   U223C #   ␣ ~ TILDE OPERATOR
+
+# Miscellaneous --------------------------------------------------------
+
+  <Multi_key> <f> <x>                           : "ƒ"   function # f x LATIN SMALL LETTER F WITH HOOK
+  <Multi_key> <percent> <0>                     : "‰"   U2030    # % 0 PER MILLE SIGN
+
+# Superscripts ---------------------------------------------------------
+
+# <Multi_key> <asciicircum> <0>               : "⁰"   U2070 # SUPERSCRIPT ZERO
+
+# <Multi_key> <asciicircum> <1>               : "¹"   onesuperior # SUPERSCRIPT ONE
+# <Multi_key> <asciicircum> <2>               : "²"   twosuperior # SUPERSCRIPT TWO
+# <Multi_key> <asciicircum> <3>               : "³"   threesuperior # SUPERSCRIPT THREE
+
+# <Multi_key> <asciicircum> <4>               : "⁴"   U2074 # SUPERSCRIPT FOUR
+# <Multi_key> <asciicircum> <5>               : "⁵"   U2075 # SUPERSCRIPT FIVE
+# <Multi_key> <asciicircum> <6>               : "⁶"   U2076 # SUPERSCRIPT SIX
+# <Multi_key> <asciicircum> <7>               : "⁷"   U2077 # SUPERSCRIPT SEVEN
+# <Multi_key> <asciicircum> <8>               : "⁸"   U2078 # SUPERSCRIPT EIGHT
+# <Multi_key> <asciicircum> <9>               : "⁹"   U2079 # SUPERSCRIPT NINE
+
+# <Multi_key> <asciicircum> <plus>            : "⁺"   U207A # SUPERSCRIPT PLUS SIGN
+# <Multi_key> <asciicircum> <minus>           : "⁻"   U207B # SUPERSCRIPT MINUS
+# <Multi_key> <asciicircum> <equal>           : "⁼"   U207C # SUPERSCRIPT EQUALS SIGN
+# <Multi_key> <asciicircum> <parenleft>       : "⁽"   U207D # SUPERSCRIPT LEFT PARENTHESIS
+# <Multi_key> <asciicircum> <parenright>      : "⁾"   U207E # SUPERSCRIPT RIGHT PARENTHESIS
+
+  <Multi_key> <asciicircum> <underscore> <a>  : "ᵃ"   U1D43 # MODIFIER LETTER SMALL A
+  <Multi_key> <asciicircum> <underscore> <b>  : "ᵇ"   U1D47 # MODIFIER LETTER SMALL B
+  <Multi_key> <asciicircum> <underscore> <c>  : "ᶜ"   U1D9C # MODIFIER LETTER SMALL C
+  <Multi_key> <asciicircum> <underscore> <d>  : "ᵈ"   U1D48 # MODIFIER LETTER SMALL D
+  <Multi_key> <asciicircum> <underscore> <e>  : "ᵉ"   U1D49 # MODIFIER LETTER SMALL E
+  <Multi_key> <asciicircum> <underscore> <f>  : "ᶠ"   U1DA0 # MODIFIER LETTER SMALL F
+  <Multi_key> <asciicircum> <underscore> <g>  : "ᵍ"   U1D4D # MODIFIER LETTER SMALL G
+  <Multi_key> <asciicircum> <underscore> <h>  : "ʰ"   U02B0 # MODIFIER LETTER SMALL H
+  <Multi_key> <asciicircum> <underscore> <i>  : "ⁱ"   U2071 # SUPERSCRIPT LATIN SMALL LETTER I
+  <Multi_key> <asciicircum> <underscore> <j>  : "ʲ"   U02B2 # MODIFIER LETTER SMALL J
+  <Multi_key> <asciicircum> <underscore> <k>  : "ᵏ"   U1D4F # MODIFIER LETTER SMALL K
+  <Multi_key> <asciicircum> <underscore> <l>  : "ˡ"   U02E1 # MODIFIER LETTER SMALL L
+  <Multi_key> <asciicircum> <underscore> <m>  : "ᵐ"   U1D50 # MODIFIER LETTER SMALL M
+  <Multi_key> <asciicircum> <underscore> <n>  : "ⁿ"   U207F # SUPERSCRIPT LATIN SMALL LETTER N
+  <Multi_key> <asciicircum> <underscore> <o>  : "ᵒ"   U1D52 # MODIFIER LETTER SMALL O
+  <Multi_key> <asciicircum> <underscore> <p>  : "ᵖ"   U1D56 # MODIFIER LETTER SMALL P
+                                                         # NO SUPERSCRIPT LATIN SMALL LETTER Q
+  <Multi_key> <asciicircum> <underscore> <r>  : "ʳ"   U02B3 # MODIFIER LETTER SMALL R
+  <Multi_key> <asciicircum> <underscore> <s>  : "ˢ"   U02E2 # MODIFIER LETTER SMALL S
+  <Multi_key> <asciicircum> <underscore> <t>  : "ᵗ"   U1D57 # MODIFIER LETTER SMALL T
+  <Multi_key> <asciicircum> <underscore> <u>  : "ᵘ"   U1D58 # MODIFIER LETTER SMALL U
+  <Multi_key> <asciicircum> <underscore> <v>  : "ᵛ"   U1D5B # MODIFIER LETTER SMALL V
+  <Multi_key> <asciicircum> <underscore> <w>  : "ʷ"   U02B7 # MODIFIER LETTER SMALL W
+  <Multi_key> <asciicircum> <underscore> <x>  : "ˣ"   U02E3 # MODIFIER LETTER SMALL X
+  <Multi_key> <asciicircum> <underscore> <y>  : "ʸ"   U02B8 # MODIFIER LETTER SMALL Y
+  <Multi_key> <asciicircum> <underscore> <z>  : "ᶻ"   U1DBB # MODIFIER LETTER SMALL Z
+
+# Subscripts -----------------------------------------------------------
+
+# <Multi_key> <underscore> <0>            : "₀"   zerosubscript  # SUBSCRIPT ZERO
+# <Multi_key> <underscore> <1>            : "₁"   onesubscript   # SUBSCRIPT ONE
+# <Multi_key> <underscore> <2>            : "₂"   twosubscript   # SUBSCRIPT TWO
+# <Multi_key> <underscore> <3>            : "₃"   threesubscript # SUBSCRIPT THREE
+# <Multi_key> <underscore> <4>            : "₄"   foursubscript  # SUBSCRIPT FOUR
+# <Multi_key> <underscore> <5>            : "₅"   fivesubscript  # SUBSCRIPT FIVE
+# <Multi_key> <underscore> <6>            : "₆"   sixsubscript   # SUBSCRIPT SIX
+# <Multi_key> <underscore> <7>            : "₇"   sevensubscript # SUBSCRIPT SEVEN
+# <Multi_key> <underscore> <8>            : "₈"   eightsubscript # SUBSCRIPT EIGHT
+# <Multi_key> <underscore> <9>            : "₉"   ninesubscript  # SUBSCRIPT NINE
+# <Multi_key> <underscore> <plus>         : "₊"   U208A          # SUBSCRIPT PLUS SIGN
+  <Multi_key> <underscore> <minus>        : "₋"   U208B          # SUBSCRIPT MINUS
+# <Multi_key> <underscore> <equal>        : "₌"   U208C          # SUBSCRIPT EQUALS SIGN
+# <Multi_key> <underscore> <parenleft>    : "₍"   U208D          # SUBSCRIPT LEFT PARENTHESIS
+# <Multi_key> <underscore> <parenright>   : "₎"   U208E          # SUBSCRIPT RIGHT PARENTHESIS
+
+  <Multi_key> <underscore> <a>            : "ₐ"   U2090 # LATIN SUBSCRIPT SMALL LETTER A
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER B
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER C
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER D
+  <Multi_key> <underscore> <e>            : "ₑ"   U2091 # LATIN SUBSCRIPT SMALL LETTER E
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER F
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER G
+  <Multi_key> <underscore> <h>            : "ₕ"   U2095 # LATIN SUBSCRIPT SMALL LETTER H
+  <Multi_key> <underscore> <i>            : "ᵢ"   U1D62 # LATIN SUBSCRIPT SMALL LETTER I
+  <Multi_key> <underscore> <j>            : "ⱼ"   U2C7C # LATIN SUBSCRIPT SMALL LETTER J
+  <Multi_key> <underscore> <k>            : "ₖ"   U2096 # LATIN SUBSCRIPT SMALL LETTER K
+  <Multi_key> <underscore> <l>            : "ₗ"   U2097 # LATIN SUBSCRIPT SMALL LETTER L
+  <Multi_key> <underscore> <m>            : "ₘ"   U2098 # LATIN SUBSCRIPT SMALL LETTER M
+  <Multi_key> <underscore> <n>            : "ₙ"   U2099 # LATIN SUBSCRIPT SMALL LETTER N
+  <Multi_key> <underscore> <o>            : "ₒ"   U2092 # LATIN SUBSCRIPT SMALL LETTER O
+  <Multi_key> <underscore> <p>            : "ₚ"   U209A # LATIN SUBSCRIPT SMALL LETTER P
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER Q
+  <Multi_key> <underscore> <r>            : "ᵣ"   U1D63 # LATIN SUBSCRIPT SMALL LETTER R
+  <Multi_key> <underscore> <s>            : "ₛ"   U209B # LATIN SUBSCRIPT SMALL LETTER S
+  <Multi_key> <underscore> <t>            : "ₜ"   U209C # LATIN SUBSCRIPT SMALL LETTER T
+  <Multi_key> <underscore> <u>            : "ᵤ"   U1D64 # LATIN SUBSCRIPT SMALL LETTER U
+  <Multi_key> <underscore> <v>            : "ᵥ"   U1D65 # LATIN SUBSCRIPT SMALL LETTER V
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER W
+  <Multi_key> <underscore> <x>            : "ₓ"   U2093 # LATIN SUBSCRIPT SMALL LETTER X
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER Y
+                                                     # NO LATIN SUBSCRIPT SMALL LETTER Z
+
+# End of Sequence Definition
