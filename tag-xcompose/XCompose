@@ -218,9 +218,15 @@ include "%L"
   <Multi_key>         <e> <parenleft>           : "∈"   U2208 #   e ( ELEMENT OF
 # NOT WORKING
   <Multi_key> <slash> <e> <parenleft>           : "∉"   U2209 # / e ( NOT AN ELEMENT OF
+  <Multi_key> <slash> <e> <less>                : "∉"   U2209 # / e < NOT AN ELEMENT OF
+  <Multi_key> <slash> <parenleft> <e>           : "∉"   U2209 # / ( e NOT AN ELEMENT OF
+  <Multi_key> <slash> <parenleft> <minus>       : "∉"   U2209 # / ( - NOT AN ELEMENT OF
   <Multi_key>         <e> <parenright>          : "∋"   U220B #   e ) CONTAINS AS MEMBER
 # NOT WORKING
   <Multi_key> <slash> <e> <parenright>          : "∌"   U220C # / e ) DOES NOT CONTAIN AS MEMBER
+  <Multi_key> <slash> <e> <greater>             : "∌"   U220C # / e > DOES NOT CONTAIN AS MEMBER
+  <Multi_key> <slash> <parenright> <e>          : "∌"   U220C # / ) e DOES NOT CONTAIN AS MEMBER
+  <Multi_key> <slash> <parenright> <minus>      : "∌"   U220C # / ) - DOES NOT CONTAIN AS MEMBER
 
   <Multi_key>         <c> <parenleft>           : "⊂"   U2282 #   c ( SUBSET OF
   <Multi_key>         <c> <parenright>          : "⊃"   U2283 #   c ) SUPERSET OF
