@@ -591,7 +591,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; ---------- 14.1.1 / Commands / Vim key bindings -------------------
+  ;; ---------- 12 / Binding keys --------------------------------------
+  ;; Refer to https://develop.spacemacs.org/doc/DOCUMENTATION.html#binding-keys
+  (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+
+  ;; ---------- 15.1.1 / Commands / Vim key bindings -------------------
   ;; Refer to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
   ;; (setq-default evil-escape-key-sequence "ue")
 
