@@ -72,9 +72,10 @@ This function should only modify configuration layer settings."
      (javascript :variables
                  javascript-import-tool 'import-js
                  javascript-backend 'tide
+                 javascript-fmt-tool 'prettier
                  js2-basic-offset 2
                  js-indent-level 2)
-     web-beautify import-js tide ;; auxiliaries of `javascript' layer
+     web-beautify prettier import-js tide ;; auxiliaries of `javascript' layer
      plantuml
      python
      (ruby :variables
