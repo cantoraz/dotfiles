@@ -77,7 +77,11 @@ This function should only modify configuration layer settings."
                  js-indent-level 2)
      web-beautify prettier import-js tide ;; auxiliaries of `javascript' layer
      plantuml
-     python
+     (python :variables
+             ;; python-backend 'lsp
+             ;; python-lsp-server 'pyright
+             python-test-runner 'pytest
+             python-fill-column 72)
      (ruby :variables
            ruby-version-manager 'rbenv
            ruby-test-runner 'rspec)
@@ -638,6 +642,15 @@ before packages are loaded."
   ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
   ;;   (set-fontset-font (frame-parameter nil 'font)
   ;;                     charset (font-spec :family "Heiti SC")))
+
+  ;; ---------- Layer - 10 Programming and markup languages / Python --------------
+  ;; `pylint' is too thorough, that need complex config to pass checks.
+  ;; Though `PYTHONPATH' could be altered vai `--init-hook', it's
+  ;; difficult to infer the project's `venv' dynamically when invoked by
+  ;; `flycheck'. As a consequence, `Unable to import' errors are reported.
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (add-to-list 'flycheck-disabled-checkers 'python-pylint)))
 
   ;; ---------- Layer - 18 Tools / Ansible -----------------------------
   ;; Bypass `describe-key' failing which caused by the `ansible' layer
