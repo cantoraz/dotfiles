@@ -78,6 +78,7 @@ This function should only modify configuration layer settings."
      web-beautify prettier import-js tide ;; auxiliaries of `javascript' layer
      plantuml
      (python :variables
+             python-backend 'anaconda
              ;; python-backend 'lsp
              ;; python-lsp-server 'pyright
              python-test-runner 'pytest
@@ -88,7 +89,8 @@ This function should only modify configuration layer settings."
      shell-scripts
      sql
      (typescript :variables
-                 typescript-linter 'eslint)
+                 typescript-linter 'eslint
+                 typescript-backend 'tide)
      yaml
      ;; Tags
      gtags
