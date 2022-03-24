@@ -78,9 +78,9 @@ This function should only modify configuration layer settings."
      web-beautify prettier import-js tide ;; auxiliaries of `javascript' layer
      plantuml
      (python :variables
-             python-backend 'anaconda
-             ;; python-backend 'lsp
-             ;; python-lsp-server 'pyright
+             ;; python-backend 'anaconda
+             python-backend 'lsp
+             python-lsp-server 'pyright
              python-test-runner 'pytest
              python-fill-column 72)
      (ruby :variables
