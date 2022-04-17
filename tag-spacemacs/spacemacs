@@ -646,10 +646,10 @@ before packages are loaded."
   ;; ---------- Layer - 9 International support / Chinese --------------
   ;; Refer to https://github.com/cute-jumper/fcitx.el#example-settings
   ;; Make sure the following comes before `(fcitx-default-setup)'
-  (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
+  ;; (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
   (fcitx-aggressive-setup)
-  (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
   ;; following variable has been configured in `chinese' layer
+  ;; (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
   ;; (setq fcitx-use-dbus t) ; uncomment if you're using Linux
 
   ;; Refer to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
