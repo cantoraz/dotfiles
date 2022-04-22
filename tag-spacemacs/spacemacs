@@ -598,6 +598,11 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; (setq socks-server '("Default server" "127.0.0.1" 7891 5))
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='/run/user/%%i/%%r@%%h:%%p' -o ControlPersist=no")
+  (setq configuration-layer-elpa-archives
+        '(("melpa-cn"  . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
+          ("org-cn"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")
+          ("gnu-cn"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+          ("nongnu-cn" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/nongnu/")))
 )
 
 
