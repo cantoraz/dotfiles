@@ -703,7 +703,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol nil)
  '(org-agenda-files "~/org-agenda-files")
  '(org-enforce-todo-dependencies t)
- '(safe-local-variable-values '((eval ansible 1)))
+ '(safe-local-variable-values '((eval ansible 1) (pangu-spacing-real-insert-separtor)))
  '(split-width-threshold 150))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
