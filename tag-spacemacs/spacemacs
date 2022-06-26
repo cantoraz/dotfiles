@@ -91,7 +91,7 @@ This function should only modify configuration layer settings."
            ruby-test-runner 'rspec
            ruby-insert-encoding-magic-comment nil
            enh-ruby-add-encoding-comment-on-save nil)
-     shell-scripts
+     (shell-scripts :variables shell-scripts-backend nil)
      sql
      (typescript :variables
                  typescript-linter 'eslint
