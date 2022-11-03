@@ -77,7 +77,9 @@ This function should only modify configuration layer settings."
                  js2-basic-offset 2
                  js-indent-level 2)
      web-beautify prettier import-js tide ;; auxiliaries of `javascript' layer
-     plantuml
+     (plantuml :variables
+               plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
+               org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
      (python :variables
              ;; python-backend 'anaconda
              python-backend 'lsp
