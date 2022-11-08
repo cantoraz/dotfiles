@@ -728,10 +728,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(fixed-pitch ((t nil)))
- '(fixed-pitch-serif ((t (:family "Courier"))))
- '(variable-pitch ((t (:height (lambda (height)
-                                 (let ((scale (cond ((string= (system-name) "dylema") 1.2)
-                                                    (t 1.25))))
-                                   (truncate (* height scale))))
-                       :family "Times New Roman")))))
+ '(fixed-pitch-serif ((t (:family "Iosevka Slab"))))
+ '(info-fixed-pitch ((t (:inherit fixed-pitch))))
+ '(variable-pitch ((t (:family "Iosevka Etoile")))))
 )
