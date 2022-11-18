@@ -631,6 +631,10 @@ before packages are loaded."
   ;; Refer to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
   ;; (setq-default evil-escape-key-sequence "ue")
 
+  ;; ---------- Layer - 6 Emacs / Org ----------------------------------
+  ;; good candidates: ▶▷✶⬢⬡☀☼
+  (setq org-superstar-headline-bullets-list '(?◉ ?○ ?🞛 ?◇ ?✿ ?❀ ?⚛ ?✸))
+
   ;; ---------- Layer - 7 Frameworks / React ---------------------------
   ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
   ;; To have a consistent 2 spaces indenting both on js and jsx
