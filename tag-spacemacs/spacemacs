@@ -730,5 +730,6 @@ This function is called at the very end of Spacemacs initialization."
  '(fixed-pitch ((t nil)))
  '(fixed-pitch-serif ((t (:family "Iosevka Slab"))))
  '(info-fixed-pitch ((t (:inherit fixed-pitch))))
- '(variable-pitch ((t (:family "Iosevka Etoile")))))
+ '(variable-pitch ((t (:family "Iosevka Etoile"))))
+ '(org-superstar-leading ((t (:family "Sarasa Term SC")))))
 )
