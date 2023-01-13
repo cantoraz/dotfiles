@@ -617,7 +617,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         "-o ControlMaster=auto -o ControlPath='/run/user/%%i/%%r@%%h:%%p' -o ControlPersist=no")
   (setq configuration-layer-elpa-archives
         '(("melpa-cn"  . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
-          ("org-cn"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")
+          ;; ("org-cn"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")
           ("gnu-cn"    . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
           ("nongnu-cn" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/nongnu/")))
 )
