@@ -739,7 +739,8 @@ This function is called at the very end of Spacemacs initialization."
  '(safe-local-variable-values '((eval ansible 1)
                                 (pangu-spacing-real-insert-separtor)
                                 (pangu-spacing-separator . "")))
- '(split-width-threshold 150))
+ '(split-width-threshold 150)
+ '(writeroom-fullscreen-effect 'maximized))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
