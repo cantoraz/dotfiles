@@ -737,6 +737,7 @@ This function is called at the very end of Spacemacs initialization."
  '(org-agenda-files "~/org-agenda-files")
  '(org-enforce-todo-dependencies t)
  '(safe-local-variable-values '((eval ansible 1)
+                                (org-odt-display-outline-level . 0)
                                 (pangu-spacing-real-insert-separtor)
                                 (pangu-spacing-separator . "")))
  '(split-width-threshold 150)
