@@ -678,6 +678,11 @@ before packages are loaded."
   ;; (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
   ;; (setq fcitx-use-dbus t) ; uncomment if you're using Linux
 
+  ;; It's good practice to set fonts for a wide variety of non-ASCII
+  ;; characters in the current/default fontset
+  (dolist (charset '(cjk-misc kana bopomofo han))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "Sarasa Mono SC")))
   ;; Refer to https://www.spacemacs.org/layers/+intl/chinese/README.html#set-monospaced-font-size%E8%AE%BE%E7%BD%AE%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93
   ;; DEPRECATED: Use a single multilingual typeface composed
   ;; of Pan-CJK and Pan-European monospaced fonts.
@@ -748,8 +753,8 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(fixed-pitch ((t nil)))
- '(fixed-pitch-serif ((t :family "Iosevka Slab" :foundry "UKNW")))
+ '(fixed-pitch-serif ((t :family "Iosevka Slab" :foundry "UKWN")))
  '(info-fixed-pitch ((t (:inherit fixed-pitch))))
- '(variable-pitch ((t :family "Iosevka Etoile" :foundry "UKNW")))
+ '(variable-pitch ((t :family "Iosevka Etoile" :foundry "UKWN")))
  '(org-superstar-leading ((t (:family "Sarasa Term SC")))))
 )
