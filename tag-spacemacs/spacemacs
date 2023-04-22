@@ -722,6 +722,26 @@ before packages are loaded."
   ;; ---------- Custom Variables ---------------------------------------
   ;; Reset var `fill-column' from 80 which set by spacemacs
   (setq-default fill-column 72)
+
+  ;; Set icon font
+  (dolist (range '((#xe5fa . #xe69f) ; Seti-UI + Custom
+                   (#xe700 . #xe7c5) ; Devicons
+                   (#xf000 . #xf2e0) ; Font Awesome
+                   (#xe200 . #xe2a9) ; Font Awesome Extension
+                   (#xf500 . #xfd46) ; Material Design Icons
+                   (#xe300 . #xe3eb) ; Weather
+                   (#xf400 . #xf4a9) #x2665 #x26A1 ; Octicons
+                   (#xe0a0 . #xe0a2) (#xe0b0 . #xe0b3) ; Powerline Symbols
+                   #xe0a3 (#xe0b4 . #xe0c8) #xe0ca (#xe0cc . #xe0d4) ; Powerline Extra Symbols
+                   (#x23fb . #x23fe) #x2b58 ; IEC Power Symbols
+                   (#xf300 . #xf32d) ; Font Logos (Formerly Font Linux)
+                   (#xe000 . #xe00a) ; Pomicons
+                   (#xea60 . #xebeb) ; Codicons
+                ;; (#xE000 . #xF8FF) ; Plane 0 BMP -	Private Use Area
+                   (#xF0000 . #xFFFFF) ; Plane 15 PUA-A (Supplementary Private Use Area-A)
+                   (#x100000 . #x10FFFF))) ; Plane 16 PUA-B (Supplementary Private Use Area-B)
+    (set-fontset-font (frame-parameter nil 'font) range
+                      (font-spec :family "Iosevka Nerd Font")))
 )
 
 
