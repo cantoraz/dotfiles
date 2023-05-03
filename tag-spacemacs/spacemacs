@@ -107,6 +107,7 @@ This function should only modify configuration layer settings."
      nginx
      pdf
      (restclient :variables restclient-use-org t)
+     systemd
      vagrant
      ;; Private
      direnv
