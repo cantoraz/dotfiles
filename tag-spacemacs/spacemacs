@@ -101,6 +101,8 @@ This function should only modify configuration layer settings."
      yaml
      ;; Tags
      gtags
+     ;; Themes
+     colors
      ;; Tools
      ansible
      docker
