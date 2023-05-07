@@ -644,35 +644,19 @@ before packages are loaded."
   ;; Refer to https://develop.spacemacs.org/doc/DOCUMENTATION.html#binding-keys
   (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
-  ;; ---------- 15.1.1 / Commands / Vim key bindings -------------------
+  ;; ---------- 15.1.1 / Commands / Vim key bindings / Escaping --------
   ;; Refer to https://www.spacemacs.org/doc/DOCUMENTATION.html#escaping
   ;; (setq-default evil-escape-key-sequence "ue")
 
   ;; ---------- Layer - 6 Emacs / Org ----------------------------------
-  ;; good candidates: ▶▷✶⬢⬡☀☼
-  (setq org-superstar-headline-bullets-list '(?◉ ?○ ?🞛 ?◇ ?✿ ?❀ ?⚛ ?✸))
+  (setq org-agenda-files "~/org-agenda-files"
+        org-enforce-todo-dependencies t
+        ;; good candidates: ▶▷✶⬢⬡☀☼
+        org-superstar-headline-bullets-list '(?◉ ?○ ?🞛 ?◇ ?✿ ?❀ ?⚛ ?✸))
+  (with-eval-after-load 'org-superstar
+    (set-face-attribute 'org-superstar-leading nil :family "Sarasa Term SC"))
 
-  ;; ---------- Layer - 7 Frameworks / React ---------------------------
-  ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
-  ;; To have a consistent 2 spaces indenting both on js and jsx
-  (setq-default
-   ;; js2-mode
-   ;; js2-basic-offset 2 ;; DEPRECATED: set in `javascript' layer
-   ;; web-mode
-   css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-attr-indent-offset 2
-   )
-  ;; To have 2 space indent also for element's attributes,
-  ;; concatenations and contiguous function calls
-  (with-eval-after-load 'web-mode
-    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
-    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
-
-  ;; ---------- Layer - 9 International support / Chinese --------------
+  ;; ---------- Layer - 10 Internationalization / Chinese --------------
   ;; Refer to https://github.com/cute-jumper/fcitx.el#example-settings
   ;; Make sure the following comes before `(fcitx-default-setup)'
   ;; (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
@@ -708,16 +692,41 @@ before packages are loaded."
               (setq-local pangu-spacing-real-insert-separtor nil))
             1)
 
-  ;; ---------- Layer - 10 Programming and markup languages / Python --------------
+  ;; ---------- Layer - 11 Miscellaneous / Spacemacs-editing-visual ----
+  (setq writeroom-fullscreen-effect 'maximized)
+
+  ;; ---------- Layer - 15 Programming languages -----------------------
+
+  ;; ---------- Layer - 15.2 Frameworks / React ------------------------
+  ;; Refer to http://spacemacs.org/layers/+frameworks/react/README.html#optional-configuration
+  ;; To have a consistent 2 spaces indenting both on js and jsx
+  (setq-default
+   ;; js2-mode
+   ;; js2-basic-offset 2 ;; DEPRECATED: set in `javascript' layer
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2
+   )
+  ;; To have 2 space indent also for element's attributes,
+  ;; concatenations and contiguous function calls
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
+  ;; ---------- Layer - 15.3 General-purpose / Multi-paradigm / Python -
   ;; `pylint' is too thorough, that need complex config to pass checks.
-  ;; Though `PYTHONPATH' could be altered vai `--init-hook', it's
+  ;; Though `PYTHONPATH' could be altered via `--init-hook', it's
   ;; difficult to infer the project's `venv' dynamically when invoked by
   ;; `flycheck'. As a consequence, `Unable to import' errors are reported.
   (add-hook 'python-mode-hook
             (lambda ()
               (add-to-list 'flycheck-disabled-checkers 'python-pylint)))
 
-  ;; ---------- Layer - 18 Tools / Ansible -----------------------------
+  ;; ---------- Layer - 22 Tools / Ansible -----------------------------
   ;; Bypass `describe-key' failing which caused by the `ansible' layer
   (setq-default ansible nil
                 ansible-doc-mode nil)
@@ -725,6 +734,17 @@ before packages are loaded."
   ;; ---------- Custom Variables ---------------------------------------
   ;; Reset var `fill-column' from 80 which set by spacemacs
   (setq-default fill-column 72)
+
+  (setq safe-local-variable-values '((eval ansible 1)
+                                       (org-enforce-todo-dependencies)
+                                       (org-enforce-todo-dependencies . t)
+                                       (org-log-into-drawer . t)
+                                       (org-odt-display-outline-level . 0)
+                                       (pangu-spacing-real-insert-separtor)
+                                       (pangu-spacing-separator . ""))
+        split-width-threshold 150
+        ;; Info-additional-directory-list '("/usr/local/share/info")
+        )
 
   ;; Set icon font
   (dolist (range '((#xe5fa . #xe69f) ; Seti-UI + Custom
@@ -745,6 +765,12 @@ before packages are loaded."
                    (#x100000 . #x10FFFF))) ; Plane 16 PUA-B (Supplementary Private Use Area-B)
     (set-fontset-font (frame-parameter nil 'font) range
                       (font-spec :family "Iosevka Nerd Font")))
+
+  ;; Set faces
+  (set-face-attribute 'fixed-pitch nil :family 'unspecified)
+  (set-face-attribute 'fixed-pitch-serif nil :family "Iosevka Slab" :foundry "UKWN")
+  (set-face-attribute 'info-fixed-pitch nil :family 'unspecified)
+  (set-face-attribute 'variable-pitch nil :family "Iosevka Etoile" :foundry "UKWN")
 )
 
 
@@ -760,27 +786,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(Info-additional-directory-list '("/usr/local/share/info"))
- '(evil-want-Y-yank-to-eol nil)
- '(org-agenda-files "~/org-agenda-files")
- '(org-enforce-todo-dependencies t)
- '(safe-local-variable-values '((eval ansible 1)
-                                (org-enforce-todo-dependencies . nil)
-                                (org-enforce-todo-dependencies . t)
-                                (org-log-into-drawer . t)
-                                (org-odt-display-outline-level . 0)
-                                (pangu-spacing-real-insert-separtor)
-                                (pangu-spacing-separator . "")))
- '(split-width-threshold 150)
- '(writeroom-fullscreen-effect 'maximized))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(fixed-pitch ((t nil)))
- '(fixed-pitch-serif ((t :family "Iosevka Slab" :foundry "UKWN")))
- '(info-fixed-pitch ((t (:inherit fixed-pitch))))
- '(variable-pitch ((t :family "Iosevka Etoile" :foundry "UKWN")))
- '(org-superstar-leading ((t (:family "Sarasa Term SC")))))
+ )
 )
