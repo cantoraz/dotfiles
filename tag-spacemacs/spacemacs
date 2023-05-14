@@ -767,7 +767,7 @@ before packages are loaded."
                 ;; (#x100000 . #x10FFFF) ; Plane 16 PUA-B (Supplementary Private Use Area-B)
                    ))
     (set-fontset-font (frame-parameter nil 'font) range
-                      (font-spec :family "Iosevka Nerd Font")))
+                      (font-spec :family "Symbols Nerd Font Mono")))
 
   ;; Set faces
   (set-face-attribute 'fixed-pitch nil :family 'unspecified)
