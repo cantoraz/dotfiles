@@ -46,10 +46,8 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'node' \
-  'osx' \
   'python' \
   'ruby' \
-  'ssh' \
   \
   'prompt'
 
