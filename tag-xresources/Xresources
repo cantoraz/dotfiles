@@ -1,0 +1,12 @@
+Xcursor.theme:  breeze_cursors
+Xcursor.size:   24
+
+! Xft.dpi:       96
+! Xft.antialias: true
+! Xft.hinting:   true
+! Xft.rgba:      rgb
+! Xft.autohint:  false
+! Xft.hintstyle: hintslight
+! Xft.lcdfilter: lcddefault
+
+#include ".Xresources.d/tomorrow-hybrid"
