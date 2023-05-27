@@ -735,6 +735,10 @@ before packages are loaded."
   ;; Reset var `fill-column' from 80 which set by spacemacs
   (setq-default fill-column 72)
 
+  ;; Suppress warning
+  (add-to-list 'warning-suppress-types
+               '(defvaralias losing-value woman-topic-history) t)
+
   (setq safe-local-variable-values '((eval ansible 1)
                                        (org-enforce-todo-dependencies)
                                        (org-enforce-todo-dependencies . t)
