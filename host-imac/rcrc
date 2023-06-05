@@ -4,5 +4,5 @@ EXCLUDES+=" *.old *.bak"
 EXCLUDES+=" yadr"
 HOSTNAME='imac'
 TAGS="alacritty dmenu dunst git i3 kitty nodejs picom python spacemacs xcompose xresources zsh"
-SYMLINK_DIRS="alacritty dunst i3 kitty picom vim Xresources.d yadr zprezto zshrc.before.d zshrc.d"
+SYMLINK_DIRS="alacritty dunst i3 kitty picom vim yadr zprezto zshrc.before.d zshrc.d"
 UNDOTTED="bin"
