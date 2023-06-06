@@ -101,7 +101,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # Tools
 # exec --no-startup-id start_conky_maia
-exec --no-startup-id conky -c /usr/share/conky/conky_grey
+exec --no-startup-id conky -c ~/.config/conky/conky_grey
 # exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 # exec --no-startup-id manjaro-hello
