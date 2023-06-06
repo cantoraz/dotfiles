@@ -1,0 +1,32 @@
+/*
+ * Author  : Cantoraz Chou <cantoraz@gmail.com>
+ */
+
+@theme "tomorrow-hybrid-mod"
+
+window {
+	// width:						380px;
+}
+
+mode-switcher {
+  enabled: false;
+}
+
+inputbar {
+	// children: 				[ textbox-prompt-prefix, prompt ];
+	children: 				[ prompt ];
+}
+
+textbox-prompt-prefix {
+  expand:           false;
+  padding:          4px 8px;
+  background-color: @tint;
+  str:              "󰥔";
+  vertical-align:   0.5;
+  text-color:       inherit;
+}
+
+prompt {
+  background-color: inherit;
+  text-color:       @tint;
+}

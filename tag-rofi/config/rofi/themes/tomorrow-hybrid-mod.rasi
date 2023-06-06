@@ -1,0 +1,79 @@
+/*
+ * A theme based on Base16 Tomorrow Hybrid Color
+ *
+ * Author  : Cantoraz Chou <cantoraz@gmail.com>
+ */
+
+@import "tomorrow-hybrid"
+
+window {
+  padding:          8px;
+  border:						2px;
+
+	font:             "Iosevka, Symbols Nerd Font Mono 12";
+  transparency:     "real";
+	width:						480px;
+}
+
+mainbox {
+  spacing:          8px;
+}
+
+button {
+  expand: false;
+  padding: 4px 8px;
+}
+
+inputbar {
+  padding:          0;
+	children: 				[ mode-switcher, entry ];
+}
+
+prompt {
+  background-color: @tint;
+  vertical-align:   0.5;
+}
+
+entry {
+  text-color:       @tint;
+  placeholder:      "…";
+}
+
+prompt, entry {
+  padding:          4px 8px;
+}
+
+message {
+  padding:          8px 8px 0;
+}
+
+listview {
+  padding:          8px 0 0;
+  border:						1px 0 0 0;
+
+  columns:          1;
+  dynamic:          true;
+  scrollbar:        false;
+  cycle:            true;
+  spacing:          8px;
+  lines:            5;
+  layout:           vertical;
+}
+
+element {
+  padding:          8px;
+  spacing:          8px;
+}
+
+element alternate.normal {
+  background-color: @normal-background;
+  text-color:       @normal-foreground;
+}
+
+element-icon {
+  size:             1em;
+}
+
+element-text {
+  vertical-align:   0.5;
+}

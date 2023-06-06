@@ -1,0 +1,34 @@
+/*
+ * Author  : Cantoraz Chou <cantoraz@gmail.com>
+ */
+
+configuration {
+  // General
+  modes:                  [ drun, window, run ];
+  show-icons:             true;
+	icon-theme:             "Papirus-Dark";
+
+  // Matching
+  // drun-display-format:    "{name}";
+
+  // Layout and Theming
+	sidebar-mode:           false;
+
+  // History and Sorting
+  disable-history:        false;
+
+  // Other
+  drun-use-desktop-cache: true;
+  drun {
+    display-name:         "";
+  }
+  run {
+    display-name:         "";
+    fallback-icon:        "application-x-executable";
+  }
+  window {
+    display-name:         "";
+  }
+}
+
+@theme "tomorrow-hybrid-mod"

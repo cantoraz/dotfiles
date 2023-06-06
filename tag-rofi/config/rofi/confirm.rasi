@@ -1,0 +1,22 @@
+/*
+ * Confirm Dialog
+ *
+ * Author  : Cantoraz Chou <cantoraz@gmail.com>
+ */
+
+@theme "tomorrow-hybrid-mod"
+
+mode-switcher {
+  enabled: false;
+}
+
+inputbar {
+  padding:          0;
+  border:           0;
+  children:         [ prompt, entry ];
+}
+
+listview {
+  enabled:          false;
+  // fixed-height:     false;
+}
