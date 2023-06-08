@@ -1,0 +1,56 @@
+#!/bin/bash
+set -eu
+
+RESOLUTION=$(xrandr -q|sed -n 's/.*current[ ]\([0-9]*\) x \([0-9]*\),.*/\1x\2/p')
+
+# color from Xresources
+BACKGROUND=$(xrdb -get background)
+FOREGROUND=$(xrdb -get foreground)
+FOREGROUND_LIGHT=$(xrdb -get foregroundL)
+RED=$(xrdb -get color1)
+GREEN=$(xrdb -get color2)
+BLUE=$(xrdb -get color4)
+BRIGHT_RED=$(xrdb -get color9)
+BRIGHT_GREEN=$(xrdb -get color10)
+BRIGHT_BLUE=$(xrdb -get color12)
+
+# lock the screen
+import -silent -window root jpeg:- |
+    convert - -scale 20% -blur 0x2.5 -resize 500% RGB:- |
+    i3lock --raw $RESOLUTION:rgb -i /dev/stdin -e \
+           -b \
+           -k \
+           --inside-color=${BACKGROUND}cc \
+           --ring-color=$GREEN \
+           --insidever-color=$BRIGHT_BLUE \
+           --ringver-color=$BLUE \
+           --insidewrong-color=$BRIGHT_RED \
+           --ringwrong-color=$RED \
+           --line-uses-inside \
+           --keyhl-color=$BRIGHT_GREEN \
+           --bshl-color=$BRIGHT_RED \
+           --separator-color=${BACKGROUND}cc \
+           --{verif,wrong,modif}-color=$FOREGROUND_LIGHT \
+           --{layout,time,date,greeter}-color=$FOREGROUND \
+           --time-str='%R' \
+           --date-str='%A %-e %B %Y' \
+           --verif-text='verifizierend…' \
+           --wrong-text='falsch!' \
+           --noinput-text='keine Eingabe' \
+           --lock-text='sperrend…' \
+           --lockfailed-text='Sperre fehlgeschlagen!' \
+           --greeter-text='Dif-tor heh smusma' \
+           --{time,date,layout,greeter,modif}outline-color=${BACKGROUND} \
+           --{time,date}-font='Noto Sans:style=Bold' \
+           --{layout,verif,wrong}-font='Noto Sans' \
+           --greeter-font='Apple Chancery' \
+           --time-size=48 \
+           --{verif,wrong}-size=24 \
+           --{time,date,layout,greeter,modifier}outline-width=0.1 \
+           --greeter-pos='x+w/2:iy-200' \
+           $@
+
+# sleep 1 adds a small delay to prevent possible race conditions with suspend
+#sleep 1
+
+exit 0
