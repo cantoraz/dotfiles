@@ -22,7 +22,7 @@ cd "$(dirname "$0")"
 
 declare -r SINK=@DEFAULT_SINK@
 declare -r STEP=5
-declare -r SOUND=/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+declare -r SOUND=audio-volume-change
 
 main() {
     local -r OLD_MUTE=$(pactl get-sink-mute $SINK)
@@ -30,17 +30,17 @@ main() {
     case $1 in
         mute)
             pulseaudio-ctl mute
-            [[ $OLD_MUTE == $IS_MUTE ]] && paplay $SOUND || exit 0
+            [[ $OLD_MUTE == $IS_MUTE ]] && canberra-gtk-play -i $SOUND || exit 0
             ;;
         up)
             pulseaudio-ctl up $STEP
             [[ $OLD_MUTE == $IS_MUTE ]] && pactl set-sink-mute $SINK no
-            paplay $SOUND
+            canberra-gtk-play -i $SOUND
             ;;
         down)
             pulseaudio-ctl down $STEP
             [[ $OLD_MUTE == $IS_MUTE ]] && pactl set-sink-mute $SINK no
-            paplay $SOUND
+            canberra-gtk-play -i $SOUND
             ;;
         *)
             print_usage; exit 1
