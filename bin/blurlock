@@ -16,7 +16,7 @@ BRIGHT_BLUE=$(xrdb -get color12)
 
 # lock the screen
 import -silent -window root jpeg:- |
-    convert - -scale 20% -blur 0x2.5 -resize 500% RGB:- |
+    convert - -scale 20% -blur 0x2.5 -fill black -colorize 40% -resize 500% RGB:- |
     i3lock --raw $RESOLUTION:rgb -i /dev/stdin -e \
            -b \
            -k \
