@@ -486,4 +486,10 @@
 [screenshot]
     category = screenshot
     icon_position = top
+
+[screenshot]
+    category = screenshot.abort
+    icon_position = left
+    default_icon = accessories-screenshot-symbolic
+
 # vim: ft=cfg
