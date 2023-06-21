@@ -8,6 +8,10 @@ set $alt Mod1
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
+# determine window title's text alignment (default is left)
+# title_align <left|center|right>
+title_align center
+
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
 default_floating_border normal
