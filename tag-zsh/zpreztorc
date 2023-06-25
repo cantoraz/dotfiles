@@ -48,6 +48,7 @@ zstyle ':prezto:load' pmodule \
   'node' \
   'python' \
   'ruby' \
+  'ssh' \
   \
   'prompt'
 
