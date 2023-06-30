@@ -20,6 +20,8 @@ import -silent -window root jpeg:- |
     i3lock --raw $RESOLUTION:rgb -i /dev/stdin -e \
            -b \
            -k \
+           --radius=100 \
+           --ring-width=8 \
            --inside-color=${BACKGROUND}cc \
            --ring-color=$GREEN \
            --insidever-color=$BRIGHT_BLUE \
