@@ -13,7 +13,7 @@ ROFI_CMD="rofi -config $ROFI_DIR/powermenu.rasi"
 
 # Options
 OPT_SHUTDOWN="󰐥 Shutdown"
-OPT_REBOOT="󰓦 Restart"
+OPT_REBOOT="󰜉 Restart"
 OPT_LOCK="󰍁 Lock"
 OPT_SUSPEND=" Sleep"
 OPT_LOGOUT="󰍃 Logout"
