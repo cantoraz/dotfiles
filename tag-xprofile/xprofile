@@ -1,0 +1,42 @@
+# -*- mode: sh; sh-basic-offset: 2; -*-
+
+if [[ ! $XDG_CURRENT_DESKTOP =~ '(^|;)KDE(;|$)' ]]; then
+  # locale
+  # export LANG=en_US.UTF-8
+  export LC_COLLATE=zh_CN.UTF-8
+  export LC_MEASUREMENT=zh_CN.UTF-8
+  export LC_MONETARY=zh_CN.UTF-8
+  export LC_NUMERIC=zh_CN.UTF-8
+  export LC_TIME=de_DE.UTF-8
+
+  # jetbrains
+  export IDEA_VM_OPTIONS=$HOME/.config/idea.vmoptions
+fi
+
+export GLFW_IM_MODULE=ibus
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=\@im=fcitx
+
+export GTK_USE_PORTAL=1
+# export MOZ_X11_EGL=1
+
+if [[ $XDG_CURRENT_DESKTOP =~ '(^|;)i3(;|$)' ]]; then
+  # theme
+  export QT_QPA_PLATFORMTHEME="qt5ct"
+  # export QT_STYLE_OVERRIDE=kvantum
+
+  # for i3-sensible-terminal / rofi-sensible-terminal
+  export TERMINAL=kitty
+fi
+
+export SSH_ASKPASS='/usr/bin/ksshaskpass'
+export SSH_ASKPASS_REQUIRE=prefer
+
+# Load extra customization
+shopt -s nullglob
+for config_file in .xprofile.d/*.sh ; do
+  source $config_file
+done
+unset config_file
+shopt -u nullglob
