@@ -74,13 +74,14 @@ get_icon() {
         #*) icon="";
     esac
 
-    [ -n "$PB_OWM_ICON_FONT" ] && echo %{$PB_OWM_ICON_FONT}$icon%{T-} || echo $icon
+    [ -n "$ICON_FONT_TAG" ] && echo %{$ICON_FONT_TAG}$icon%{T-} || echo $icon
 }
 
-KEY="${PB_OWM_KEY}"
-CITY="${PB_OWM_CITY}"
-UNITS="${PB_OWM_METRIC:-metric}"
-SYMBOL="${PB_OWM_SYMBOL:-°}"
+KEY="${OWM_API_KEY}"
+CITY="${OWM_CITY}"
+UNITS="${OWM_METRIC:-metric}"
+SYMBOL="${OWM_SYMBOL:-°}"
+ICON_FONT_TAG="${PB_OWM_ICON_FONT_TAG}"
 
 API="https://api.openweathermap.org/data/2.5"
 
