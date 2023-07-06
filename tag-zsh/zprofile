@@ -9,17 +9,25 @@
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
+case "$OSTYPE" in
+  darwin*)  export BROWSER='open' ;;
+  linux*)   export BROWSER='xdg-open' ;;
+esac
 
 #
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='emacs'
 export PAGER='less'
+
+#
+# Terminal
+#
+
+# Set default terminal used by `i3-sensible-terminal` and `rofi-sensible-terminal`
+export TERMINAL=kitty
 
 #
 # Language
@@ -68,5 +76,13 @@ fi
 # Personal
 #
 
-# Emacs variable `user-mail-address' defaults to this env
+# Emacs variable `user-mail-address` defaults to this env
 export EMAIL=cantoraz@gmail.com
+
+#
+# Secrets
+#
+
+if [[ -e $HOME/.secrets ]]; then
+  source $HOME/.secrets
+fi
