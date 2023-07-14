@@ -30,8 +30,8 @@
 
 *cursorColor:         base05
 
-*highlightColor:      base02
-*highlightTextColor:  base05
+*highlightColor:      #5294e2
+*highlightTextColor:  base06
 
 *tintOnColor:         base06
 *tintColor:           #5e8d87
