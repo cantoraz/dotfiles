@@ -66,8 +66,10 @@ case $chosen in
     fi
     ;;
   $OPT_LOCK)
-    if [[ -f /usr/bin/i3exit ]]; then
+    if command -v i3exit &>/dev/null; then
       i3exit lock
+    # elif [[ -f /usr/bin/i3exit ]]; then
+    #   i3exit lock
     elif [[ -f /usr/bin/i3lock ]]; then
       i3lock
     elif [[ -f /usr/bin/betterlockscreen ]]; then

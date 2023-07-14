@@ -88,8 +88,8 @@ exec --no-startup-id systemctl --user start wallpaper-primary.timer wallpaper-le
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id dunst
 # xdg # exec --no-startup-id fcitx -d
-exec --no-startup-id xss-lock -l -- blurlock -n
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 5 -locker blurlock
+exec --no-startup-id xss-lock -- xautolock -locknow
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
