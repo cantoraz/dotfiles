@@ -6,7 +6,8 @@ CONFIG_DIR="$HOME/.config/polybar"
 RUNTIME_DIR="$XDG_RUNTIME_DIR/polybar"
 
 # Bars to launch
-BARS=($HOSTNAME-top $HOSTNAME-bottom left)
+BARS=($HOSTNAME-top $HOSTNAME-bottom)
+[[ $HOSTNAME == imac ]] && BARS+=left
 
 # Terminate already running bar instances
 # If all your bars have ipc enabled, you can use

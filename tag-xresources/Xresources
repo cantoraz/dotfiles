@@ -1,12 +1,18 @@
 Xcursor.theme:  breeze_cursors
 Xcursor.size:   24
 
-! Xft.dpi:       96
-! Xft.antialias: true
-! Xft.hinting:   true
-! Xft.rgba:      rgb
-! Xft.autohint:  false
-! Xft.hintstyle: hintslight
-! Xft.lcdfilter: lcddefault
+#if defined SRVR_dylema
+Xft.dpi:        120
+#elif defined SRVR_imac
+Xft.dpi:        96
+#else /* Not dylema && Not imac */
+Xft.dpi:        96
+#endif /* Not dylema && Not imac */
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.autohint:   false
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
 
 #include ".Xresources.d/tomorrow-hybrid"

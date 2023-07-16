@@ -2,6 +2,7 @@
  * Author  : Cantoraz Chou <cantoraz@gmail.com>
  */
 
+@import "config"
 @theme "tomorrow-hybrid-mod"
 
 window {

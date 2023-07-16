@@ -1,0 +1,8 @@
+/*
+ * Author  : Cantoraz Chou <cantoraz@gmail.com>
+ */
+
+configuration {
+  // Layout and Theming
+  dpi: 0;
+}
