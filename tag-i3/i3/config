@@ -71,7 +71,7 @@ include config.d/gaps.conf
 #############################
 
 # Propagate environments to systemd user manager
-exec --no-startup-id dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP
+exec --no-startup-id dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
 
 # Autostart applications
 
@@ -79,32 +79,44 @@ exec --no-startup-id dbus-update-activation-environment --systemd XDG_CURRENT_DE
 # exec --no-startup-id xrandr --output eDP --primary --pos 1050x300 --output DisplayPort-0 --pos 0x0 --rotate left
 exec --no-startup-id setxkbmap us codeman
 
+# systemd target for i3 graphical session
+exec --no-startup-id systemctl --user start i3-session.target
+
 # Services
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-# xdg # exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id systemctl --user start wallpaper-primary.timer wallpaper-left.timer
-# exec_always --no-startup-id sbxkb
-exec --no-startup-id dunst
+# XDG Autostart applications are delegated to systemd
+# `xdg-desktop-autostart.target', which is wanted by `i3-session.target'
+
+# dex executes XDG Autostart DesktopEntry files which is buggy via
+# `systemd-xdg-autostart-generator'
+exec --no-startup-id dex /etc/xdg/autostart/pam_kwallet_init.desktop
+exec --no-startup-id dex ~/.config/autostart/snapshot-detect.desktop
+exec --no-startup-id dex ~/.config/autostart/snap-userd-autostart.desktop
+
+# dex performs XDG Autostart applications. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+# exec --no-startup-id dex --autostart --environment i3
+
+# xdg # exec --no-startup-id blueman-applet
+# xdg # exec --no-startup-id clipit
 # xdg # exec --no-startup-id fcitx -d
+# xdg # exec --no-startup-id kdeconnect-indicator
+# xdg # exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+# xdg # exec --no-startup-id nm-applet
+# xdg # exec --no-startup-id pamac-tray
+# xdg # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# xdg # exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+# xdg # exec --no-startup-id xfce4-power-manager
+
+# manually startup
+exec --no-startup-id nitrogen --restore
+# systemd # exec --no-startup-id dunst
+# systemd # exec --no-startup-id systemctl --user start wallpaper-primary.timer wallpaper-left.timer
+# exec_always --no-startup-id sbxkb
 exec --no-startup-id xautolock -time 5 -locker blurlock
 exec --no-startup-id xss-lock -- xautolock -locknow
 
 # Bars
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-# Applets
-# xdg # exec --no-startup-id nm-applet
-# xdg # exec --no-startup-id xfce4-power-manager
-# xdg # exec --no-startup-id pamac-tray
-# xdg # exec --no-startup-id clipit
-# xdg # exec --no-startup-id blueman-applet
-# xdg # exec --no-startup-id kdeconnect-indicator
 
 # Utilities
 # exec --no-startup-id start_conky_maia

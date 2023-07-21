@@ -9,6 +9,7 @@ case "$1" in
         xautolock -locknow
         ;;
     logout)
+        systemctl --user stop i3-session.target
         i3-msg exit
         ;;
     switch_user)
