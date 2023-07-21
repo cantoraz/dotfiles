@@ -1,0 +1,6 @@
+[Unit]
+Description=Random background on left screen
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c 'nitrogen --head=1 --save --set-color=#002a36 --random --set-zoom-fill $(shuf -en1 /usr/share/backgrounds /usr/share/wallpapers) 2>/dev/null'

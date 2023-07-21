@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer for random background on left screen
+ConditionEnvironment=XDG_CURRENT_DESKTOP=i3
+
+[Timer]
+OnStartupSec=15min
+OnUnitActiveSec=15min
+RandomizedDelaySec=2
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,7 @@
+[Unit]
+Description=i3 Graphical User Session
+RefuseManualStart=no
+StopWhenUnneeded=no
+
+BindsTo=graphical-session.target
+Wants=xdg-desktop-autostart.target dunst.service redshift-gtk.service
