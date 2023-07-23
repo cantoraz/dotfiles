@@ -54,6 +54,7 @@ main() {
     # parse command
     local cmd=${1-}
     case $cmd in
+        query)  query_speed ;;
         toggle) toggle_mode ;;
         up)     speed_up ;;
         down)   speed_down ;;
@@ -66,6 +67,42 @@ check_fan_files() {
     for f ; do
         [[ -r "$f" ]] || { echoerr "not found file '$f'"; exit 3; }
     done
+}
+
+query_speed() {
+    local FAN_INPUT_FILE="$FAN_DIR/${FAN_NAME}_input"
+    check_fan_files $FAN_INPUT_FILE || exit $?
+
+    # speed level icons/labels
+    local SPEED_AUTO=${PB_FAN_SPEED_AUTO:-"auto "}
+    local SPEED_SLOW=${PB_FAN_SPEED_SLOW:-"slow "}
+    local SPEED_MIDD=${PB_FAN_SPEED_MIDD:-"mid "}
+    local SPEED_FAST=${PB_FAN_SPEED_FAST:-"fast "}
+    local SPEED_UNIT=${PB_FAN_SPEED_UNIT:-rpm}
+
+    if [[ -r "$FAN_MANUAL_FILE" && -r "$FAN_MAX_FILE" && -r "$FAN_MIN_FILE" ]]; then
+        local fan_speed=$(< $FAN_INPUT_FILE)
+        local fan_manual=$(< $FAN_MANUAL_FILE)
+        local fan_max=$(< $FAN_MAX_FILE)
+        local fan_min=$(< $FAN_MIN_FILE)
+
+        local speed_step=$((($FAN_MAX - $FAN_MIN) / 3))
+
+        if [[ $fan_manual == 0 ]]; then
+            prefix=$SPEED_AUTO
+        elif (($fan_speed >= $fan_max - $speed_step)); then
+            prefix=$SPEED_FAST
+        elif (($fan_speed = $fan_min + $speed_step)); then
+            prefix=$SPEED_MIDD
+        else
+            prefix=$SPEED_SLOW
+        fi
+    else
+        local fan_speed=$(< $FAN_INPUT_FILE)
+        prefix=$SPEED_AUTO
+    fi
+
+    echo $prefix$fan_speed$SPEED_UNIT
 }
 
 toggle_mode() {
@@ -123,7 +160,7 @@ echoerr() {
 
 usage() {
     cat <<-EOF
-Usage: $(basename $0) -d <FAN_DIR> -f <FAN_NAME> [-p <PID>] {toggle|increase|decrease}
+Usage: $(basename $0) -d <FAN_DIR> -f <FAN_NAME> [-p <PID>] COMMAND
 
 Options:
     -d <FAN_DIR>  fan sysfs dir
@@ -133,6 +170,7 @@ Options:
     -h            display this information
 
 Commands:
+    query         query current fan speed
     toggle        toggle the mode of fan speed between auto and manual
     up            increase fan speed
     down          decrease fan speed
