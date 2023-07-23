@@ -48,7 +48,8 @@ case $chosen in
   $OPT_SHUTDOWN)
     ans=$(confirm_exit &)
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      systemctl poweroff
+      # systemctl poweroff
+      i3exit shutdown
     elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
       exit 0
     else
@@ -58,7 +59,8 @@ case $chosen in
   $OPT_REBOOT)
     ans=$(confirm_exit &)
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      systemctl reboot
+      # systemctl reboot
+      i3exit reboot
     elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
       exit 0
     else
@@ -66,10 +68,10 @@ case $chosen in
     fi
     ;;
   $OPT_LOCK)
+    # if [[ -f /usr/bin/i3exit ]]; then
+    #   i3exit lock
     if command -v i3exit &>/dev/null; then
       i3exit lock
-    # elif [[ -f /usr/bin/i3exit ]]; then
-    #   i3exit lock
     elif [[ -f /usr/bin/i3lock ]]; then
       i3lock
     elif [[ -f /usr/bin/betterlockscreen ]]; then
@@ -81,7 +83,8 @@ case $chosen in
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
       mpc -q pause
       # amixer set Master mute
-      systemctl suspend
+      # systemctl suspend
+      i3exit suspend
     elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
       exit 0
     else
@@ -96,7 +99,8 @@ case $chosen in
       elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
         bspc quit
       elif [[ "$DESKTOP_SESSION" == @("i3"|"i3-with-shmlog") ]]; then
-        i3-msg exit
+        # i3-msg exit
+        i3exit logout
       fi
     elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
       exit 0
