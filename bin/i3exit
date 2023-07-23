@@ -9,6 +9,7 @@ case "$1" in
         xautolock -locknow
         ;;
     logout)
+        [[ $SHELL == */zsh && -r $HOME/.zlogout ]] && source $HOME/.zlogout
         systemctl --user stop i3-session.target
         i3-msg exit
         ;;
