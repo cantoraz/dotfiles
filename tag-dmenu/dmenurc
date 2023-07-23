@@ -3,7 +3,7 @@
 #
 
 ## define the height for dmenu
-DMENU_HT=26
+DMENU_HT=$((24 * $(xrdb -get Xft.dpi) / 96))
 
 ## define the font for dmenu to be used
 DMENU_FN="SarasaMonoSC-11"
