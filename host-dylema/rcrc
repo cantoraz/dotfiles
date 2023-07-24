@@ -10,5 +10,6 @@ dunst.service.d
 plasma-kactivitymanagerd.service.d
 plasma-kglobalaccel.service.d
 plasma-xdg-desktop-portal-kde.service.d
+redshift-gtk.service.d
 "
 UNDOTTED="bin"

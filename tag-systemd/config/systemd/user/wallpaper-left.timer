@@ -1,5 +1,6 @@
 [Unit]
 Description=Timer for random background on left screen
+PartOf=graphical-session.target
 ConditionEnvironment=XDG_CURRENT_DESKTOP=i3
 
 [Timer]

@@ -4,4 +4,7 @@ RefuseManualStart=no
 StopWhenUnneeded=no
 
 BindsTo=graphical-session.target
+Before=graphical-session.target
+
 Wants=xdg-desktop-autostart.target dunst.service redshift-gtk.service
+Before=xdg-desktop-autostart.target redshift-gtk.service
