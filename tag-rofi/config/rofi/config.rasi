@@ -5,4 +5,7 @@
 configuration {
   // Layout and Theming
   dpi: 0;
+
+  // Run settings
+  run-shell-command: "{terminal} --hold {cmd}";
 }
