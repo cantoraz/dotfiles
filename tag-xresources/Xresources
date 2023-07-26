@@ -1,3 +1,18 @@
+#if defined SRVR_dylema
+polybar.Gaps.inner:       6
+polybar.Gaps.innerDelta:  1
+polybar.Gaps.outerDelta:  1
+#elif defined SRVR_imac
+polybar.Gaps.inner:       8
+polybar.Gaps.innerDelta:  2
+polybar.Gaps.outerDelta:  2
+#else /* Not dylema && Not imac */
+polybar.Gaps.inner:       8
+polybar.Gaps.innerDelta:  2
+polybar.Gaps.outerDelta:  2
+#endif /* Not dylema && Not imac */
+polybar.Gaps.outer:       0
+
 Xcursor.theme:  breeze_cursors
 Xcursor.size:   24
 
