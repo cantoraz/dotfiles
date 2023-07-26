@@ -1,4 +1,5 @@
 #!/bin/bash
+# -*- mode: sh; -*-
 set -eu
 
 RESOLUTION=$(xrandr -q|sed -n 's/.*current[ ]\([0-9]*\) x \([0-9]*\),.*/\1x\2/p')
@@ -14,45 +15,107 @@ BRIGHT_RED=$(xrdb -get color9)
 BRIGHT_GREEN=$(xrdb -get color10)
 BRIGHT_BLUE=$(xrdb -get color12)
 
-# lock the screen
-import -silent -window root jpeg:- |
-    convert - -scale 20% -blur 0x2.5 -fill black -colorize 40% -resize 500% RGB:- |
-    i3lock --raw $RESOLUTION:rgb -i /dev/stdin -e \
-           -b \
-           -k \
-           --radius=100 \
-           --ring-width=8 \
-           --inside-color=${BACKGROUND}cc \
-           --ring-color=$GREEN \
-           --insidever-color=$BRIGHT_BLUE \
-           --ringver-color=$BLUE \
-           --insidewrong-color=$BRIGHT_RED \
-           --ringwrong-color=$RED \
-           --line-uses-inside \
-           --keyhl-color=$BRIGHT_GREEN \
-           --bshl-color=$BRIGHT_RED \
-           --separator-color=${BACKGROUND}cc \
-           --{verif,wrong,modif}-color=$FOREGROUND_LIGHT \
-           --{layout,time,date,greeter}-color=$FOREGROUND \
-           --time-str='%R' \
-           --date-str='%A %-e %B %Y' \
-           --verif-text='verifizierend…' \
-           --wrong-text='falsch!' \
-           --noinput-text='keine Eingabe' \
-           --lock-text='sperrend…' \
-           --lockfailed-text='Sperre fehlgeschlagen!' \
-           --greeter-text='Dif-tor heh smusma' \
-           --{time,date,layout,greeter,modif}outline-color=${BACKGROUND} \
-           --{time,date}-font='Noto Sans:style=Bold' \
-           --{layout,verif,wrong}-font='Noto Sans' \
-           --greeter-font='Apple Chancery' \
-           --time-size=48 \
-           --{verif,wrong}-size=24 \
-           --{time,date,layout,greeter,modifier}outline-width=0.1 \
-           --greeter-pos='x+w/2:iy-200' \
-           $@
+# Command to start the locker
+LOCKER=i3lock
 
-# sleep 1 adds a small delay to prevent possible race conditions with suspend
-#sleep 1
+# Delay in seconds. Note that by default systemd-logind allows a maximum
+# sleep delay of 5 seconds.
+DELAY=1
 
-exit 0
+main() {
+    # check if a locker is already running
+    locked=0
+    if pid=$(pgrep -d, -u$UID -x $LOCKER); then
+        ps -olsession= -p$pid | grep $XDG_SESSION_ID &>/dev/null && locked=1
+    fi
+
+    # check if no-fork mode
+    nofork=0
+    for opt in "$@"; do
+        if [[ $opt =~ ^(-[[:alpha:]]*n|--nofork$) ]]; then
+            nofork=1
+            break
+        fi
+    done
+
+    if [[ $nofork -eq 1 ]]; then
+        # no-fork mode
+
+        if [[ $locked -eq 1 ]]; then
+            if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
+                # now close our fd (only remaining copy) to indicate we're ready to sleep
+                exec {XSS_SLEEP_LOCK_FD}<&-
+            fi
+        else
+            # kill locker if we get killed
+            trap 'kill %%' TERM INT
+
+            if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
+                # lock fd is open, make sure the locker does not inherit a copy
+                lock $@ {XSS_SLEEP_LOCK_FD}<&- &
+
+                sleep $DELAY
+
+                # now close our fd (only remaining copy) to indicate we're ready to sleep
+                exec {XSS_SLEEP_LOCK_FD}<&-
+            else
+                lock $@ &
+            fi
+
+            wait # for locker to exit
+        fi
+    else # forking
+        # lock the screen
+        [[ $locked -eq 1 ]] || lock $@
+
+        # adds a small delay to prevent possible race conditions with suspend
+        # sleep $DELAY
+    fi
+
+    exit 0
+}
+
+lock() {
+    # -e \
+    # --no-verify \
+    import -silent -window root jpeg:- |
+        convert - -scale 20% -blur 0x2.5 -fill black -colorize 40% -resize 500% RGB:- |
+        $LOCKER -b \
+                -i /dev/stdin \
+                --raw $RESOLUTION:rgb \
+                -e \
+                -k \
+                --radius=100 \
+                --ring-width=8 \
+                --inside-color=${BACKGROUND}cc \
+                --ring-color=$GREEN \
+                --insidever-color=$BRIGHT_BLUE \
+                --ringver-color=$BLUE \
+                --insidewrong-color=$BRIGHT_RED \
+                --ringwrong-color=$RED \
+                --line-uses-inside \
+                --keyhl-color=$BRIGHT_GREEN \
+                --bshl-color=$BRIGHT_RED \
+                --separator-color=${BACKGROUND}cc \
+                --{verif,wrong,modif}-color=$FOREGROUND_LIGHT \
+                --{layout,time,date,greeter}-color=$FOREGROUND \
+                --time-str='%R' \
+                --date-str='%A %-e %B %Y' \
+                --verif-text='verifizierend…' \
+                --wrong-text='falsch!' \
+                --noinput-text='keine Eingabe' \
+                --lock-text='sperrend…' \
+                --lockfailed-text='Sperre fehlgeschlagen!' \
+                --greeter-text='Dif-tor heh smusma' \
+                --{time,date,layout,greeter,modif}outline-color=${BACKGROUND} \
+                --{time,date}-font='Noto Sans:style=Bold' \
+                --{layout,verif,wrong}-font='Noto Sans' \
+                --greeter-font='Apple Chancery' \
+                --time-size=48 \
+                --{verif,wrong}-size=24 \
+                --{time,date,layout,greeter,modifier}outline-width=0.1 \
+                --greeter-pos='x+w/2:iy-200' \
+                $@
+}
+
+main "$@"
