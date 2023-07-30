@@ -114,8 +114,8 @@ append_time_left() {
         case ${ALL_STATUS[@]} in
             *$BAT_STATUS_CHARGING*) # time to charge full
                 local -i eff_energy_full=0
-                for threshold in "${ALL_CHARGE_STOP_THRESHOLD[@]}"; do
-                    eff_energy_full+=$(($TOT_ENERGY_FULL * $threshold / 100))
+                for (( i=0; i<${#ALL_ENERGY_FULL[@]}; i++ )); do
+                    eff_energy_full+=$((${ALL_ENERGY_FULL[$i]} * ${ALL_CHARGE_STOP_THRESHOLD[$i]} / 100))
                 done
                 time_left=$((3600 * ($eff_energy_full - $TOT_ENERGY_NOW) / $TOT_POWER_NOW))
                 ;;&
