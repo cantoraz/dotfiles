@@ -71,7 +71,7 @@ include config.d/gaps.conf
 #############################
 
 # Propagate environments to systemd user manager
-exec --no-startup-id dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
+exec --no-startup-id dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP XDG_SESSION_ID QT_QPA_PLATFORMTHEME
 
 # Autostart applications
 
