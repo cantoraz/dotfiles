@@ -5,7 +5,7 @@ EXCLUDES+=" wallpaper-left.* yadr"
 HOSTNAME="dylema"
 TAGS="alacritty dmenu dunst git i3 kitty nodejs picom polybar python rofi spacemacs systemd xcompose xdg-autostart xprofile xresources zsh"
 SYMLINK_DIRS="
-alacritty dunst i3 kitty picom polybar rofi vim xprofile.d Xresources.d yadr zprezto zshrc.before.d zshrc.d
+alacritty i3 kitty picom polybar rofi vim xprofile.d Xresources.d yadr zprezto zshrc.before.d zshrc.d
 dunst.service.d
 plasma-kactivitymanagerd.service.d
 plasma-kglobalaccel.service.d
