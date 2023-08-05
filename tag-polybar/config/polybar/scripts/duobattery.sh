@@ -9,12 +9,12 @@ fi
 
 cd "$(dirname "$0")"
 
-declare -r POWER_SUPPLY_DIR=${PB_DUOBATTERY_POWER_SUPPLY_DIR:-/sys/class/power_supply}
-declare -r BAT_NAMES=(${PB_DUOBATTERY_NAMES:-BAT0 BAT1})
-declare -r BAT_ICONS=(${PB_DUOBATTERY_ICONS:-    })
-declare -r BAT_FULL_AT=${PB_DUOBATTERY_FULL_AT:-99}
-declare -r BAT_LOW_AT=${PB_DUOBATTERY_LOW_AT:-5}
-declare -r BAT_LOW_COLOR=${PB_DUOBATTERY_LOW_COLOR:-''}
+declare -r POWER_SUPPLY_DIR=${DUOBATTERY_POWER_SUPPLY_DIR:-/sys/class/power_supply}
+declare -r BAT_NAMES=(${DUOBATTERY_NAMES:-BAT0 BAT1})
+declare -r BAT_ICONS=(${DUOBATTERY_ICONS:-    })
+declare -r BAT_FULL_AT=${DUOBATTERY_FULL_AT:-99}
+declare -r BAT_LOW_AT=${DUOBATTERY_LOW_AT:-5}
+declare -r BAT_LOW_COLOR=${DUOBATTERY_LOW_COLOR:-''}
 # for status
 declare -r BAT_STATUS_CHARGING="Charging"
 declare -r BAT_STATUS_DISCHARGING="Discharging"
