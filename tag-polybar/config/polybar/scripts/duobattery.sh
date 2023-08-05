@@ -12,6 +12,7 @@ cd "$(dirname "$0")"
 declare -r POWER_SUPPLY_DIR=${DUOBATTERY_POWER_SUPPLY_DIR:-/sys/class/power_supply}
 declare -r BAT_NAMES=(${DUOBATTERY_NAMES:-BAT0 BAT1})
 declare -r BAT_ICONS=(${DUOBATTERY_ICONS:-    })
+declare -r BAT_CHARGE_ICONS=(${DUOBATTERY_CHARGE_ICONS[@]:-${BAT_ICONS[@]}})
 declare -r BAT_FULL_AT=${DUOBATTERY_FULL_AT:-99}
 declare -r BAT_LOW_AT=${DUOBATTERY_LOW_AT:-5}
 declare -r BAT_LOW_COLOR=${DUOBATTERY_LOW_COLOR:-''}
@@ -67,21 +68,27 @@ main() {
 append_icon() {
     local icon
 
+    if [[ ${ALL_STATUS[@]} == *Charging* ]]; then
+        declare -n icons=BAT_CHARGE_ICONS
+    else
+        declare -n icons=BAT_ICONS
+    fi
+
     if [[ $TOT_CAPACITY -le $BAT_LOW_AT ]]; then
        if [[ -z "$BAT_LOW_COLOR" ]]; then
-           icon=${BAT_ICONS[0]}
+           icon=${icons[0]}
        else
-           icon="%{F$BAT_LOW_COLOR}${BAT_ICONS[0]}%{F-}"
+           icon=%{F$BAT_LOW_COLOR}${icons[0]}%{F-}
        fi
     else
-        local -r steps=$((${#BAT_ICONS[@]} - 2))
+        local -r steps=$((${#icons[@]} - 2))
         for (( i=1; i<=$steps; i++ )); do
             if [[ $TOT_CAPACITY -lt $(( $BAT_LOW_AT + $i * (100 - $BAT_LOW_AT) / $steps)) ]]; then
-                icon=${BAT_ICONS[$i]}
+                icon=${icons[$i]}
                 break
             fi
         done
-        [[ $TOT_CAPACITY -lt $BAT_FULL_AT ]] || icon=${BAT_ICONS[-1]}
+        [[ $TOT_CAPACITY -lt $BAT_FULL_AT ]] || icon=${icons[-1]}
     fi
 
     BAT_LABEL+=$icon
