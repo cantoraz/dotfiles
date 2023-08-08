@@ -1,0 +1,21 @@
+# Rime custom settings
+# encoding: utf-8
+
+patch:
+  ascii_composer/switch_key:
+    Caps_Lock: clear
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code # inline_ascii
+    Shift_R: commit_text
+  schema_list:
+    - schema: wubi86
+    # - schema: emoji
+  menu/page_size: 9
+  switcher/hotkeys:
+    # - "Control+at"
+    # - "Control+Shift+grave"
+    - "Control+backslash"
+    - "Control+Shift+bar"
+    # - F4
