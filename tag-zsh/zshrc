@@ -11,10 +11,10 @@
 for config_file ($HOME/.zshrc.before.d/*.zsh(N)) source $config_file
 unset config_file
 
-# Source Prezto
-prezto_zshrc="${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-[[ -s $prezto_zshrc ]] && source $prezto_zshrc
-unset prezto_zshrc
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 # Customize to your needs...
 
