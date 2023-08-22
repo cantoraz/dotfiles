@@ -85,27 +85,31 @@ exec --no-startup-id systemctl --user start i3-session.target
 # Services
 # XDG Autostart applications are delegated to systemd
 # `xdg-desktop-autostart.target', which is wanted by `i3-session.target'
-
-# dex executes XDG Autostart DesktopEntry files which is buggy via
-# `systemd-xdg-autostart-generator'
-exec --no-startup-id dex /etc/xdg/autostart/pam_kwallet_init.desktop
-exec --no-startup-id dex ~/.config/autostart/snapshot-detect.desktop
-exec --no-startup-id dex ~/.config/autostart/snap-userd-autostart.desktop
-
+#
 # dex performs XDG Autostart applications. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # exec --no-startup-id dex --autostart --environment i3
 
-# xdg # exec --no-startup-id blueman-applet
-# xdg # exec --no-startup-id clipit
-# xdg # exec --no-startup-id fcitx -d
-# xdg # exec --no-startup-id kdeconnect-indicator
-# xdg # exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-# xdg # exec --no-startup-id nm-applet
-# xdg # exec --no-startup-id pamac-tray
-# xdg # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# xdg # exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-# xdg # exec --no-startup-id xfce4-power-manager
+# dex executes XDG Autostart DesktopEntry files which is buggy via
+# `systemd-xdg-autostart-generator'
+#
+# exec --no-startup-id dex ~/.config/autostart/blueman.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/geoclue-demo-agent.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/msm_kde_notifier.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/nm-applet.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/org.fcitx.Fcitx5.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/org.kde.kdeconnect.daemon.desktop
+  exec --no-startup-id dex  /etc/xdg/autostart/pam_kwallet_init.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/pamac-tray.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/picom.desktop
+# exec --no-startup-id dex ~/.config/autostart/polkit-kde-authentication-agent-1.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/print-applet.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/pulseaudio.desktop
+  exec --no-startup-id dex ~/.config/autostart/snap-userd-autostart.desktop
+  exec --no-startup-id dex ~/.config/autostart/snapshot-detect.desktop
+# exec --no-startup-id dex  /etc/xdg/autostart/xapp-sn-watcher.desktop
+  exec --no-startup-id dex ~/.config/autostart/xfce4-power-manager.desktop
+# exec --no-startup-id dex ~/.config/autostart/org.kde.kdeconnect.nonplasma.desktop
 
 # manually startup
 exec --no-startup-id nitrogen --restore
@@ -113,6 +117,7 @@ exec --no-startup-id nitrogen --restore
 # systemd # exec --no-startup-id systemctl --user start wallpaper-primary.timer wallpaper-left.timer
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id xautolock -time 5 -locker blurlock
+# exec --no-startup-id clipit
 exec --no-startup-id xss-lock -l --ignore-sleep -- blurlock -n
 
 # Bars
