@@ -104,7 +104,7 @@ exec --no-startup-id systemctl --user start i3-session.target
 # exec --no-startup-id dex  /etc/xdg/autostart/picom.desktop
 # exec --no-startup-id dex ~/.config/autostart/polkit-kde-authentication-agent-1.desktop
 # exec --no-startup-id dex  /etc/xdg/autostart/print-applet.desktop
-# exec --no-startup-id dex  /etc/xdg/autostart/pulseaudio.desktop
+  exec --no-startup-id dex  /etc/xdg/autostart/pulseaudio.desktop
   exec --no-startup-id dex ~/.config/autostart/snap-userd-autostart.desktop
   exec --no-startup-id dex ~/.config/autostart/snapshot-detect.desktop
 # exec --no-startup-id dex  /etc/xdg/autostart/xapp-sn-watcher.desktop
