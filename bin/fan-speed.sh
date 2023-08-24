@@ -86,13 +86,13 @@ query_speed() {
         local fan_max=$(< $FAN_MAX_FILE)
         local fan_min=$(< $FAN_MIN_FILE)
 
-        local speed_step=$((($FAN_MAX - $FAN_MIN) / 3))
+        local speed_step=$((($fan_max - $fan_min) / 3))
 
         if [[ $fan_manual == 0 ]]; then
             prefix=$SPEED_AUTO
         elif (($fan_speed >= $fan_max - $speed_step)); then
             prefix=$SPEED_FAST
-        elif (($fan_speed = $fan_min + $speed_step)); then
+        elif (($fan_speed == $fan_min + $speed_step)); then
             prefix=$SPEED_MIDD
         else
             prefix=$SPEED_SLOW
