@@ -53,8 +53,9 @@ main() {
 
     # parse command
     local cmd=${1-}
+    [[ $# -gt 0 ]] && shift
     case $cmd in
-        query)  query_speed ;;
+        query)  query_speed $@ ;;
         toggle) toggle_mode ;;
         up)     speed_up ;;
         down)   speed_down ;;
@@ -70,43 +71,68 @@ check_fan_files() {
 }
 
 query_speed() {
-    local FAN_INPUT_FILE="$FAN_DIR/${FAN_NAME}_input"
-    check_fan_files $FAN_INPUT_FILE || exit $?
+    local FOLLOW=0
 
-    # speed level icons/labels
+    # parse command options
+    local OPTIND=
+    while getopts ":f" opt; do
+        case $opt in
+            f)  FOLLOW=1 ;;
+            ?)  echoerr -h "invalid ‘query’ command option --'$OPTARG'"; exit 2 ;;
+            *)  echoerr -h; exit 2 ;;
+        esac
+    done
+    shift $(($OPTIND - 1))
+
+    local FAN_INPUT_FILE="$FAN_DIR/${FAN_NAME}_input"
+    check_fan_files $FAN_INPUT_FILE
+
+    # load config from env
     local SPEED_AUTO=${PB_FAN_SPEED_AUTO:-"auto "}
     local SPEED_SLOW=${PB_FAN_SPEED_SLOW:-"slow "}
     local SPEED_MIDD=${PB_FAN_SPEED_MIDD:-"mid "}
     local SPEED_FAST=${PB_FAN_SPEED_FAST:-"fast "}
     local SPEED_UNIT=${PB_FAN_SPEED_UNIT:-rpm}
+    local SLEEP=${PB_FAN_SPEED_SLEEP:-1}
 
-    if [[ -r "$FAN_MANUAL_FILE" && -r "$FAN_MAX_FILE" && -r "$FAN_MIN_FILE" ]]; then
+    # trap SIGHUP in follow mode
+    [[ $FOLLOW -eq 1 ]] && trap 'kill %' HUP
+
+    while :; do
         local fan_speed=$(< $FAN_INPUT_FILE)
-        local fan_manual=$(< $FAN_MANUAL_FILE)
-        local fan_max=$(< $FAN_MAX_FILE)
-        local fan_min=$(< $FAN_MIN_FILE)
 
-        local speed_step=$((($fan_max - $fan_min) / 3))
+        if [[ -r "$FAN_MANUAL_FILE" && -r "$FAN_MAX_FILE" && -r "$FAN_MIN_FILE" ]]; then
+            local fan_manual=$(< $FAN_MANUAL_FILE)
+            local fan_max=$(< $FAN_MAX_FILE)
+            local fan_min=$(< $FAN_MIN_FILE)
 
-        if [[ $fan_manual == 0 ]]; then
-            prefix=$SPEED_AUTO
-        elif (($fan_speed >= $fan_max - $speed_step)); then
-            prefix=$SPEED_FAST
-        elif (($fan_speed == $fan_min + $speed_step)); then
-            prefix=$SPEED_MIDD
+            local speed_step=$((($fan_max - $fan_min) / 3))
+
+            if [[ $fan_manual -eq 0 ]]; then
+                prefix=$SPEED_AUTO
+            elif (($fan_speed >= $fan_max - $speed_step)); then
+                prefix=$SPEED_FAST
+            elif (($fan_speed > $fan_min + $speed_step)); then
+                prefix=$SPEED_MIDD
+            else
+                prefix=$SPEED_SLOW
+            fi
         else
-            prefix=$SPEED_SLOW
+            prefix=$SPEED_AUTO
         fi
-    else
-        local fan_speed=$(< $FAN_INPUT_FILE)
-        prefix=$SPEED_AUTO
-    fi
 
-    echo $prefix$fan_speed$SPEED_UNIT
+        echo $prefix$fan_speed$SPEED_UNIT
+
+        # break loop unless in follow mode
+        [[ $FOLLOW -eq 1 ]] || break
+
+        sleep $SLEEP &
+        wait || true
+    done
 }
 
 toggle_mode() {
-    check_fan_files "$FAN_MANUAL_FILE" || exit $?
+    check_fan_files "$FAN_MANUAL_FILE"
     local fan_manual=$(< $FAN_MANUAL_FILE)
     # echo $fan_manual
 
@@ -115,7 +141,7 @@ toggle_mode() {
 }
 
 speed_up() {
-    check_fan_files "$FAN_MANUAL_FILE" "$FAN_MAX_FILE" "$FAN_OUTPUT_FILE" || exit $?
+    check_fan_files "$FAN_MANUAL_FILE" "$FAN_MAX_FILE" "$FAN_OUTPUT_FILE"
     local fan_manual=$(< $FAN_MANUAL_FILE)
     local fan_max=$(< $FAN_MAX_FILE)
     local fan_speed=$(< $FAN_OUTPUT_FILE)
@@ -131,7 +157,7 @@ speed_up() {
 }
 
 speed_down() {
-    check_fan_files "$FAN_MANUAL_FILE" "$FAN_MIN_FILE" "$FAN_OUTPUT_FILE" || exit $?
+    check_fan_files "$FAN_MANUAL_FILE" "$FAN_MIN_FILE" "$FAN_OUTPUT_FILE"
     local fan_manual=$(< $FAN_MANUAL_FILE)
     local fan_min=$(< $FAN_MIN_FILE)
     local fan_speed=$(< $FAN_OUTPUT_FILE)
@@ -174,6 +200,9 @@ Commands:
     toggle        toggle the mode of fan speed between auto and manual
     up            increase fan speed
     down          decrease fan speed
+
+‘query’ Command Options:
+    -f            follow mode
 EOF
 }
 
