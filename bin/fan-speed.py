@@ -1,24 +1,4 @@
 #!/usr/bin/env python
-"""Fan utility to monitor and tuning its speed
-
-Usage:
-    fan-speed.py -d DEVPATH -f FAN_NAME <command> [<args>...]
-    fan-speed.py -h | --help
-    fan-speed.py -v | --version
-
-Options:
-    -d DEVPATH    fan sysfs dir
-    -f FAN_NAME   fan name
-
-    -h --help     show this help message and exit
-    -v --version  show version and exit
-
-Available Commands:
-    query         query current fan speed
-    toggle        toggle the mode of fan speed between auto and manual
-    up            increase fan speed
-    down          decrease fan speed
-"""
 
 import os
 import sys
@@ -27,27 +7,7 @@ from errno import ENOENT
 from pathlib import Path
 from signal import SIGUSR1, Signals, signal
 
-# docstring for the command 'query'
-__doc_query__ = f"""
-Usage:
-    {os.path.basename(__file__)} query [-f]
-    {os.path.basename(__file__)} query -h | --help
-
-Command Options:
-    -f            follow mode
-    -h --help     show this help message and exit
-"""
-
-# docstring for the command 'toggle', 'up' or 'down'
-__doc_tune__ = f"""
-Usage:
-    {os.path.basename(__file__)} %s [-p PID]
-    {os.path.basename(__file__)} %s -h | --help
-
-Command Options:
-    -p PID        PID of anther program to which this util to signal SIGUSR1
-    -h --help     show this help message and exit
-"""
+VERSION = '1.0.0'
 
 
 class NotManualError(Exception):
@@ -56,7 +16,7 @@ class NotManualError(Exception):
         super().__init__('not in manual mode')
 
 
-class InvalidManualError(Exception):
+class NotSupportManualError(Exception):
 
     def __init__(self) -> None:
         super().__init__('not support manual mode')
@@ -132,7 +92,7 @@ class Fan:
 
     @regular_speed.setter
     def regular_speed(self, value: int):
-        if self._output_file is None: raise InvalidManualError()
+        if self._output_file is None: raise NotSupportManualError()
 
         self._output_file.write_text(str(value))
 
@@ -157,7 +117,7 @@ class Fan:
             min_speed = self.min
 
             if max_speed is None or min_speed is None:
-                raise InvalidManualError()
+                raise NotSupportManualError()
 
             step = (max_speed - min_speed) / 3
 
@@ -190,7 +150,7 @@ class Fan:
             print(self.status, flush=True)
 
     def toggle_manual(self):
-        if self._manual_file is None: raise InvalidManualError()
+        if self._manual_file is None: raise NotSupportManualError()
 
         self._manual_file.write_text(str(int(not self.is_manual)))
         if self.signal_pid is not None: self._send_signal(SIGUSR1)
@@ -202,7 +162,7 @@ class Fan:
         max_speed = self.max
 
         if cur_speed is None or max_speed is None:
-            raise InvalidManualError()
+            raise NotSupportManualError()
         if cur_speed >= max_speed:
             sys.exit('already at fastest speed')
 
@@ -218,7 +178,7 @@ class Fan:
         min_speed = self.min
 
         if cur_speed is None or min_speed is None:
-            raise InvalidManualError()
+            raise NotSupportManualError()
         if cur_speed <= min_speed:
             sys.exit('already at slowest speed')
 
@@ -239,39 +199,96 @@ class Fan:
 
 
 def main():
-    arguments = docopt(__doc__, version='0.0.1', options_first=True)
-
-    command = arguments['<command>']
-    command_arguments = _docopt_command(command, arguments['<args>'])
-    signal_pid = command_arguments.get('-p', None)
-    signal_pid = int(signal_pid) if signal_pid is not None else None
+    # parse arguments
+    args = _parse_args()
 
     try:
-        f = Fan(arguments['-d'], arguments['-f'], signal_pid=signal_pid)
-
-        if command == 'query': f.query_speed(command_arguments['-f'])
-        elif command == 'toggle': f.toggle_manual()
-        elif command == 'up': f.speed_up()
-        elif command == 'down': f.speed_down()
-        else: sys.exit(__doc__)
+        # Invoke the function corresponding to sub-command
+        args.func(args)
     except FileNotFoundError as e:
         sys.exit(f'{e.strerror}: {e.filename}')
-    except (NotManualError, InvalidManualError) as e:
+    except (NotManualError, NotSupportManualError) as e:
         sys.exit(str(e))
     # except KeyboardInterrupt as e:
     #     print(e)
     #     sys.exit(128 + signal.SIGINT)
 
 
-def _docopt_command(command: str, argv: list[str]):
-    if command == 'query':
-        doc = __doc_query__
-    else:
-        doc = __doc_tune__ % (command, command)
-    return docopt(doc, argv=[command] + argv)
+def _parse_args():
+    # main parser
+    parser = argparse.ArgumentParser(
+        prog=os.path.basename(__file__),
+        description='Fan utility to monitor and tuning its speed',
+    )
+    parser.add_argument('-v', '--version', action='version', version=VERSION)
+    parser.add_argument('-d',
+                        dest='devpath',
+                        required=True,
+                        help='fan sysfs dir')
+    parser.add_argument('-f', dest='fan_name', required=True, help='fan name')
+
+    # Sub-commands parser ##############################################
+    subparsers = parser.add_subparsers(title='commands', required=True)
+
+    # shared parser for `pid' option
+    pid_parser = argparse.ArgumentParser(add_help=False)
+    pid_parser.add_argument('-p',
+                            dest='pid',
+                            type=int,
+                            help=('PID of anther program '
+                                  'to receive SIGUSR1'))
+
+    # Sub-command `query` parser #######################################
+    parser_query = subparsers.add_parser('query', help='current fan speed')
+    parser_query.add_argument('-f',
+                              dest='follow',
+                              action='store_true',
+                              help='follow mode')
+    parser_query.set_defaults(func=_query_speed)
+
+    # Sub-command `toggle` parser ######################################
+    parser_toggle = subparsers.add_parser('toggle',
+                                          parents=[pid_parser],
+                                          help=('toggle the mode of fan '
+                                                'between auto and manual'))
+    parser_toggle.set_defaults(func=_toggle_manual)
+
+    # Sub-command `up` parser ##########################################
+    parser_up = subparsers.add_parser('up',
+                                      parents=[pid_parser],
+                                      help='increase fan speed')
+    parser_up.set_defaults(func=_speed_up)
+
+    # Sub-command `down` parser ########################################
+    parser_down = subparsers.add_parser('down',
+                                        parents=[pid_parser],
+                                        help='decrease fan speed')
+    parser_down.set_defaults(func=_speed_down)
+
+    return parser.parse_args()
+
+
+def _query_speed(args):
+    f = Fan(args.devpath, args.fan_name)
+    f.query_speed(args.follow)
+
+
+def _toggle_manual(args):
+    f = Fan(args.devpath, args.fan_name, signal_pid=args.pid)
+    f.toggle_manual()
+
+
+def _speed_up(args):
+    f = Fan(args.devpath, args.fan_name, signal_pid=args.pid)
+    f.speed_up()
+
+
+def _speed_down(args):
+    f = Fan(args.devpath, args.fan_name, signal_pid=args.pid)
+    f.speed_down()
 
 
 if __name__ == '__main__':
-    from docopt import docopt
+    import argparse
 
     main()
