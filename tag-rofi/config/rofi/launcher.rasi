@@ -6,30 +6,43 @@
 
 configuration {
   // General
-  modes:                  [ drun, window, run ];
-  show-icons:             true;
-	icon-theme:             "Papirus-Dark";
+  modes:                      [ drun, window, run ];
+  show-icons:                 true;
+	icon-theme:                 "Papirus-Dark";
 
   // Matching
-  // drun-display-format:    "{name}";
+  // drun-display-format:        "{name}";
 
   // Layout and Theming
-	sidebar-mode:           false;
+	sidebar-mode:               false;
+
+  // Window switcher settings
+  window-command:             "i3-msg [[id={window}]] move workspace current";
 
   // History and Sorting
-  disable-history:        false;
+  disable-history:            false;
 
   // Other
-  drun-use-desktop-cache: true;
+  drun-use-desktop-cache:     true;
+  drun-reload-desktop-cache:  true;
+  combi {
+    display-name:             "󰕘";
+  }
   drun {
-    display-name:         "";
+    display-name:             "";
+  }
+  keys {
+    display-name:             "󰘳";
   }
   run {
-    display-name:         "";
-    fallback-icon:        "application-x-executable";
+    display-name:             "";
+    fallback-icon:            "application-x-executable";
+  }
+  ssh {
+    display-name:             "󰣀";
   }
   window {
-    display-name:         "";
+    display-name:             "";
   }
 }
 
