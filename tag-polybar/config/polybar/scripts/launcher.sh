@@ -7,7 +7,7 @@ if [[ "${TRACE-0}" == "1" ]]; then
     set -o xtrace
 fi
 
-cd "$(dirname "$0")"
+cd $HOME
 
 declare -r CONFIG='~/.config/rofi/launcher.rasi'
 declare -r DEFAULT_SHOW=drun
