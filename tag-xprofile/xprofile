@@ -51,9 +51,9 @@ fi
 ########################################################################
 # Load extra customization
 ########################################################################
-shopt -s nullglob
-for config_file in .xprofile.d/*.sh ; do
-  source $config_file
-done
-unset config_file
-shopt -u nullglob
+if ls ~/.xprofile.d/*.sh &>/dev/null; then
+  for config_file in ~/.xprofile.d/*.sh; do
+    source $config_file
+  done
+  unset config_file
+fi
