@@ -3,7 +3,7 @@ EXCLUDES="README *.md"
 EXCLUDES+=" *.old *.bak"
 EXCLUDES+=" */dunstrc.d/00-dpi-120.conf yadr"
 HOSTNAME='imac'
-TAGS="alacritty dmenu dunst fcitx5 git i3 kitty nodejs picom polybar python rofi spacemacs systemd xcompose xdg-autostart xprofile xresources zsh"
+TAGS="alacritty dmenu dunst fcitx5 git i3 kitty mime nodejs picom polybar python rofi spacemacs systemd xcompose xdg-autostart xprofile xresources zsh"
 SYMLINK_DIRS="alacritty i3 kitty picom polybar rofi vim yadr
 */fcitx5/themes
 xprofile.d
