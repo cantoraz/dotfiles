@@ -3,7 +3,7 @@ EXCLUDES="README *.md"
 EXCLUDES+=" *.old *.bak"
 EXCLUDES+=" wallpaper-left.* yadr"
 HOSTNAME="dylema"
-TAGS="alacritty dmenu dunst fcitx5 git i3 kitty mime nodejs picom polybar python rofi spacemacs systemd xcompose xdg-autostart xprofile xresources zsh"
+TAGS="alacritty dmenu dunst fcitx5 git i3 kitty mime nodejs picom polybar python rofi spacemacs systemd xcompose xdg-autostart xdg-desktop-portal xprofile xresources zsh"
 SYMLINK_DIRS="alacritty i3 kitty picom polybar rofi vim yadr
 */fcitx5/themes
 xprofile.d
