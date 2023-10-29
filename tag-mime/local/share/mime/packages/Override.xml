@@ -1,6 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
   <!-- disk image -->
+  <mime-type type="application/vnd.efi.img">
+    <comment>Raw disk image</comment>
+    <icon name="application-x-raw-disk-image"/>
+    <alias type="application/x-raw-disk-image"/>
+    <glob pattern="*.raw-disk-image"/>
+    <glob pattern="*.img"/>
+  </mime-type>
   <mime-type type="application/vnd.efi.iso">
     <comment>Raw CD image</comment>
     <sub-class-of type="application/vnd.efi.img"/>
@@ -21,7 +28,7 @@
     <glob pattern="*.tar.zst"/>
     <glob pattern="*.tzst"/>
   </mime-type>
-  <mime-type  type="application/x-bzip2-compressed-tar">
+  <mime-type type="application/x-bzip2-compressed-tar">
     <comment>Tar archive (bzip-compressed)</comment>
     <icon name="application-x-bzip-compressed-tar"/>
     <generic-icon name="package-x-generic"/>
@@ -32,7 +39,7 @@
   </mime-type>
 
   <!-- WPS -->
-	<mime-type type="application/wps-office.doc">
+  <mime-type type="application/wps-office.doc">
 		<comment>Microsoft Word</comment>
 		<sub-class-of type="application/msword"/>
 		<sub-class-of type="application/vnd.ms-word"/>
@@ -165,7 +172,7 @@
 		<comment>WPS Presentation Security</comment>
 		<comment xml:lang="zh_CN">WPS演示 安全</comment>
 		<icon name="wps-office-dpss"/>
-		<generic-icon name="wps-office-dpt"/>
+		<generic-icon name="wps-office-dpss"/>
 		<glob pattern="*.dpss" weight="100"/>
 	</mime-type>
 	<mime-type type="application/wps-office.dpso">
