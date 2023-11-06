@@ -15,7 +15,8 @@ patch:
   menu/page_size: 9
   switcher/hotkeys:
     # - "Control+at"
-    # - "Control+Shift+grave"
-    - "Control+backslash"
+    # - "Alt+Shift+grave"
+    # - "Control+Shift+grave" # vscode
+    # - "Control+backslash"   # vscode
     - "Control+Shift+bar"
-    # - F4
+    # - F4                    # vscode
