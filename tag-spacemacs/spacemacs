@@ -95,7 +95,7 @@ This function should only modify configuration layer settings."
            ruby-insert-encoding-magic-comment nil
            enh-ruby-add-encoding-comment-on-save nil)
      (shell-scripts :variables shell-scripts-backend nil)
-     sql
+     (sql :variable sql-backend nil)
      (typescript :variables
                  typescript-linter 'eslint
                  typescript-backend 'tide)
