@@ -652,6 +652,7 @@ before packages are loaded."
   ;; ---------- Layer - 6 Emacs / Org ----------------------------------
   (setq org-agenda-files "~/org-agenda-files"
         org-enforce-todo-dependencies t
+        org-odt-create-custom-styles-for-srcblocks nil
         ;; good candidates: ▶▷✶⬢⬡☀☼
         org-superstar-headline-bullets-list '(?◉ ?○ ?🞛 ?◇ ?✿ ?❀ ?⚛ ?✸))
   (with-eval-after-load 'org-superstar
