@@ -18,6 +18,7 @@ patch:
     - schema: wubi86
     # - schema: emoji
   menu/page_size: 9
+  switcher/fold_options: false
   switcher/hotkeys:
     # - "Control+at"
     # - "Alt+Shift+grave"
