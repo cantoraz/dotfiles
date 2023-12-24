@@ -753,6 +753,8 @@ before packages are loaded."
                                        (org-enforce-todo-dependencies)
                                        (org-enforce-todo-dependencies . t)
                                        (org-log-into-drawer . t)
+                                       (org-odt-content-template-file . "~/Templates/note-content-template.xml")
+                                       (org-odt-content-template-file . "~/Templates/pad-content-template.xml")
                                        (org-odt-display-outline-level . 0)
                                        (pangu-spacing-real-insert-separtor)
                                        (pangu-spacing-separator . ""))
