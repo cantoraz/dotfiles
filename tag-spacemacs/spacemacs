@@ -70,6 +70,7 @@ This function should only modify configuration layer settings."
      ;; Programming and markup languages
      graphviz
      html
+     (json :variables json-backend nil)
      (javascript :variables
                  javascript-import-tool 'import-js
                  javascript-backend 'tide
