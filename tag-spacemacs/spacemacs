@@ -736,6 +736,9 @@ before packages are loaded."
   (add-hook 'python-mode-hook
             (lambda ()
               (add-to-list 'flycheck-disabled-checkers 'python-pylint)))
+  (with-eval-after-load 'pytest
+    (add-to-list 'pytest-project-root-files "pyproject.toml" t)
+    (add-to-list 'pytest-project-root-files ".projectile" t))
 
   ;; ---------- Layer - 22 Tools / Ansible -----------------------------
   ;; Bypass `describe-key' failing which caused by the `ansible' layer
