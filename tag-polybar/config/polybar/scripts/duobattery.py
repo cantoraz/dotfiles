@@ -34,6 +34,7 @@ VERSION: str = '1.0.0'
 
 class BatteryStatus(Enum):
     NA = 'n/a'
+    FULL = 'Full'
     CHARGING = 'Charging'
     DISCHARGING = 'Discharging'
     NOT_CHARGING = 'Not charging'
@@ -270,17 +271,27 @@ class DuoBattery(AbstractBattery):
         # | BAT0         | BAT1         | RESULT       |
         # |--------------+--------------+--------------|
         # | na           | na           | na           |
+        # | full         | na           | full         |
         # | charging     | na           | charging     |
         # | discharging  | na           | discharging  |
         # | not_charging | na           | not_charging |
         # |--------------+--------------+--------------|
+        # | na           | full         | full         |
+        # | full         | full         | full         |
+        # | charging     | full         | charging     |
+        # | discharging  | full         | discharging  |
+        # | not_charging | full         | not_charging |
+        # |--------------+--------------+--------------|
         # | na           | charging     | charging     |
+        # | full         | charging     | charging     |
         # | not_charging | charging     | charging     |
         # |--------------+--------------+--------------|
         # | na           | discharging  | discharging  |
+        # | full         | discharging  | discharging  |
         # | not_charging | discharging  | discharging  |
         # |--------------+--------------+--------------|
         # | na           | not_charging | not_charging |
+        # | full         | not_charging | not_charging |
         # | charging     | not_charging | charging     |
         # | discharging  | not_charging | discharging  |
         # | not_charging | not_charging | not_charging |
@@ -293,7 +304,9 @@ class DuoBattery(AbstractBattery):
             if (batt.status is BatteryStatus.CHARGING or
                 batt.status is BatteryStatus.DISCHARGING or
                 (batt.status is BatteryStatus.NOT_CHARGING
-                 and status is BatteryStatus.NA)):
+                 and (status in [BatteryStatus.NA, BatteryStatus.FULL])) or
+                (batt.status is BatteryStatus.FULL
+                 and (status in [BatteryStatus.NA, BatteryStatus.FULL]))):
                 # yapf: enable
                 status = batt.status
                 power_now = batt.power_now
