@@ -55,10 +55,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      version-control
      treemacs
-     ;; Frameworks
-     react
-     ;; ruby-on-rails
-     ;; International support
+     ;; 10. Internationalization
      (chinese :variables
               chinese-default-input-method nil
               chinese-enable-fcitx t
@@ -67,20 +64,36 @@ This function should only modify configuration layer settings."
      ;; (keyboard-layout :variables
      ;;                  kl-layout 'dvorak
      ;;                  kl-enabled-configurations '(ace-window avy))
-     ;; Programming and markup languages
+     ;; 15. Programming languages
+     ;; 15.1. Domain-specific (DSLs)
+     ;; 15.1.2. Markup & configuration
      graphviz
      html
      (json :variables json-backend nil)
+     (plantuml :variables
+               plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
+               org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
+     restructuredtext
+     yaml
+     ;; 15.1.3. Scripting
+     (shell-scripts :variables shell-scripts-backend nil)
+     ;; 15.1.15. SQL
+     (sql :variables sql-backend nil)
+     ;; 15.2. Frameworks
+     react
+     ;; ruby-on-rails
+     ;; 15.3. General-purpose
+     ;; 15.3.2. Multi-paradigm
      (javascript :variables
                  javascript-import-tool 'import-js
                  javascript-backend 'tide
                  javascript-fmt-tool 'prettier
                  js2-basic-offset 2
                  js-indent-level 2)
-     web-beautify prettier import-js tide ;; auxiliaries of `javascript' layer
-     (plantuml :variables
-               plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
-               org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
+     import-js prettier tide web-beautify ;; auxiliaries of `javascript' layer
+     (typescript :variables
+                 typescript-linter 'eslint
+                 typescript-backend 'tide)
      (python :variables
              ;; python-backend 'anaconda
              python-backend 'lsp
@@ -95,21 +108,16 @@ This function should only modify configuration layer settings."
            ruby-test-runner 'rspec
            ruby-insert-encoding-magic-comment nil
            enh-ruby-add-encoding-comment-on-save nil)
-     (shell-scripts :variables shell-scripts-backend nil)
-     (sql :variables sql-backend nil)
-     (typescript :variables
-                 typescript-linter 'eslint
-                 typescript-backend 'tide)
-     yaml
-     ;; Tags
+     ;; 16. Readers
+     pdf
+     ;; 20. Tagging
      gtags
-     ;; Themes
+     ;; 21. Themes
      colors
-     ;; Tools
+     ;; 22. Tools
      ansible
      docker
      nginx
-     pdf
      (restclient :variables restclient-use-org t)
      systemd
      vagrant
