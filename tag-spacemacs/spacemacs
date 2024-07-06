@@ -665,6 +665,7 @@ before packages are loaded."
         ;; good candidates: ▶▷✶⬢⬡☀☼
         org-superstar-headline-bullets-list '(?◉ ?○ ?🞛 ?◇ ?✿ ?❀ ?⚛ ?✸))
   (with-eval-after-load 'org-superstar
+    (set-face-attribute 'org-superstar-item nil :family "Sarasa Term SC")
     (set-face-attribute 'org-superstar-leading nil :family "Sarasa Term SC"))
   (with-eval-after-load 'org-duration
     (setq org-duration-units `(("min" . 1)
