@@ -813,6 +813,11 @@ before packages are loaded."
     (set-fontset-font (frame-parameter nil 'font) range
                       (font-spec :family "Symbols Nerd Font Mono")))
 
+  ;; Set Noto Sans Symbols 2
+  (dolist (range '((#x1F650 . #x1F67F) ; Ornamental Dingbats
+                   ))
+    (set-fontset-font (frame-parameter nil 'font) range
+                      (font-spec :family "Noto Sans Symbols 2")))
   ;; Set faces
   (set-face-attribute 'fixed-pitch nil :family 'unspecified)
   (set-face-attribute 'fixed-pitch-serif nil :family "Iosevka Slab" :foundry "UKWN")
