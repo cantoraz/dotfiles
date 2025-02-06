@@ -108,6 +108,8 @@ This function should only modify configuration layer settings."
            ruby-test-runner 'rspec
            ruby-insert-encoding-magic-comment nil
            enh-ruby-add-encoding-comment-on-save nil)
+     ;; 15.3.4. TOML
+     toml
      ;; 16. Readers
      pdf
      ;; 20. Tagging
