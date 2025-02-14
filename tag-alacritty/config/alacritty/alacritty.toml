@@ -1,0 +1,38 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+[general]
+# Import additional configuration files.
+#
+# Imports are loaded in order, skipping all missing files, with the importing
+# file being loaded last. If a field is already present in a previous import, it
+# will be replaced.
+#
+# All imports must either be absolute paths starting with /, paths relative to
+# the user's home directory starting with ~/, or paths relative from the current config file.
+import = [
+"themes/tomorrow-hybrid.toml"
+]
+
+[font]
+# Default:
+# - Linux/BSD: "monospace"
+# - Windows: "Consolas"
+# - macOS: "Menlo"
+normal.family = "Iosevka Term"
+
+# Font size in points.
+# Default: 11.25
+size = 12.0
+
+[colors]
+# When true, bold text is drawn using the bright color variants.
+# Default: false
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+# - Never: Prevent the cursor from ever blinking
+# - Off: Disable blinking by default
+# - On: Enable blinking by default
+# - Always: Force the cursor to always blink
+# Default: "Off"
+style.blinking = "On"

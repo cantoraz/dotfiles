@@ -1,0 +1,37 @@
+# Colors (Tomorrow Hybrid)
+
+# Default colors
+[colors.primary]
+foreground = "#c5c8c6"
+background = "#1d1f21"
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text   = "#1d1f21"
+cursor = "#c5c8c6"
+
+[colors.selection]
+text       = "#e0e0e0"
+background = "#5294e2"
+
+# Normal colors
+[colors.normal]
+black   = "#282a2e"
+red     = "#a54242"
+green   = "#8c9440"
+yellow  = "#de935f"
+blue    = "#5f819d"
+magenta = "#85678f"
+cyan    = "#5e8d87"
+white   = "#c5c8c6"
+
+# Bright colors
+[colors.bright]
+black   = "#969896"
+red     = "#cc6666"
+green   = "#b5bd68"
+yellow  = "#f0c674"
+blue    = "#81a2be"
+magenta = "#b294bb"
+cyan    = "#8abeb7"
+white   = "#ffffff"
