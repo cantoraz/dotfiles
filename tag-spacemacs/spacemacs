@@ -67,20 +67,20 @@ This function should only modify configuration layer settings."
      ;; 15. Programming languages
      ;; 15.1. Domain-specific (DSLs)
      ;; 15.1.2. Markup & configuration
-     graphviz
+     ;; graphviz
      html
      (json :variables json-backend nil)
      (plantuml :variables
                plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
                org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
-     restructuredtext
+     ;; restructuredtext
      yaml
      ;; 15.1.3. Scripting
      (shell-scripts :variables shell-scripts-backend nil)
      ;; 15.1.15. SQL
      (sql :variables sql-backend nil)
      ;; 15.2. Frameworks
-     react
+     ;; react
      ;; ruby-on-rails
      ;; 15.3. General-purpose
      ;; 15.3.2. Multi-paradigm
@@ -101,13 +101,13 @@ This function should only modify configuration layer settings."
              python-test-runner 'pytest
              python-formatter 'black
              python-fill-column 72)
-     (ruby :variables
-           ;; ruby-enable-enh-ruby-mode t
-           ruby-backend 'lsp
-           ruby-version-manager 'rbenv
-           ruby-test-runner 'rspec
-           ruby-insert-encoding-magic-comment nil
-           enh-ruby-add-encoding-comment-on-save nil)
+     ;; (ruby :variables
+     ;;       ;; ruby-enable-enh-ruby-mode t
+     ;;       ruby-backend 'lsp
+     ;;       ruby-version-manager 'rbenv
+     ;;       ruby-test-runner 'rspec
+     ;;       ruby-insert-encoding-magic-comment nil
+     ;;       enh-ruby-add-encoding-comment-on-save nil)
      ;; 15.3.4. TOML
      toml
      ;; 16. Readers
