@@ -1,0 +1,51 @@
+{
+    "marks": [],
+    "name": "btop",
+    "percent": 0.5,
+    "type": "con",
+    "swallows": [
+        {
+            "class": "^kitty$",
+            "instance": "^btop$"
+        }
+    ]
+}
+
+{
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "marks": [],
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^kitty$",
+                    "instance": "^scratchpad$"
+                }
+            ]
+        },
+        {
+            "marks": [],
+            "percent": 0.5,
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^kitty$"
+                }
+            ]
+        },
+        {
+            "marks": [],
+            "percent": 0.5,
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^kitty$"
+                }
+            ]
+        }
+    ]
+}

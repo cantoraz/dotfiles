@@ -127,3 +127,11 @@ exec --no-startup-id conky -c ~/.config/conky/conky_grey
 # exec_always --no-startup-id ff-theme-util
 # exec_always --no-startup-id fix_xcursor
 # exec --no-startup-id manjaro-hello
+
+# Layout
+exec --no-startup-id i3-msg "workspace --no-auto-back-and-forth 1; append_layout ~/.i3/workspace-1.json"
+exec i3-sensible-terminal --name btop --hold btop
+exec i3-sensible-terminal --name scratchpad
+exec i3-sensible-terminal
+exec i3-sensible-terminal
+for_window [instance=scratchpad], move scratchpad
