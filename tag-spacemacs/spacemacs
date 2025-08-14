@@ -55,6 +55,8 @@ This function should only modify configuration layer settings."
      syntax-checking
      version-control
      treemacs
+     ;; 6. Emacs
+     ibuffer
      ;; 10. Internationalization
      (chinese :variables
               chinese-default-input-method nil
