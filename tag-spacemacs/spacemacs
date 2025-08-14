@@ -68,8 +68,10 @@ This function should only modify configuration layer settings."
      ;; 15.1. Domain-specific (DSLs)
      ;; 15.1.2. Markup & configuration
      ;; graphviz
-     html
-     (json :variables json-backend nil)
+     (html :variables web-fmt-tool 'prettier)
+     (json :variables
+           json-backend nil
+           json-fmt-tool 'prettier)
      (plantuml :variables
                plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
                org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
