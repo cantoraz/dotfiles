@@ -29,7 +29,7 @@ configuration {
     display-name:             "󰕘";
   }
   drun {
-    display-name:             "";
+    display-name:             "";
   }
   keys {
     display-name:             "󰘳";
