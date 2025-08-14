@@ -92,7 +92,7 @@ This function should only modify configuration layer settings."
                  javascript-fmt-tool 'prettier
                  js2-basic-offset 2
                  js-indent-level 2)
-     import-js prettier tide web-beautify ;; auxiliaries of `javascript' layer
+     import-js prettier tide ;; auxiliaries of `javascript' layer
      (typescript :variables
                  typescript-linter 'eslint
                  typescript-backend 'tide)
