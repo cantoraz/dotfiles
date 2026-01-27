@@ -46,4 +46,16 @@ return {
       },
     },
   },
+
+  -- enable chunked indent
+  {
+    "snacks.nvim",
+    opts = {
+      indent = {
+        chunk = {
+          enabled = true,
+        },
+      },
+    },
+  },
 }
