@@ -3,8 +3,8 @@ EXCLUDES="README *.md"
 EXCLUDES+=" *.old *.bak"
 EXCLUDES+=" wallpaper-left.* yadr"
 HOSTNAME="dylema"
-TAGS="alacritty dmenu doom dunst fcitx5 git i3 kitty mime mpd nodejs picom polybar python qutebrowser rofi spacemacs systemd xcompose xdg-autostart xdg-desktop-portal xprofile xresources zsh"
-SYMLINK_DIRS="alacritty doom.d i3 kitty mpd picom polybar qutebrowser rofi vim yadr
+TAGS="alacritty dmenu doom dunst fcitx5 git i3 kitty lazyvim mime mpd nodejs picom polybar python qutebrowser rofi spacemacs systemd xcompose xdg-autostart xdg-desktop-portal xprofile xresources zsh"
+SYMLINK_DIRS="alacritty doom.d i3 kitty mpd nvim picom polybar qutebrowser rofi vim yadr
 */fcitx5/themes
 xprofile.d
 Xresources.d
