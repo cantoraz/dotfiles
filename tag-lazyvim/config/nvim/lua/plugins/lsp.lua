@@ -16,6 +16,9 @@ return {
       servers = {
         -- required by extra `util.dot`, but provided by system rather than Mason
         bashls = { mason = false },
+        -- required by extra `lang.python`, but provided by system rather than Mason
+        [vim.g.lazyvim_python_lsp or "pyright"] = { mason = false },
+        [vim.g.lazyvim_python_ruff or "ruff"] = { mason = false },
       },
     },
   },
