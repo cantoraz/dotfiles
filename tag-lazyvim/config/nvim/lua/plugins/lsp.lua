@@ -42,6 +42,9 @@ return {
         [vim.g.lazyvim_python_lsp or "pyright"] = { mason = false },
         [vim.g.lazyvim_python_ruff or "ruff"] = { mason = false },
 
+        -- required by extra `lang.yaml`, but provided by system rather than Mason
+        yamlls = { mason = false },
+
         -- required by extra `util.dot`, but provided by system rather than Mason
         bashls = { mason = false },
       },
