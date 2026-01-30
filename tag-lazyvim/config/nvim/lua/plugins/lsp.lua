@@ -15,6 +15,9 @@ return {
         "golangci-lint",
         "delve", -- Go Package
 
+        -- required by extra `lang.markdown`, but provided by system rather than Mason
+        "markdownlint-cli2",
+
         -- required by extra `util.dot`, but provided by system rather than Mason
         "shellcheck",
       }
