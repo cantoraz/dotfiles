@@ -32,6 +32,9 @@ return {
         -- required by extra `lang.go`, but provided by system rather than Mason
         gopls = { mason = false },
 
+        -- required by extra `lang.json`, but provided by system rather than Mason
+        jsonls = { mason = false },
+
         -- required by extra `lang.python`, but provided by system rather than Mason
         [vim.g.lazyvim_python_lsp or "pyright"] = { mason = false },
         [vim.g.lazyvim_python_ruff or "ruff"] = { mason = false },
