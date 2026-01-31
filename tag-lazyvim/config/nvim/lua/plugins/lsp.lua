@@ -7,6 +7,9 @@ return {
         "stylua",
         "shfmt",
 
+        -- required by extra `lang.ansible`, but provided by system rather than Mason
+        "ansible-lint",
+
         -- required by extra `lang.go`, but provided by system rather than Mason
         "goimports", -- Go Package
         -- "gofumpt",
@@ -35,6 +38,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        -- required by extra `lang.ansible`, but provided by system rather than Mason
+        ansiblels = { mason = false },
+
         -- required by extra `lang.go`, but provided by system rather than Mason
         gopls = { mason = false },
 
