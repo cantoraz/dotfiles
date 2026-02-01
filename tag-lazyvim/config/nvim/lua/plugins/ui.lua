@@ -76,4 +76,25 @@ return {
       },
     },
   },
+
+  -- cutomize lualine
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.sections.lualine_x, {
+        { "lsp_status" },
+      })
+
+      opts.sections.lualine_y = {
+        { "filesize" },
+        { "encoding" },
+        { "fileformat" },
+      }
+
+      opts.sections.lualine_z = {
+        { "progress", separator = " ", padding = { left = 1, right = 0 } },
+        { "location", padding = { left = 0, right = 1 } },
+      }
+    end,
+  },
 }
