@@ -77,23 +77,52 @@ return {
     },
   },
 
-  -- cutomize lualine
+  -- cutomize statusline and winbar
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.sections.lualine_x, {
-        { "lsp_status" },
-      })
+      -- options
 
-      opts.sections.lualine_y = {
-        { "filesize" },
-        { "encoding" },
-        { "fileformat" },
+      local winbar_disabled_filetypes = {
+        "checkhealth",
+        "gitsigns-blame",
+        "grug-far",
+        "help",
+        "noice",
+        "qf",
+        "snacks_layout_box",
+        "snacks_terminal",
+        "trouble",
+      }
+      opts.options.disabled_filetypes.winbar =
+        vim.list_extend(winbar_disabled_filetypes, opts.options.disabled_filetypes.statusline)
+
+      -- statusline
+
+      local len_sl_c = #opts.sections.lualine_c
+      local pretty_path = opts.sections.lualine_c[len_sl_c - 1]
+      local trouble_symbols = opts.sections.lualine_c[len_sl_c]
+
+      opts.sections.lualine_y = { "filetype", "filesize", "encoding", "fileformat", "progress" }
+      opts.sections.lualine_z = { "location" }
+
+      -- winbar
+
+      -- stylua: ignore
+      local function window_num() return vim.api.nvim_win_get_number(0) end
+      -- stylua: ignore
+      local blank = { function() return " " end, separator = "" }
+
+      opts.winbar = {
+        lualine_a = { { window_num, color = "lualine_a_normal" } },
+        lualine_c = { pretty_path, trouble_symbols },
+        lualine_x = { blank, { "lsp_status", separator = " " } },
       }
 
-      opts.sections.lualine_z = {
-        { "progress", separator = " ", padding = { left = 1, right = 0 } },
-        { "location", padding = { left = 0, right = 1 } },
+      opts.inactive_winbar = {
+        lualine_a = { { window_num, color = "lualine_b_normal" } },
+        lualine_c = { pretty_path },
+        lualine_x = { blank },
       }
     end,
   },
