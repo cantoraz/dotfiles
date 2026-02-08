@@ -1,0 +1,12 @@
+return {
+  {
+    "neovim/nvim-lspconfig",
+    optional = true,
+    opts = {
+      servers = {
+        -- required by extra `lang.yaml`, but provided by system rather than Mason
+        yamlls = { mason = false },
+      },
+    },
+  },
+}
