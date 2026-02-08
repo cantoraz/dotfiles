@@ -103,6 +103,12 @@ alias psag="ps aux | grep "
 # Vim
 ################################################################################
 
+# Using Neovim as Vi/Vim
+if (( $+commands[nvim] )); then
+  alias vi="nvim"
+  alias vim="nvim"
+fi
+
 # Using `MacVim' as Vim in terminal
 # if type mvim --version >/dev/null 2>&1; then
 #   alias vim="mvim -v"
