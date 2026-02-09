@@ -269,6 +269,13 @@
 
 (setq-hook! 'python-mode-hook +format-with '(isort black))
 
+;; sh ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; disable formatting-on-save behavior in ZSH script buffers
+;; because an adequate formatter is missing
+(add-hook! 'sh-mode-hook
+  (cond ((equal sh-shell 'zsh) (setq +format-inhibit t))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                      Doom :email                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
