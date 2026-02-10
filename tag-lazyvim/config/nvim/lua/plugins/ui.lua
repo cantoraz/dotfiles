@@ -78,6 +78,8 @@ return {
         "gitsigns-blame",
         "grug-far",
         "help",
+        "neotest-output-panel",
+        "neotest-summary",
         "noice",
         "qf",
         "snacks_layout_box",
