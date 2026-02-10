@@ -267,7 +267,7 @@
 
 ;; python ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq-hook! 'python-mode-hook +format-with '(isort black))
+(setq-hook! 'python-mode-hook +format-with '(ruff-isort ruff))
 
 ;; sh ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
