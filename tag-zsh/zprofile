@@ -83,6 +83,14 @@ if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+# Set the type of specified Unicode characters that Less treats them as.
+# Nerd Fonts defines icon characters in Private Use Area, in which range
+# characters are normally treated as binary characters. Less should be
+# telled to treat such characters as printable.
+if [[ -z "$LESSUTFCHARDEF" ]]; then
+  export LESSUTFCHARDEF=e000-f8ff:p,f0001-fffff:p
+fi
+
 #
 # Personal
 #
