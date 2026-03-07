@@ -1,0 +1,3 @@
+# tmux plugins installed by Tmux Plugin Manager
+plugins/*
+!plugins/tpm/

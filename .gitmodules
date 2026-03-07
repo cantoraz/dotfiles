@@ -4,3 +4,6 @@
 [submodule "yadr"]
 	path = yadr
 	url = https://github.com/skwp/dotfiles
+[submodule "tpm"]
+	path = tag-tmux/config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
