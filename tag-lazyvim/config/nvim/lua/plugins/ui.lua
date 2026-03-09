@@ -95,6 +95,8 @@ return {
       local pretty_path = opts.sections.lualine_c[len_sl_c - 1]
       local trouble_symbols = opts.sections.lualine_c[len_sl_c]
 
+      -- stylua: ignore
+      opts.sections.lualine_a = { { "mode", fmt = function(str) return " " .. str end } }
       opts.sections.lualine_y = { "filetype", "filesize", "encoding", "fileformat", "progress" }
       opts.sections.lualine_z = { "location" }
 
