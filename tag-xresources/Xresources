@@ -13,7 +13,7 @@ polybar.Gaps.outerDelta:  2
 #endif /* Not dylema && Not imac */
 polybar.Gaps.outer:       0
 
-Xcursor.theme:  xcursor-breeze
+Xcursor.theme:  breeze-cursors
 Xcursor.size:   24
 
 #if defined SRVR_dylema
