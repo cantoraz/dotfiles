@@ -1,0 +1,18 @@
+{
+  "layout": "tabbed",
+  "marks": [],
+  "percent": 1,
+  "type": "con",
+  "nodes": [
+    {
+      "marks": [],
+      "type": "con",
+      "swallows": [
+        {
+          "class": "^kitty$",
+          "instance": "^tmux$"
+        }
+      ]
+    }
+  ]
+}
