@@ -1218,6 +1218,7 @@ c.downloads.location.suggestion = "both"
 ##   - top
 ##   - bottom
 # c.downloads.position = 'top'
+c.downloads.position = "bottom"
 
 ## Automatically abort insecure (HTTP) downloads originating from secure
 ## (HTTPS) pages. For per-domain settings, the relevant URL is the URL
